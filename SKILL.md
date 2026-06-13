@@ -85,7 +85,8 @@ DCIK/
     P13-challenge-the-premise.md        ← Mandatory every cycle
     P14-operational-execution.md
     P15-psychological-cognitive-bias.md ← Mandatory every cycle
-    P24-circle-of-competence.md         ← Epistemology & knowledge boundaries
+    P50-short-termism.md              ← Temporal discounting & long-term value
+    ...                               ← Library grows with use/
     ...                               ← Library grows with use/
 ```
 
