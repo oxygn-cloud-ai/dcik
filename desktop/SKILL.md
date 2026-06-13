@@ -9,27 +9,38 @@ argument-hint: "[topic or path to assessment file]"
 
 # DCIK — Dorsolateral Cognitive Inference Kinetics
 
-## Purpose
+**CRITICAL: When invoked with a topic, execute immediately. Do not display methodology. Begin Phase 0 now.**
 
-Deep Check subjects any assessment to a minimum of three adversarial review cycles, alternating between available AI models, with deep web research to extend beyond knowledge cutoffs. The output exceeds 99.99% of human quality — exhaustive, multi-perspective, adversarially tested, and researched beyond model training data.
+Deep Check subjects assessments to adversarial review cycles across multiple models with deep web research.
 
-## When to use
+## Invocation
 
-Invoke for any task where the cost of being wrong exceeds the cost of being thorough. Default triggers: investment decisions, legal analysis, contract review, strategic recommendations, risk assessments, deliverables requiring maximum confidence.
+`/DCIK min|med|high|max <topic>` — defaults to `high`.
+`/DCIK:<id|range> <topic>` — specific perspectives (e.g., `/DCIK:17`, `/DCIK:13,15-18,32`).
+`/DCIK perspectives` — list all perspectives.
+`/DCIK help` — display usage.
 
-Invoke with `/DCIK <topic or path>`.
+## Auto-Execution Protocol
 
-Effort levels: `/DCIK min|med|high|max <topic>`. If no effort specified, defaults to `high`.
+When $ARGUMENTS contains a topic (not "perspectives" or "help"):
 
-Perspective selection: `/DCIK:<id|range> <topic>` — run specific perspectives instead of the auto-selected set:
-- `/DCIK:17` — run only P17 (Inversion)
-- `/DCIK:13,15,17` — run P13, P15, P17
-- `/DCIK:12-24` — run P12 through P24
-- `/DCIK:13,15-18,32,45-50` — mix of individual and ranges
-- `/DCIK min:17,22-25` — combine effort level with specific additions
-- `/DCIK perspectives` — list all 105 perspectives with IDs and descriptions
+1. Parse effort level from $ARGUMENTS (min/med/high/max, default high)
+2. **Execute Phase 0–4 below immediately.** Autonomous — no pauses for user input.
+3. On completion, report: findings, new perspectives, GitHub issues, output files.
 
-When perspective numbers are specified, only those perspectives are loaded (plus mandatory P13 and P15 if not explicitly excluded). This allows surgical adversarial checks — run one perspective in depth, test a specific combination, or exclude irrelevant lenses.
+## Auto-Improvement System
+
+### New Perspective Discovery
+When DCIK identifies an analytical lens not in the library:
+1. Create the file at `perspectives/P1XX-name.md`
+2. Log a GitHub issue titled `NEW PERSPECTIVE FROM DCIK: P1XX — Name` with label `new-perspective`
+3. **The issue body MUST include the full perspective file content** (not just a reference to the file)
+4. If user has NOT authorised local file updates, log the issue only — do not modify local library
+
+### Improvement Discovery
+When DCIK encounters a process error or limitation:
+1. Log a GitHub issue titled `IMPROVEMENT FROM DCIK: description` with label `improvement` and full details
+2. Do not log spurious or trivial issues
 
 ## Effort Levels
 
