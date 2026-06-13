@@ -119,11 +119,11 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 
 ## Mitigations Required Before Public Launch (Checklist)
 
-- [ ] **R3:** Soften "99.99%" claim to "exceeds what any single human analyst can produce"
+- [x] **R3:** Soften "99.99%" claim to "exceeds what any single human analyst can produce"
 - [ ] **R3:** Add DISCLAIMER section to README (DLPFC reference is metaphorical, not scientific)
-- [ ] **R4:** Remove "james-first" from manifest.json → "principal-first" or "user-interest"
-- [ ] **R5:** Enable GitHub branch protection on main
-- [ ] **R2:** Add CONTRIBUTING.md
+- [x] **R4:** Remove "james-first" from manifest.json → "principal-first" or "user-interest"
+- [x] **R5:** Enable GitHub branch protection on main
+- [x] **R2:** Add CONTRIBUTING.md
 - [ ] **R3:** Add example/case study to README (non-proprietary topic)
 
 ## Risk Acceptance

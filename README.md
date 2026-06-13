@@ -62,7 +62,7 @@ claude --plugin-dir ./dcik
 # Standard deep check (10+ perspectives, 3+ cycles)
 /DCIK high "Is this SAFE investment fairly structured?"
 
-# Maximum depth (all 105 perspectives, runs until convergence)
+# Maximum depth (all 177 perspectives, runs until convergence)
 /DCIK max path/to/assessment.md
 ```
 
@@ -70,7 +70,7 @@ claude --plugin-dir ./dcik
 
 DCIK subjects any assessment, analysis, decision, or deliverable to a minimum of three adversarial review cycles. Each cycle:
 
-1. **Applies analytical perspectives** — 24 lenses drawn from law, finance, engineering, psychology, military strategy, cognitive science, Charlie Munger's mental models, and more. Each perspective is a discrete, self-contained analytical protocol that forces the assessment to be examined from a specific angle. Mandatory perspectives include challenging the premise itself (P13) and checking for cognitive biases in the analyst (P15). A meta-perspective (P16) audits the library for missing lenses at the start and end of every run.
+1. **Applies analytical perspectives** — 177 lenses drawn from law, finance, engineering, psychology, military strategy, cognitive science, Charlie Munger's mental models, and more. Each perspective is a discrete, self-contained analytical protocol that forces the assessment to be examined from a specific angle. Mandatory perspectives include challenging the premise itself (P13) and checking for cognitive biases in the analyst (P15). A meta-perspective (P16) audits the library for missing lenses at the start and end of every run.
 
 2. **Researches beyond the model's knowledge cutoff** — minimum 5 web searches and 3 sources that actively contradict the current assessment per cycle. Every factual claim is verified or flagged as unverified. No claim rests on stale training data.
 

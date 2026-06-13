@@ -5,7 +5,7 @@ DCIK is designed to grow. Contributions are welcome.
 ## How to contribute
 
 ### New perspectives
-The perspective library is the heart of DCIK. If you discover an analytical lens that isn't covered by the existing 16 perspectives:
+The perspective library is the heart of DCIK. If you discover an analytical lens that isn't covered by the existing 177 perspectives:
 1. Create a new `.md` file in `perspectives/` following the existing format (ID, Domain, Lens, Default adversarial stance)
 2. Submit a PR with a brief explanation of the gap the perspective fills and an example of when it would apply
 

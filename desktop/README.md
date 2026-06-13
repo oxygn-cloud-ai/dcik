@@ -62,7 +62,7 @@ claude --plugin-dir ./dcik
 # Standard deep check (10+ perspectives, 3+ cycles)
 /DCIK high "Is this SAFE investment fairly structured?"
 
-# Maximum depth (all 105 perspectives, runs until convergence)
+# Maximum depth (all 177 perspectives, runs until convergence)
 /DCIK max path/to/assessment.md
 ```
 

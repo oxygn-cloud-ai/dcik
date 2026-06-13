@@ -18,7 +18,7 @@ The end state: a world where "I ran this through DCIK" means something specific 
 
 Distribute the discipline of adversarial analysis as a self-improving skill:
 
-- **A growing perspective library** — 24 lenses and counting, each a discrete analytical protocol drawn from law, finance, engineering, psychology, military strategy, cognitive science, and Charlie Munger's mental models.
+- **A growing perspective library** — 177 lenses and counting, each a discrete analytical protocol drawn from law, finance, engineering, psychology, military strategy, cognitive science, and Charlie Munger's mental models.
 - **A structured adversarial process** — minimum three cycles, alternating models, mandatory web research with contradiction requirements, convergence detection.
 - **A self-improving architecture** — new perspectives discovered during runs become part of the library. Every run improves the tool for every future run.
 - **A zero-friction install** — `npx dcik install` or a single SKILL.zip upload. No configuration. No API keys. No onboarding.

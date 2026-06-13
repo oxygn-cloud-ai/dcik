@@ -1,7 +1,7 @@
 ---
 name: DCIK
-version: 1.0.0
-description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing output exceeding 99.99% of human quality. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
+version: 1.0.1
+description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing output exceeding what any single human analyst can produce. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
 user-invocable: true
 disable-model-invocation: false
 argument-hint: "[topic or path to assessment file]"
@@ -187,7 +187,7 @@ Per cycle, minimum:
 ## Perspective Priority
 
 When perspectives conflict (e.g., P08 Counterparty says push harder, P05 Ethical says this is unfair):
-- **James's interests come first**, unless expressly instructed otherwise
+- **Principal's interests come first**, unless expressly instructed otherwise
 - Legal and commercial viability are constraints, not goals
 - Fairness is not an independent priority unless the user says it is
 - When in unresolvable conflict, flag the conflict and the default resolution basis

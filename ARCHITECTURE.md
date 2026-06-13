@@ -35,7 +35,7 @@ Architectural choices that flow from the philosophy:
 │  PHILOSOPHY.md     ← Vision, principles, non-negotiables            │
 │  ARCHITECTURE.md   ← This file                                      │
 │  package.json      ← npm distribution metadata                      │
-│  perspectives/     ← 24 analytical lenses (P01-P24)                  │
+│  perspectives/     ← 177 analytical lenses (P01-P177)                  │
 │  cli/install.js    ← npm installer (spawnSync, arg-array safe)      │
 │  desktop/          ← Claude Desktop / claude.ai distribution        │
 │    SKILL.md        ←   Copy of orchestrator                         │
@@ -79,7 +79,7 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── logo.png                          Oxygn logo (1024px transparent)
 ├── logo.svg                          Oxygn logo (circle-safe white vector)
 ├── social-preview.png                GitHub social card image (512px)
-├── perspectives/                     Analytical library
+├── perspectives/                     Analytical library (177 lenses, P01-P177)
 │   ├── P01-legal-regulatory.md
 │   ├── P02-financial-economic.md
 │   ├── P03-technical-engineering.md
@@ -144,7 +144,7 @@ Files are kept under 2KB to minimise context consumption when loaded. The lens q
 
 ### 4.2 Loading Strategy
 
-DCIK does not load all 24 perspectives at once. Instead:
+DCIK does not load all 177 perspectives at once. Instead:
 
 1. **Cycle 0 (baseline assessment):** Load P13, P15, and 3–5 perspectives most relevant to the topic domain. If the topic is an investment decision, load P02 (Financial), P08 (Counterparty), P12 (Information Asymmetry), P18 (Incentive Analysis), P20 (Margin of Safety).
 2. **Cycle 1+ (adversarial):** Load the same set plus escalation perspectives based on what the previous cycle found. If financial weaknesses were found, add P19 (Base Rates), P23 (Survivorship Detection), P24 (Circle of Competence).
@@ -393,7 +393,7 @@ The npm package version in `package.json` follows the same number. The desktop m
 
 ### 12.1 Perspective Library at Scale
 
-As the library grows beyond 50+ perspectives, the current flat directory structure may need organisation — categories, tags, or a registry file mapping perspectives to domains. For now, the 24-perspective flat structure is sufficient.
+As the library grows beyond 177 perspectives, the current flat directory structure may need organisation — categories, tags, or a registry file mapping perspectives to domains. For now, the 177-perspective flat structure is sufficient.
 
 ### 12.2 MCP Server
 
