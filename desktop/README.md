@@ -193,9 +193,32 @@ After Cycle 3, evaluate:
 
 The dorsolateral prefrontal cortex (DLPFC) is the brain region responsible for executive function, working memory, abstract reasoning, and cognitive control — the cognitive capacities that separate rigorous analysis from superficial judgment. DCIK applies these same functions to any assessment. "Kinetics" reflects the motion-based nature of adversarial reasoning: knowledge is not discovered statically but emerges through structured opposition across cycles.
 
-## Enterprise
+## Claude Desktop & claude.ai
 
-Download `SKILL.zip` from [releases](https://github.com/oxygn-cloud-ai/dcik/releases/latest) and upload via Customise → Skills → Organisation Skills in Claude Desktop or claude.ai.
+### Enterprise (Organisation Skills)
+
+For enterprise administrators deploying DCIK to all users in an organisation:
+
+1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
+2. In Claude Desktop or claude.ai: **Customise → Skills → Organisation Skills → Upload**
+3. All users in the organisation can invoke `/DCIK`
+
+### Individual (Personal Skills)
+
+For individual Claude Desktop or claude.ai users:
+
+1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
+2. In Claude Desktop or claude.ai: **Settings → Skills → Add Skill → Upload ZIP**
+3. Invoke with `/DCIK <topic>`
+
+Alternatively, install manually:
+
+```bash
+git clone https://github.com/oxygn-cloud-ai/dcik.git
+# Copy to your skills directory
+cp -r dcik/SKILL.md ~/.claude/skills/DCIK/
+cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
+```
 
 ## Repository
 

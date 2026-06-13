@@ -21,6 +21,16 @@ Invoke with `/DCIK <topic or path>`.
 
 Effort levels: `/DCIK min|med|high|max <topic>`. If no effort specified, defaults to `high`.
 
+Perspective selection: `/DCIK:<id|range> <topic>` — run specific perspectives instead of the auto-selected set:
+- `/DCIK:17` — run only P17 (Inversion)
+- `/DCIK:13,15,17` — run P13, P15, P17
+- `/DCIK:12-24` — run P12 through P24
+- `/DCIK:13,15-18,32,45-50` — mix of individual and ranges
+- `/DCIK min:17,22-25` — combine effort level with specific additions
+- `/DCIK perspectives` — list all 105 perspectives with IDs and descriptions
+
+When perspective numbers are specified, only those perspectives are loaded (plus mandatory P13 and P15 if not explicitly excluded). This allows surgical adversarial checks — run one perspective in depth, test a specific combination, or exclude irrelevant lenses.
+
 ## Effort Levels
 
 DCIK uses a risk-adaptive depth system — not fixed percentages of the perspective library. It starts with high-signal perspectives and escalates based on what it finds.
