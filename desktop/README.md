@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="Oxygn" width="120" />
+</p>
+
 # DCIK — Dorsolateral Cognitive Inference Kinetics
 
 **Deep Check.** Multi-model adversarial analysis producing assessments that exceed the quality of any single-AI-prompted output — through structured iterative opposition and a growing library of analytical perspectives.
