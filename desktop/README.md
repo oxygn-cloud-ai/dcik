@@ -20,6 +20,52 @@ DCIK automates that dissent. It forces assessments through adversarial cycles �
 
 We built it because the cost of being wrong — on an investment, a contract, a strategy — exceeds the cost of being thorough. And because no one should have to choose between speed and depth.
 
+## Quick Start
+
+### Installation via npm (Recommended)
+
+```bash
+npx dcik install
+```
+
+Installs DCIK at `~/.claude/skills/DCIK/`. Invoke with `/DCIK <topic>`. Always installs from the canonical repository.
+
+### Alternative: Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/oxygn-cloud-ai/dcik.git
+
+# Copy skill to your global Claude Code config
+cp -r dcik/SKILL.md ~/.claude/skills/DCIK/
+cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
+
+# Or copy to a specific project
+cp -r dcik/SKILL.md /path/to/your/project/.claude/skills/DCIK/
+cp -r dcik/perspectives /path/to/your/project/.claude/skills/DCIK/perspectives/
+```
+
+### Development: Local Plugin
+
+For testing or development:
+
+```bash
+claude --plugin-dir ./dcik
+```
+
+### First Run
+
+```bash
+# Quick adversarial check (5 perspectives, 1 cycle)
+/DCIK min "Should we enter the European market?"
+
+# Standard deep check (10+ perspectives, 3+ cycles)
+/DCIK high "Is this SAFE investment fairly structured?"
+
+# Maximum depth (all 105 perspectives, runs until convergence)
+/DCIK max path/to/assessment.md
+```
+
 ## What It Does
 
 DCIK subjects any assessment, analysis, decision, or deliverable to a minimum of three adversarial review cycles. Each cycle:
@@ -147,20 +193,11 @@ After Cycle 3, evaluate:
 
 The dorsolateral prefrontal cortex (DLPFC) is the brain region responsible for executive function, working memory, abstract reasoning, and cognitive control — the cognitive capacities that separate rigorous analysis from superficial judgment. DCIK applies these same functions to any assessment. "Kinetics" reflects the motion-based nature of adversarial reasoning: knowledge is not discovered statically but emerges through structured opposition across cycles.
 
-## Installation
+## Enterprise
 
-### Claude Code CLI
-
-```bash
-npx dcik install
-```
-
-Installs DCIK at `~/.claude/skills/DCIK/`. Invoke with `/DCIK <topic>`. Always installs from this repository.
-
-### Claude Desktop / claude.ai (Enterprise)
-
-Download `SKILL.zip` from [releases](https://github.com/oxygn-cloud-ai/dcik/releases/latest) and upload via Customise → Skills → Organisation Skills.
+Download `SKILL.zip` from [releases](https://github.com/oxygn-cloud-ai/dcik/releases/latest) and upload via Customise → Skills → Organisation Skills in Claude Desktop or claude.ai.
 
 ## Repository
 
 [github.com/oxygn-cloud-ai/dcik](https://github.com/oxygn-cloud-ai/dcik) — public, MIT licensed. Issues welcome.
+
