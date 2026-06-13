@@ -1,0 +1,58 @@
+{
+  "name": "DCIK",
+  "version": "1.0.0",
+  "description": "Dorsolateral Cognitive Inference Kinetics — Deep Check: multi-model adversarial analysis producing output exceeding 99.99% of human quality through structured iterative opposition and a growing library of analytical perspectives.",
+  "type": "organization_skill",
+  "author": "Oxygn Cloud AI",
+  "repository": "https://github.com/oxygn-cloud-ai/dcik",
+  "invocation": "/DCIK",
+  "argumentHint": "[topic or path to assessment file]",
+  "files": [
+    "SKILL.md",
+    "perspectives/P01-legal-regulatory.md",
+    "perspectives/P02-financial-economic.md",
+    "perspectives/P03-technical-engineering.md",
+    "perspectives/P04-competitive-market.md",
+    "perspectives/P05-ethical-societal.md",
+    "perspectives/P06-historical-precedent.md",
+    "perspectives/P07-stakeholder-beneficiary.md",
+    "perspectives/P08-counterparty-adversary.md",
+    "perspectives/P09-jurisdictional-geographic.md",
+    "perspectives/P10-temporal-future-proofing.md",
+    "perspectives/P11-systems-second-order.md",
+    "perspectives/P12-information-asymmetry.md",
+    "perspectives/P13-challenge-the-premise.md",
+    "perspectives/P14-operational-execution.md",
+    "perspectives/P15-psychological-cognitive-bias.md",
+    "perspectives/P16-meta-perspective.md"
+  ],
+  "researchRequirements": {
+    "minWebSearchesPerCycle": 5,
+    "minContradictingSourcesPerCycle": 3,
+    "hallucinationGuardrails": "strict — no fabricated sources; flag if genuine contradicting sources cannot be found after extensive search"
+  },
+  "modelPreferences": {
+    "primary": "claude-opus",
+    "secondary": "codex",
+    "fallback": "any-available-model",
+    "resolution": "claude-opus"
+  },
+  "cycleConfig": {
+    "minCycles": 3,
+    "continueUntil": "no-material-findings-for-two-consecutive-cycles",
+    "maxCycles": 10,
+    "autonomous": true
+  },
+  "perspectiveConfig": {
+    "mandatoryEveryCycle": ["P13", "P15"],
+    "selectPerTopic": true,
+    "typicalPerCycle": "4-7 plus mandatory",
+    "projectLocalMerge": true,
+    "metaPerspectiveAtStartAndEnd": true
+  },
+  "priorityConfig": {
+    "primary": "james-first",
+    "constraint": "legal-and-commercial-viability",
+    "override": "user-express-instruction"
+  }
+}
