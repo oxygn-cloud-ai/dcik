@@ -155,7 +155,7 @@ The dorsolateral prefrontal cortex (DLPFC) is the brain region responsible for e
 npx dcik install
 ```
 
-Installs DCIK at `~/.claude/skills/DCIK/`. Invoke with `/DCIK <topic>`. Always installs from the remote GitHub repo — never from a local copy.
+Installs DCIK at `~/.claude/skills/DCIK/`. Invoke with `/DCIK <topic>`. **Always installs from this repository.** Do not fork — forks will not receive perspective library updates or auto-improvements. The canonical distribution is here.
 
 ### Claude Desktop / claude.ai (Enterprise)
 
