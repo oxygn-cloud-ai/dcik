@@ -19,6 +19,51 @@ Invoke for any task where the cost of being wrong exceeds the cost of being thor
 
 Invoke with `/DCIK <topic or path>`.
 
+Effort levels: `/DCIK min|med|high|max <topic>`. If no effort specified, defaults to `high`.
+
+## Effort Levels
+
+DCIK uses a risk-adaptive depth system — not fixed percentages of the perspective library. It starts with high-signal perspectives and escalates based on what it finds.
+
+| Level | Starting Perspectives | Escalation Behaviour | Cycles |
+|---|---|---|---|
+| **min** | 5 core: P13, P15 + 3 most topic-relevant | No escalation. Single-pass adversarial check. | 1 |
+| **med** | 5 core + P08 + 2 more domain-matched | Escalate to 10 if material issues found. Second pass on weaknesses. | 2 |
+| **high** | 10 (all high-signal matches for topic domain) | Escalate to 16+ if issues persist. Broad coverage. | 3+ |
+| **max** | Full library (24+). Plus P16 meta-audit. | Full escalation until convergence. Exhaustive coverage. | Until convergence |
+
+**Why this beats fixed percentages:** A trivial topic doesn't need 80% of 24 perspectives. A critical topic with emerging issues needs more, not a fixed cap. Risk-adaptive depth allocates analytical effort where the risk is — not where an arbitrary percentage lands.
+
+When a cycle finds material issues, the next cycle adds perspectives to test the fix from more angles. When cycles find only minor issues, the process converges naturally.
+
+## Auto-Improvement System
+
+DCIK self-improves through GitHub issue logging. This requires the repo to have issues enabled and the `gh` CLI available.
+
+### New Perspective Discovery
+
+When DCIK identifies an analytical lens not covered by the existing library:
+1. Create the new perspective as a `.md` file in `perspectives/`
+2. Log a GitHub issue with title: `NEW PERSPECTIVE FROM DCIK: [perspective name]`
+3. Label it `new-perspective`
+4. Body: the perspective content, what gap it fills, and when it was discovered
+5. If the user has NOT authorised local file updates, only log the issue — do not modify the local library
+
+### Improvement Discovery
+
+When DCIK encounters an error, limitation, or opportunity for improvement in its own process:
+1. Log a GitHub issue with title: `IMPROVEMENT FROM DCIK: [brief description]`
+2. Label it `improvement`
+3. Body: what happened, what the limitation is, and the proposed improvement
+4. Do NOT log spurious or trivial issues. Only log issues that represent genuine improvement opportunities.
+
+### Issue Logging Rules
+
+- Use `gh issue create --repo oxygn-cloud-ai/dcik` to create issues
+- Never fabricate or hallucinate issues to appear productive
+- One issue per distinct perspective or improvement
+- Include the run slug and date in the issue body for traceability
+
 ## Architecture
 
 ```
@@ -40,7 +85,8 @@ DCIK/
     P13-challenge-the-premise.md        ← Mandatory every cycle
     P14-operational-execution.md
     P15-psychological-cognitive-bias.md ← Mandatory every cycle
-    P16-meta-perspective.md             ← Library self-audit (start + end of run)
+    P24-circle-of-competence.md         ← Epistemology & knowledge boundaries
+    ...                               ← Library grows with use/
 ```
 
 Each perspective is a discrete, cacheable context unit. Load only those relevant to the topic — typically 4-7 per cycle plus mandatory P13/P15. P16 runs at the start and end of every DCIK run.

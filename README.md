@@ -1,6 +1,6 @@
 # DCIK — Dorsolateral Cognitive Inference Kinetics
 
-**Deep Check.** Multi-model adversarial analysis producing output that exceeds what any single human analyst can produce — through structured iterative opposition and a growing library of analytical perspectives.
+**Deep Check.** Multi-model adversarial analysis producing assessments that exceed the quality of any single-AI-prompted output — through structured iterative opposition and a growing library of analytical perspectives.
 
 ```
 Claude ──► Attack ──► Improve ──► Codex ──► Attack ──► Resolve ──► Repeat (3x min)
