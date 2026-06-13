@@ -51,7 +51,7 @@
     "metaPerspectiveAtStartAndEnd": true
   },
   "priorityConfig": {
-    "primary": "james-first",
+    "primary": "principal-first",
     "constraint": "legal-and-commercial-viability",
     "override": "user-express-instruction"
   }
