@@ -4,238 +4,127 @@
 
 # DCIK — Dorsolateral Cognitive Inference Kinetics
 
-**Deep Check.** Multi-model adversarial analysis. 177 analytical perspectives, autonomous 3+ cycle process, self-improving library. Exceeds what any single AI prompt can produce.
+**Deep Check.** A Claude Code skill that subjects any assessment to structured adversarial review across 177 analytical perspectives and multiple AI models. It doesn't generate answers — it attacks them until every weakness is found.
 
 ```
-Claude ──► Attack ──► Improve ──► Other Model ──► Attack ──► Resolve ──► Repeat
+You write an assessment → DCIK applies 177 lenses → Multiple models attack it → You get a harder-to-be-wrong answer
 ```
 
-## Prerequisites
-
-DCIK runs inside Claude Code. You need one of:
-
-| Environment | Requirement |
-|-------------|-------------|
-| **Claude Code CLI** | `claude` command available. [Install guide](https://docs.anthropic.com/en/docs/claude-code/overview). |
-| **Claude Desktop** | macOS/Windows app with Skills support. |
-| **claude.ai** | Web interface with Skills support (Organisation or Personal). |
-
-**What you need:** A Claude subscription with model access (Claude Code, Claude Desktop, or claude.ai). DCIK uses the models already available in your Claude environment — Sonnet, Opus, or any other model you have access to. No additional API keys or paid services required.
-
-**What you don't need:** npm, Node.js, Python, Docker, or any package manager. DCIK is plain Markdown files. The auto-improvement system optionally uses `gh` CLI for GitHub issue logging — everything works without it.
+---
 
 ## Quick Start
 
-### SKILL.zip (Recommended)
-
-1. Download from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
-2. **Claude Desktop / claude.ai:** Settings → Skills → Add Skill → Upload ZIP
-3. **Claude Code CLI:** Unzip to `~/.claude/skills/DCIK/`
-4. Invoke: `/DCIK <topic>`
-
-### Git Clone
+DCIK runs inside Claude Code, Claude Desktop, or claude.ai. You need a Claude subscription with model access. Nothing else.
 
 ```bash
+# Download the latest release
+# Upload to Claude Desktop/claude.ai: Settings → Skills → Add Skill → Upload ZIP
+
+# Or clone manually:
 git clone https://github.com/oxygn-cloud-ai/dcik.git
 mkdir -p ~/.claude/skills/DCIK
 cp dcik/SKILL.md ~/.claude/skills/DCIK/
 cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
 ```
 
-### First Run
-
+Then invoke:
 ```
-/DCIK min "Should we enter this market?"          # Quick check, 5 perspectives
-/DCIK high "Is this deal fairly structured?"       # Deep check, 10+ perspectives
-/DCIK max path/to/assessment.md                    # Exhaustive, 177 perspectives
+/DCIK min "Should we enter this market?"     # 5 perspectives, quick check
+/DCIK high "Is this deal well-structured?"    # 10+ perspectives, deep review
+/DCIK max path/to/assessment.md               # All 177, exhaustive
 ```
 
-No configuration. No onboarding. The skill executes immediately.
+No configuration. No API keys. No dependencies. The skill executes immediately.
 
-## What It Does
+---
 
-DCIK subjects any assessment, analysis, decision, or deliverable to a minimum of three adversarial review cycles. Each cycle:
+## What Makes It Different
 
-1. **Applies analytical perspectives** — 177 lenses drawn from law, finance, engineering, psychology, military strategy, cognitive science, Charlie Munger's mental models, and more. Each perspective is a discrete, self-contained analytical protocol that forces the assessment to be examined from a specific angle. Mandatory perspectives include challenging the premise itself (P13) and checking for cognitive biases in the analyst (P15). A meta-perspective (P16) audits the library for missing lenses at the start and end of every run.
+A single AI prompt produces a single answer — one model, one pass, unexamined assumptions. DCIK doesn't accept that.
 
-2. **Researches beyond the model's knowledge cutoff** — minimum 5 web searches and 3 sources that actively contradict the current assessment per cycle. Every factual claim is verified or flagged as unverified. No claim rests on stale training data.
+| Instead of | DCIK does |
+|------------|-----------|
+| One model's opinion | Multiple models attacking each other's work |
+| Training-data-only answers | Live web research with contradicting sources |
+| Unexamined assumptions | Every premise inverted and stress-tested |
+| "Looks good to me" | Minimum 3 adversarial cycles, up to 10 |
+| Fixed methodology | 177 perspectives, self-improving library |
 
-3. **Forces adversarial review** — the primary model attacks the assessment. The revised version goes to a secondary model, which attacks it again. Where models disagree, the orchestrator resolves with deep justification. This alternating adversarial structure means no single model's blind spots survive.
+The output isn't what any single model would produce. It's what emerges when every weakness has been found, every assumption challenged, and every claim verified against current sources.
 
-4. **Iterates until convergence** — minimum 3 cycles. If new material weaknesses are still emerging, the process continues up to 10 cycles. If the last two cycles found nothing material, the assessment is genuinely robust.
-
-5. **Self-improves** — when DCIK discovers an analytical lens not in the library, it creates a new perspective file and logs a GitHub issue. The library grows with every run.
-
-The entire process is fully autonomous. No human input is required between cycles.
+---
 
 ## Effort Levels
 
-DCIK uses risk-adaptive depth — it starts with high-signal perspectives and escalates based on what it finds, not based on an arbitrary percentage of the library.
+| Level | Scope | When to use |
+|-------|-------|-------------|
+| `min` | 5 perspectives, 1 cycle | Quick sanity check |
+| `med` | 8 perspectives, 2 cycles | Routine decisions |
+| `high` | 10+ perspectives, 3+ cycles | Significant commitments |
+| `max` | All 177 perspectives, until convergence | Being wrong is expensive |
 
-| Level | Perspectives | Behaviour |
-|---|---|---|
-| `min` | 5 core: premise challenge, cognitive bias check, + 3 most topic-relevant | Single pass. Quick adversarial check. |
-| `med` | 5 core + counterparty analysis + 2 domain-matched | Escalates to 10 if material issues found. Two cycles. |
-| `high` | 10+ (all high-signal matches for the topic domain) | Escalates to 16+ if issues persist. Three cycles minimum. |
-| `max` | Full library — ALL 177 perspectives + meta-perspective audit | Exhaustive coverage. Runs until convergence. For assessments where being wrong is expensive. |
+Defaults to `high`. Invoke with `/DCIK <level> <topic>`.
 
-Invoke with `/DCIK min|med|high|max <topic>`. If no level specified, defaults to `high`.
+---
 
 ## The Perspective Library
 
-DCIK's analytical power comes from its perspective library — 177 discrete analytical lenses, each a self-contained protocol for examining an assessment from a specific angle. Perspectives are loaded only when relevant to the topic, keeping context usage efficient.
+177 lenses drawn from law, finance, engineering, psychology, military strategy, cognitive science, and Charlie Munger's mental models. Each is a self-contained analytical protocol. DCIK loads only those relevant to your topic.
 
-| ID | Perspective | Domain |
-|---|---|---|
-| P01 | Legal & Regulatory | Law, compliance, liability |
-| P02 | Financial & Economic | Capital, incentives, value |
-| P03 | Technical & Engineering | Systems, feasibility, architecture |
-| P04 | Competitive & Market | Competition, positioning, dynamics |
-| P05 | Ethical & Societal | Ethics, externalities, fairness |
-| P06 | Historical & Precedent | Patterns, base rates, analogies |
-| P07 | Stakeholder & Beneficiary | Who benefits, who bears cost |
-| P08 | Counterparty & Adversary | Opposing interests, BATNA, motives |
-| P09 | Jurisdictional & Geographic | Cross-border, local law, enforcement |
-| P10 | Temporal & Future-Proofing | Time horizons, scenarios, resilience |
-| P11 | Systems & Second-Order | Feedback loops, emergence, unintended effects |
-| P12 | Information Asymmetry | Knowledge gaps, disclosure, verification |
-| P13 | Challenge the Premise | Is the question itself wrong? *Mandatory every cycle.* |
-| P14 | Operational & Execution | Implementation, delivery, key-person risk |
-| P15 | Psychological & Cognitive Bias | Biases in the analyst and the analysis. *Mandatory every cycle.* |
-| P16 | Meta-Perspective | Library coverage audit. Runs at start and end. |
-| P17 | Inversion | Solve by eliminating failure paths (Munger/Jacobi) |
-| P18 | Incentive Analysis | Map incentives to predict behaviour (Munger's #1 rule) |
-| P19 | Base Rate Awareness | Test claims against reference-class outcomes |
-| P20 | Margin of Safety | Error-bar numeric claims; find failure thresholds |
-| P21 | Lollapalooza Convergence | Multi-factor convergence producing extreme outcomes |
-| P22 | Agency Analysis | Principal-agent gaps in every structure |
-| P23 | Survivorship Detection | Find the invisible failures; study the graveyard |
-| P24 | Circle of Competence | Know the boundaries of what you don't know |
+| # | Lens | Asks |
+|---|------|------|
+| P01 | Legal & Regulatory | What laws apply? Where's the liability? |
+| P08 | Counterparty & Adversary | Who's on the other side? What's their best move? |
+| P13 | Challenge the Premise | Is the question itself wrong? |
+| P15 | Cognitive Bias | What is the analyst missing about their own thinking? |
+| P17 | Inversion | What would make this fail? |
+| P18 | Incentive Analysis | Who benefits? What are they incentivized to do? |
+| P72 | Multiplying by Zero | What single failure collapses everything? |
+| P91 | Premortem | Assume it failed. What went wrong? |
+| … | 169 more | Full list: `perspectives/` |
 
-**The library grows.** When DCIK discovers a lens not covered by the existing perspectives, it creates a new perspective file and logs a GitHub issue tagged `new-perspective`. Users can add project-local perspectives for domain-specific lenses. The library is designed to compound — every run improves the tool for every future run.
+The library grows. When DCIK discovers a missing lens, it creates one.
 
-**Perspective files are cacheable context units.** Each is a short, self-contained markdown file. DCIK loads only the perspectives relevant to the current topic — typically 4-7 per cycle plus mandatory P13 and P15. This keeps context windows efficient even as the library grows to dozens or hundreds of perspectives.
+---
 
-## Multi-Model Architecture
+## Case Study — Bootstrap or Raise Venture Capital?
 
-DCIK deliberately uses multiple AI models because different architectures catch different things. The orchestrating model handles structured reasoning and resolution. The secondary model provides independent adversarial review. If only one model is available, DCIK runs adversarial passes with explicitly different adversarial prompts — simulating the multi-model dynamic within a single model.
+A founder wrote a 3-page assessment arguing for raising VC. They ran `/DCIK max`.
 
-Model discovery happens at the start of each run. DCIK probes what is available and adapts. It never assumes a specific model is present.
+**What the founder's own analysis missed:**
 
-## How It Works — The Full Cycle
+- **Incentive misalignment**: The VC's need for a billion-dollar exit diverges from the founder's goal of independence after Series A. The assessment assumed shared interests.
+- **Inverted premise**: Instead of "why raise?", DCIK asked "what would make bootstrapping impossible?" Customer acquisition cost exceeding revenue hadn't been modelled.
+- **Wrong base rates**: 70% of VC-backed SaaS companies in this vertical fail to reach Series B. The assessment used industry-wide numbers inflated by outliers.
+- **Hidden term sheet trap**: A liquidation preference would leave the founder with nothing in a moderate exit. The assessment had focused on valuation, not structure.
+- **Survivorship bias**: The founder's peer group was all VC-backed successes. The dead companies weren't visible.
 
-### Phase 0: Initiation
+The founder raised anyway — with a cleaner term sheet, a bootstrapping scenario model, and a clear understanding of the tradeoffs they were making.
 
-1. Identify the assessment target — a file, topic, or question.
-2. If no initial assessment exists, write one at maximum depth using all relevant perspectives. This becomes the Cycle 0 baseline. It should already be excellent — DCIK makes excellent things extraordinary.
-3. Create a run directory (`DCIK_<slug>/`) with discrete files for each cycle output. This enables crash recovery — if the session dies mid-run, resume from the last completed cycle.
-4. Select perspectives for Cycle 1. P13 and P15 are mandatory every cycle. P16 runs at the start (library coverage audit — are there lenses missing for this topic?).
-5. Probe available models. Identify the orchestrator (primary) and the best available secondary model.
+---
 
-### Phase 1: Primary Model Adversarial (Cycles 1, 3, 5...)
+## What DCIK Doesn't Do
 
-1. Load the current assessment and selected perspectives.
-2. Apply each lens systematically. For each perspective, the model asks the structured questions defined in the perspective file and records the answers.
-3. Research beyond cutoff: minimum 5 web searches, minimum 3 sources that contradict or challenge the current assessment. All sources cited with URLs. Strict guardrails: never fabricate sources. If genuine contradicting sources cannot be found after extensive search, state this explicitly with the search methodology.
-4. Adversarial review: find every weakness, unstated assumption, gap, overstatement, and missed angle. The assessment is wrong until proven right.
-5. Write the cycle review to `DCIK_<slug>/cycle<N>_review.md` — structured by perspective, with critical weaknesses (must-fix), important gaps (should-fix), and minor improvements (could-fix).
-6. Revise the assessment. Apply all must-fix and should-fix findings. Output `DCIK_<slug>/assessment_v<N+1>.md` with a change log.
+- It doesn't make decisions for you. It makes your decisions harder to be wrong about.
+- It doesn't replace domain expertise. It stress-tests whatever expertise you bring.
+- It doesn't produce a "validated" answer. It produces a battle-tested one, with residual uncertainty made explicit.
 
-### Phase 2: Secondary Model Adversarial (Cycles 2, 4, 6...)
+---
 
-1. Spawn the secondary model with the full current assessment, a summary of the previous cycle's findings, the applicable perspective files, and the adversarial brief.
-2. The secondary model produces an independent review. Save to `DCIK_<slug>/cycle<N>_review.md`.
-3. The primary model resolves any disagreements between models. For each disagreement: state both positions, analyse the basis for each, determine which is better supported by evidence and logic, and provide deep justification. Write to `DCIK_<slug>/cycle<N>_resolution.md`.
-4. Revise the assessment applying valid findings and resolutions.
+## Security
 
-### Phase 3: P13 Structured Protocol
+DCIK is distributed via GitHub Releases (SKILL.zip) and git clone. Every release includes a MANIFEST.json with SHA-256 hashes of all files. The repository has branch protection requiring signed commits and PR review. CI validates perspective content for format compliance and prompt injection patterns on every push.
 
-P13 (Challenge the Premise) is mandatory every cycle and follows a structured protocol:
+You're installing a skill that can execute code on your machine. Verify before trusting: check the commit signatures, compare the MANIFEST.json hashes against your download, or clone directly from the canonical repo.
 
-1. **Extract every premise** — stated and unstated — that the assessment depends on.
-2. **Invert each premise** — what if the opposite is true?
-3. **Test the inverted world** — for premises where inversion would change the conclusion, model the alternative.
-4. **Document** — which premises survived inversion, which did not, and what that means.
-5. **At minimum** — identify the 3 most important premises. For each: "What if this is wrong? Does the conclusion survive?"
-
-### Phase 4: Iterate Until Convergence
-
-After Cycle 3, evaluate:
-- Are new material findings still emerging?
-- If yes, continue up to 10 cycles, adding perspectives as issues warrant.
-- If the last two cycles found only minor or cosmetic issues, the process is complete.
-- "No further material improvements found" is a valid outcome — but only after genuinely exhaustive search and new perspective application.
-
-### Phase 5: Finalise
-
-1. Write the final assessment to `DCIK_<slug>/FINAL_ASSESSMENT.md`.
-2. Write the process summary to `DCIK_<slug>/PROCESS_SUMMARY.md` — cycles run, perspectives applied, key findings per cycle, resolved model disagreements, research sources, confidence levels, remaining uncertainties.
-3. P16 end-of-run audit: identify at least one candidate improvement to the perspective library. Write new perspectives as `.md` files. Log GitHub issues for any new perspectives or improvements discovered.
-4. The skill self-improves. The perspective library compounds.
-
-## The Name
-
-**DCIK — Dorsolateral Cognitive Inference Kinetics**
-
-The dorsolateral prefrontal cortex (DLPFC) is the brain region responsible for executive function, working memory, abstract reasoning, and cognitive control — the cognitive capacities that separate rigorous analysis from superficial judgment. DCIK applies these same functions to any assessment. "Kinetics" reflects the motion-based nature of adversarial reasoning: knowledge is not discovered statically but emerges through structured opposition across cycles.
-
-## Claude Desktop & claude.ai
-
-### Enterprise (Organisation Skills)
-
-For enterprise administrators deploying DCIK to all users in an organisation:
-
-1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
-2. In Claude Desktop or claude.ai: **Customise → Skills → Organisation Skills → Upload**
-3. All users in the organisation can invoke `/DCIK`
-
-> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -r SKILL.zip SKILL.md perspectives/` and verify its contents match the release checksum.
-
-### Individual (Personal Skills)
-
-For individual Claude Desktop or claude.ai users:
-
-1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
-2. In Claude Desktop or claude.ai: **Settings → Skills → Add Skill → Upload ZIP**
-3. Invoke with `/DCIK <topic>`
-
-> **Note:** SKILL.zip is built from source. Verify its contents against the repo: `unzip -l SKILL.zip`.
-
-## Case Study — Should We Bootstrap or Raise?
-
-A founder is deciding whether to bootstrap their SaaS company or raise venture capital. They've written a 3-page assessment leaning toward raising. They run:
-
-```
-/DCIK max path/to/raise-vs-bootstrap.md
-```
-
-**What DCIK found that the founder missed:**
-
-- **P18 (Incentive Analysis):** The VC's incentives diverge from the founder's after Series A. The VC needs a billion-dollar exit; the founder wants independence. The assessment assumed alignment.
-- **P17 (Inversion):** Instead of asking "why raise?", DCIK inverted: "what would make bootstrapping impossible?" The answer — customer acquisition cost exceeding revenue — hadn't been modelled.
-- **P06 (Historical Precedent):** Base rates for VC-backed SaaS companies in the founder's vertical showed 70% fail to reach Series B. The assessment used tech-industry-wide numbers, which are inflated by outliers.
-- **P08 (Counterparty):** Term sheet analysis revealed a liquidation preference that would leave the founder with nothing in a moderate exit. The founder had focused on valuation, not structure.
-- **P15 (Cognitive Bias):** Survivorship bias — the founder's peer group was all VC-backed successes. The dead companies weren't visible.
-
-**Process:** 6 adversarial cycles across all 177 perspectives (max mode). 3 rounds of web research with contradicting sources. The revised assessment was significantly more cautious about raising, included a bootstrapping scenario model, and flagged the liquidation preference as a negotiation point.
-
-The founder raised anyway — but with a cleaner term sheet and a clear understanding of the tradeoffs.
+---
 
 ## Disclaimer
 
-DCIK output is AI-generated. It may contain errors, omissions, or outdated information. It does not constitute professional advice — legal, financial, medical, or otherwise. Users bear sole responsibility for decisions based on DCIK output. The DLPFC reference in the name is metaphorical — DCIK is an analytical framework, not a scientific instrument.
+DCIK output is AI-generated. It may contain errors or omissions. It does not constitute professional advice — legal, financial, medical, or otherwise. You bear sole responsibility for decisions based on its output. The DLPFC reference in the name is metaphorical — DCIK is an analytical framework, not a scientific instrument.
 
-## Why We Built This
-
-A single AI prompt produces a single answer. That answer reflects one model's training distribution, one pass through the context window, one set of unexamined assumptions. It has never been challenged. It has never been forced to defend itself.
-
-A human expert facing a consequential decision does not write one draft and call it done. They seek dissent. They ask colleagues to find the flaws. They sit with the counterarguments. They iterate.
-
-DCIK automates that dissent. The thesis is not that AI is better than humans — it is that structured adversarial iteration produces better results than single-pass analysis, regardless of who or what performs the analysis.
-
-We built it because the cost of being wrong — on an investment, a contract, a strategy — exceeds the cost of being thorough. And because no one should have to choose between speed and depth.
+---
 
 ## Repository
 
-[github.com/oxygn-cloud-ai/dcik](https://github.com/oxygn-cloud-ai/dcik) — public, MIT licensed. Issues welcome.
-
+[github.com/oxygn-cloud-ai/dcik](https://github.com/oxygn-cloud-ai/dcik) — MIT licensed. Single maintainer. v1.0.5.
