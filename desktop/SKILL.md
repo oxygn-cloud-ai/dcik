@@ -40,7 +40,7 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
 
 1. Parse effort level from $ARGUMENTS (min/med/high/max, default high)
 2. **Execute Phase 0–4 below immediately.** Autonomous — no pauses for user input.
-3. On completion, report: findings, new perspectives, GitHub issues, output files.
+3. On completion, report: WHAT_CHANGED.md summary, FINAL_ASSESSMENT.md path, new perspectives, GitHub issues.
 
 ## Auto-Improvement System
 
@@ -175,10 +175,15 @@ Minimum 3 complete cycles. After Cycle 3:
 
 ### Phase 4: Finalisation
 
-1. **Final assessment:** `DCIK_<slug>/FINAL_ASSESSMENT.md`
-2. **Process summary:** `DCIK_<slug>/PROCESS_SUMMARY.md` — cycles run, perspectives applied, key findings, resolved disagreements, research sources, confidence levels, remaining uncertainties
-3. **P16 end-of-run audit:** Identify at least one candidate improvement to the perspective library (new perspective, refinement, or deprecation). Write new perspectives as `.md` files.
-4. **The process is fully autonomous.** No user input required between cycles. The skill self-improves its perspective library over time.
+1. **What changed (user summary):** `DCIK_<slug>/WHAT_CHANGED.md`. Default 3 paragraphs, more if asked. Focus on *deepening*, not fixing. DCIK doesn't fix broken things — it deepens assessments that were already competent. Structure:
+   - **Paragraph 1 — What held up.** Which assumptions survived adversarial attack. Which perspectives confirmed the core thesis. What the original author got right.
+   - **Paragraph 2 — What the author didn't see.** Premises that failed under inversion. Blind spots. Missing evidence the web research uncovered. The assessment's own overoptimism about itself.
+   - **Paragraph 3 — The bottom line.** Is the conclusion stronger or different? What's the residual uncertainty? What would change the answer if it were wrong? How much harder is it to be wrong now?
+   - Never list "bugs found" or "issues fixed." Never use before/after tables. Never claim DCIK "validated" or "approved" anything. The tone: the original was competent but incomplete — DCIK made it harder to be wrong.
+2. **Full assessment:** `DCIK_<slug>/FINAL_ASSESSMENT.md` — the complete revised assessment incorporating all cycle findings.
+3. **Process documentation:** `DCIK_<slug>/PROCESS_SUMMARY.md` — cycles run, perspectives applied, key findings, resolved disagreements, research sources, confidence levels, remaining uncertainties.
+4. **P16 end-of-run audit:** Identify at least one candidate improvement to the perspective library. Write new perspectives. Log GitHub issues with user consent.
+5. **Report to user:** Display the WHAT_CHANGED.md summary, the FINAL_ASSESSMENT.md path, and any new perspectives discovered.
 
 ## P13 Structured Protocol
 
