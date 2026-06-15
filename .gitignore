@@ -3,3 +3,8 @@ node_modules/
 .DS_Store
 dist/
 .claude/
+.env
+.env.*
+.env.local
+.chk1/
+.chk2/

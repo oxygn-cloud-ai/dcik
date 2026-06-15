@@ -35,6 +35,18 @@ Numbered list of analytical questions to apply.
 The baseline hostile assumption to bring to this perspective.
 ```
 
+## Before Submitting a PR
+
+Run through this checklist before opening or merging any PR:
+
+- [ ] Version numbers synced across ALL 9 locations (SKILL.md, package.json, desktop/SKILL.md, desktop/manifest.json, desktop/.claude-plugin/plugin.json, desktop/.claude-plugin/marketplace.json, .claude-plugin/plugin.json, .claude-plugin/marketplace.json, MANIFEST.json)
+- [ ] Desktop mirror synced: perspectives/, SKILL.md, PHILOSOPHY.md, ARCHITECTURE.md, README.md are byte-identical to root
+- [ ] SKILL.zip rebuilt with current SKILL.md + all perspectives
+- [ ] MANIFEST.json regenerated with current hashes
+- [ ] `shasum -a 256 SKILL.md` hash updated in SKILL.md line 36
+- [ ] All perspective counts in documentation match actual count (`ls perspectives/ | wc -l`)
+- [ ] .gitignore covers .env*, .chk1/, .chk2/
+
 ## Licence
 
 All contributions are under the MIT licence.

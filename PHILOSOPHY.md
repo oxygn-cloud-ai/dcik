@@ -58,7 +58,7 @@ Every other design choice serves this one: the perspective library provides the 
 Each perspective is a short, self-contained Markdown file. It defines a lens, a set of analytical questions, and a default adversarial stance. Perspectives are loaded only when relevant to the topic — typically 4–7 per cycle plus mandatory P13 and P15.
 
 This architecture is deliberate:
-- **Context efficiency:** A 24-perspective library could consume an entire context window if loaded at once. Selective loading keeps context free for the assessment itself.
+- **Context efficiency:** A 177-perspective library could consume an entire context window if loaded at once. Selective loading keeps context free for the assessment itself.
 - **Composability:** Perspectives can be combined without conflict. P08 (Counterparty) asks "what would the adversary do?" while P18 (Incentive Analysis) asks "what do their incentives reward?" — different angles, same topic, no collision.
 - **Growability:** New perspectives are just new `.md` files. No code changes. No schema updates. The library grows without architectural friction.
 
@@ -70,7 +70,7 @@ No model is assumed. Model discovery happens at the start of each run. DCIK adap
 
 ### Risk-adaptive depth over fixed percentages
 
-A trivial topic doesn't need 80% of a 24-perspective library. A critical topic with emerging issues needs more, not a fixed cap. DCIK starts with high-signal perspectives and escalates based on what it finds — not based on an arbitrary percentage.
+A trivial topic doesn't need 80% of a 177-perspective library. A critical topic with emerging issues needs more, not a fixed cap. DCIK starts with high-signal perspectives and escalates based on what it finds — not based on an arbitrary percentage.
 
 This is smarter: analytical effort follows risk. When a cycle finds material issues, the next cycle adds perspectives to test the fix from more angles. When cycles find only minor issues, the process converges naturally.
 

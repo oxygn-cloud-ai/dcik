@@ -79,7 +79,7 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── logo.png                          Oxygn logo (1024px transparent)
 ├── logo.svg                          Oxygn logo (circle-safe white vector)
 ├── social-preview.png                GitHub social card image (512px)
-├── perspectives/                     Analytical library
+├── perspectives/                     Analytical library (177 lenses, P01-P177)
 │   ├── P01-legal-regulatory.md
 │   ├── P02-financial-economic.md
 │   ├── P03-technical-engineering.md
