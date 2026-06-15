@@ -12,3 +12,4 @@ DCIK_orchestrator_audit/
 PUBLIC_RISK_ASSESSMENT.md
 SECURITY_CHECK.md
 DCIK_orchestrator_audit/
+Dockerfile.test
