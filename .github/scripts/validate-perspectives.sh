@@ -6,7 +6,7 @@
 set -uo pipefail
 
 VIOLATIONS=0
-PERSPECTIVES_DIR="perspectives"
+PERSPECTIVES_DIR="${PERSPECTIVES_DIR:-perspectives}"
 
 # ── Format validation ──────────────────────────────────────────────
 
@@ -79,7 +79,7 @@ check_injection() {
   local file="$1"
   local issues=0
 
-  # Unambiguous prompt injection patterns
+  # Unambiguous prompt injection patterns (case-insensitive, extended regex)
   local patterns=(
     'ignore (all )?(previous |above )?(instructions|directions|context)'
     'disregard (above|previous|all) (instructions|directions)'
@@ -93,6 +93,14 @@ check_injection() {
     'override (your |all )?(instructions|safety|guidelines)'
     'pretend (you are|to be)'
     'act as (if|though) you are'
+    'do not (follow|obey|comply with)'
+    'forget (all |everything )?(before|above|prior)'
+    '<\|im_start\|>'
+    '\[INST\]'
+    '\{#system#\}'
+    'you must (not |never )?(refuse|decline|reject)'
+    'from now on you are'
+    'your (true|real) (name|identity|purpose) is'
   )
 
   for pattern in "${patterns[@]}"; do
@@ -104,6 +112,27 @@ check_injection() {
       issues=$((issues + 1))
     fi
   done
+
+  # Unicode homoglyph detection — normalize and re-check
+  # Replace common Cyrillic lookalikes with Latin equivalents, then re-scan
+  local normalized
+  normalized=$(cat "$file" 2>/dev/null \
+    | sed 's/[аА]/a/g; s/[еЕ]/e/g; s/[оО]/o/g; s/[рР]/p/g; s/[сС]/c/g; s/[хХ]/x/g; s/[уУ]/y/g')
+  if [ "$normalized" != "$(cat "$file" 2>/dev/null)" ]; then
+    echo "  INJECTION: Unicode homoglyphs detected in $file (Cyrillic characters that look like Latin)"
+    issues=$((issues + 1))
+  fi
+
+  # Multi-line injection: check for "ignore" within 50 chars of "instructions"/"directions"
+  # across line boundaries (catches split-across-lines injection attempts)
+  local collapsed
+  collapsed=$(tr '\n' ' ' < "$file" 2>/dev/null | tr -s ' ')
+  if echo "$collapsed" | grep -qiE '\bignore\b.{0,50}\b(instructions|directions)\b' 2>/dev/null; then
+    if ! grep -qinE 'ignore (all )?(previous |above )?(instructions|directions|context)' "$file" 2>/dev/null; then
+      echo "  INJECTION: multi-line 'ignore ... instructions' variant detected in $file"
+      issues=$((issues + 1))
+    fi
+  fi
 
   # Code blocks in perspective files are not allowed
   if grep -q '```' "$file" 2>/dev/null; then
@@ -150,10 +179,10 @@ else
     echo "--- $file ---"
     local_issues=0
 
-    check_format "$file" || true
+    check_format "$file"
     local_issues=$((local_issues + $?))
 
-    check_injection "$file" || true
+    check_injection "$file"
     local_issues=$((local_issues + $?))
 
     if [ "$local_issues" -eq 0 ]; then

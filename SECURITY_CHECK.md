@@ -28,7 +28,7 @@
 | P1 | Personal names in code | PASS | "James" references removed in v1.0.1 (was in SKILL.md:190, desktop/SKILL.md:190). |
 | P2 | Email addresses | PASS | No personal emails. Only `dcik@oxygn.xyz` (project alias) and `james+myzr@oxygn.cloud` (only in SECURITY_CHECK.md — not in DCIK source). |
 | P3 | Usernames | PASS | `A0DLPFC` only in CODEOWNERS (required for GitHub). |
-| P4 | Hostnames | PASS | `OxygnServer01` not referenced in DCIK files. |
+| P4 | Hostnames | PASS | `OxygnServer01` not referenced in DCIK source files (CLAUDE.md, SKILL.md, perspectives/, cli/, desktop/). Note: referenced in this audit file and in gitignored `.claude/` config files. |
 | P5 | "99.99%" quality claim | PASS | Removed in v1.0.1 — replaced with defensible "exceeds any single human analyst." |
 | P6 | "james-first" priority | PASS | Replaced with "principal-first" in SKILL.md and desktop manifest. |
 
