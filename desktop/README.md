@@ -77,7 +77,7 @@ DCIK uses risk-adaptive depth — it starts with high-signal perspectives and es
 | `min` | 5 core: premise challenge, cognitive bias check, + 3 most topic-relevant | Single pass. Quick adversarial check. |
 | `med` | 5 core + counterparty analysis + 2 domain-matched | Escalates to 10 if material issues found. Two cycles. |
 | `high` | 10+ (all high-signal matches for the topic domain) | Escalates to 16+ if issues persist. Three cycles minimum. |
-| `max` | Full library (177+) + meta-perspective audit | Exhaustive coverage. Runs until convergence. Default for critical work. |
+| `max` | Full library — ALL 177 perspectives + meta-perspective audit | Exhaustive coverage. Runs until convergence. For assessments where being wrong is expensive. |
 
 Invoke with `/DCIK min|med|high|max <topic>`. If no level specified, defaults to `high`.
 
@@ -217,7 +217,7 @@ A founder is deciding whether to bootstrap their SaaS company or raise venture c
 - **P08 (Counterparty):** Term sheet analysis revealed a liquidation preference that would leave the founder with nothing in a moderate exit. The founder had focused on valuation, not structure.
 - **P15 (Cognitive Bias):** Survivorship bias — the founder's peer group was all VC-backed successes. The dead companies weren't visible.
 
-**Process:** 6 adversarial cycles across 24 perspectives. 3 rounds of web research with contradicting sources. The revised assessment was significantly more cautious about raising, included a bootstrapping scenario model, and flagged the liquidation preference as a negotiation point.
+**Process:** 6 adversarial cycles across all 177 perspectives (max mode). 3 rounds of web research with contradicting sources. The revised assessment was significantly more cautious about raising, included a bootstrapping scenario model, and flagged the liquidation preference as a negotiation point.
 
 The founder raised anyway — but with a cleaner term sheet and a clear understanding of the tradeoffs.
 
