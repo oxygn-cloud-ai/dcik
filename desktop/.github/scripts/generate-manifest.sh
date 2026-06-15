@@ -8,7 +8,6 @@
 #
 # The manifest covers:
 #   - SKILL.md
-#   - cli/install.js
 #   - perspectives/*.md
 
 set -uo pipefail
@@ -38,7 +37,7 @@ fi
 
 # Collect files to hash
 FILES=""
-for f in "SKILL.md" "cli/install.js"; do
+for f in "SKILL.md"; do
   if [ -f "${PROJECT_ROOT}/${f}" ]; then
     FILES="${FILES} ${f}"
   fi

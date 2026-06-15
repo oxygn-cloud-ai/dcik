@@ -1,32 +1,10 @@
 {
   "name": "dcik",
   "version": "1.0.5",
-  "description": "DCIK — Dorsolateral Cognitive Inference Kinetics. Deep Check: multi-model adversarial analysis for Claude Code CLI.",
-  "main": "cli/install.js",
-  "bin": {
-    "dcik": "cli/install.js"
-  },
-  "files": [
-    "SKILL.md",
-    "perspectives/",
-    "cli/"
-  ],
-  "keywords": [
-    "claude-code",
-    "skill",
-    "adversarial",
-    "analysis",
-    "deep-check",
-    "dcik",
-    "multi-model",
-    "perspectives"
-  ],
+  "description": "DCIK — Dorsolateral Cognitive Inference Kinetics. Deep Check: multi-model adversarial analysis for Claude Code.",
   "repository": {
     "type": "git",
     "url": "https://github.com/oxygn-cloud-ai/dcik.git"
   },
-  "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "license": "MIT"
 }

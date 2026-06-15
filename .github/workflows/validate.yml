@@ -14,7 +14,6 @@ on:
       - 'desktop/SKILL.md'
       - '.github/scripts/validate-perspectives.sh'
       - '.github/workflows/validate.yml'
-      - 'cli/install.js'
       - 'package.json'
   push:
     branches: [main]
@@ -25,7 +24,6 @@ on:
       - 'desktop/SKILL.md'
       - '.github/scripts/validate-perspectives.sh'
       - '.github/workflows/validate.yml'
-      - 'cli/install.js'
       - 'package.json'
 
 permissions:
