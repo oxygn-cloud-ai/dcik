@@ -73,14 +73,14 @@ Defaults to `high`. Invoke with `/DCIK <level> <topic>`.
 
 | # | Lens | Asks |
 |---|------|------|
-| P01 | Legal & Regulatory | What laws apply? Where's the liability? |
-| P08 | Counterparty & Adversary | Who's on the other side? What's their best move? |
-| P13 | Challenge the Premise | Is the question itself wrong? |
-| P15 | Cognitive Bias | What is the analyst missing about their own thinking? |
-| P17 | Inversion | What would make this fail? |
-| P18 | Incentive Analysis | Who benefits? What are they incentivized to do? |
-| P72 | Multiplying by Zero | What single failure collapses everything? |
-| P91 | Premortem | Assume it failed. What went wrong? |
+| P0001 | Legal & Regulatory | What laws apply? Where's the liability? |
+| P0008 | Counterparty & Adversary | Who's on the other side? What's their best move? |
+| P0013 | Challenge the Premise | Is the question itself wrong? |
+| P0015 | Cognitive Bias | What is the analyst missing about their own thinking? |
+| P0017 | Inversion | What would make this fail? |
+| P0018 | Incentive Analysis | Who benefits? What are they incentivized to do? |
+| P0072 | Multiplying by Zero | What single failure collapses everything? |
+| P0091 | Premortem | Assume it failed. What went wrong? |
 | … | 169 more | Full list: `perspectives/` |
 
 The library grows. When DCIK discovers a missing lens, it creates one.
