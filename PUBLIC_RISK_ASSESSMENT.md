@@ -1,6 +1,7 @@
 # Adversarial Risk Assessment — Making DCIK Public
 
-**Assessment date:** 13 June 2026
+**Assessment date:** 13 June 2026 (historical — completed June 2026)
+**Status:** All mitigations completed. Retained as a record of the pre-launch risk analysis.
 **Trigger:** Repo visibility changed from private to public at github.com/oxygn-cloud-ai/dcik
 **Perspective:** Adversarial — assume hostile actors will study this repo
 
@@ -44,7 +45,7 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 **Analysis:** DCIK is MIT-licensed. Anyone can fork, modify, and use it. This is intentional — the skill is designed for enterprise deployment. However:
 
 - The primary value of DCIK is not the code (which is minimal — a SKILL.md and perspective files). The value is the *process*: the structured adversarial cycles, the model orchestration, the convergence detection. These are harder to replicate than the files suggest.
-- The perspective library's value grows with use. A fork at v1.0.0 gets the 16 initial perspectives. The principal's library will grow through use. The fork falls behind.
+- The perspective library's value grows with use. A fork at any point gets the library at that moment. The principal's library continues growing. The fork falls behind.
 - Enterprise deployment (Claude Desktop organization skills) requires administrative installation — forks can't easily displace the official distribution channel.
 - The name "DCIK — Dorsolateral Cognitive Inference Kinetics" is distinctive and trademarkable if desired.
 
@@ -58,7 +59,7 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 | Impact | Medium — claims of "99.99%" will attract sceptics |
 | Overall | **Medium** |
 
-**Analysis:** The README and SKILL.md claim DCIK produces output "exceeding 99.99% of human quality." This is a bold claim that will attract scrutiny. Risks:
+**Analysis:** The original README and SKILL.md claimed DCIK produced output "exceeding 99.99% of human quality." This was softened in v1.0.1 to "exceeds what any single human analyst can produce." The original claim posed reputational risk if challenged. Risks that remain:
 
 - If someone tests DCIK on a trivial topic and gets a mediocre result (because they didn't follow the full cycle process), they may publicly criticise the claim.
 - The claim is partially self-referential ("better than what any single human can produce") — this is hard to falsify but also hard to prove.
@@ -83,25 +84,17 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 
 **Mitigation:** The manifest is only visible in the repo source, not in the installed skill. Remove "james-first" language from public-facing files. Replace with "principal-first" or "user-interest-priority" — same meaning, less personally identifiable.
 
-### R5 — Supply Chain Risk via npm
+### R5 — Distribution Integrity Risk
 
 | Attribute | Value |
 |---|---|
 | Likelihood | Very Low |
-| Impact | High — compromised npm package could install malicious code |
+| Impact | High — compromised distribution could install malicious code |
 | Overall | **Low-Medium** |
 
-**Analysis:** The npm package `dcik` could be targeted for supply chain attacks. The CLI installer runs `git clone` and `rm -rf` — if compromised, these commands could be modified. Mitigations already in place:
+**Analysis:** DCIK is distributed via SKILL.zip (GitHub Releases) and git clone. Supply chain risks are mitigated by: branch protection requiring signed commits and PR review, MANIFEST.json with SHA-256 hashes of all distributed files, and direct git clone as an alternative that bypasses any intermediary.
 
-- The installer uses `spawnSync` with argument arrays (not shell string interpolation) — prevents command injection
-- The installer ALWAYS pulls from the remote GitHub repo — a compromised local copy cannot be installed
-- GitHub's branch protection and commit signing would detect tampering
-
-**Mitigation:**
-1. Enable GitHub branch protection on `main` — require PR reviews before merge
-2. Set up commit signing
-3. Add an npm postinstall audit check
-4. Consider npm 2FA for publishing
+**Historical note:** The original assessment considered npm distribution, which was later dropped in v1.0.5 in favor of SKILL.zip + git clone only. The mitigations below were completed. DCIK has no package manager dependencies.
 
 ### R6 — ICANN / gTLD Domain Sensitivity (Historical)
 
@@ -120,11 +113,11 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 ## Mitigations Required Before Public Launch (Checklist)
 
 - [x] **R3:** Soften "99.99%" claim to "exceeds what any single human analyst can produce"
-- [ ] **R3:** Add DISCLAIMER section to README (DLPFC reference is metaphorical, not scientific)
+- [x] **R3:** Add DISCLAIMER section to README (DLPFC reference is metaphorical, not scientific)
 - [x] **R4:** Remove "james-first" from manifest.json → "principal-first" or "user-interest"
 - [x] **R5:** Enable GitHub branch protection on main
 - [x] **R2:** Add CONTRIBUTING.md
-- [ ] **R3:** Add example/case study to README (non-proprietary topic)
+- [x] **R3:** Add example/case study to README (bootstrap vs. raise VC — 6 adversarial findings)
 
 ## Risk Acceptance
 
