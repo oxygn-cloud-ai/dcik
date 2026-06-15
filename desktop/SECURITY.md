@@ -50,8 +50,8 @@ Notify the following individuals/groups in order. Escalate to the next contact i
 
 | Priority | Contact | Method | Response SLA |
 |----------|---------|--------|--------------|
-| Primary | DCIK Security Team | Email: dcik-security@oxygn.xyz | Immediate (within 1 hour) |
-| Secondary | Oxygn Cloud Security | Email: security@oxygn.xyz | Within 4 hours |
+| Primary | Repository Maintainer | Email: dcik@oxygn.xyz | Immediate (within 1 hour) |
+| Secondary | GitHub Security Advisory | github.com/oxygn-cloud-ai/dcik/security/advisories | Within 24 hours |
 | Tertiary | Repository Admin | GitHub Security Advisory at github.com/oxygn-cloud-ai/dcik/security/advisories | Within 24 hours |
 
 **For critical incidents (P1):** Contact the primary and secondary contacts simultaneously. Do not wait for escalation.
