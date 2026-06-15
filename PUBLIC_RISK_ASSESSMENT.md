@@ -44,7 +44,7 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 **Analysis:** DCIK is MIT-licensed. Anyone can fork, modify, and use it. This is intentional — the skill is designed for enterprise deployment. However:
 
 - The primary value of DCIK is not the code (which is minimal — a SKILL.md and perspective files). The value is the *process*: the structured adversarial cycles, the model orchestration, the convergence detection. These are harder to replicate than the files suggest.
-- The perspective library's value grows with use. A fork at v1.0.0 gets the 16 initial perspectives. the principal's library will grow through use. The fork falls behind.
+- The perspective library's value grows with use. A fork at v1.0.0 gets the 16 initial perspectives. The principal's library will grow through use. The fork falls behind.
 - Enterprise deployment (Claude Desktop organization skills) requires administrative installation — forks can't easily displace the official distribution channel.
 - The name "DCIK — Dorsolateral Cognitive Inference Kinetics" is distinctive and trademarkable if desired.
 
@@ -81,7 +81,7 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 
 **Analysis:** The desktop manifest and SKILL.md reveal that the principal's interests are prioritised ("principal-first" in the manifest). This is appropriate for a personal analytical tool but, if read by a counterparty, signals the analytical bias.
 
-**Mitigation:** The manifest is only visible in the repo source, not in the installed skill. Remove "principal-first" language from public-facing files. Replace with "principal-first" or "user-interest-priority" — same meaning, less personally identifiable.
+**Mitigation:** The manifest is only visible in the repo source, not in the installed skill. Remove "james-first" language from public-facing files. Replace with "principal-first" or "user-interest-priority" — same meaning, less personally identifiable.
 
 ### R5 — Supply Chain Risk via npm
 
@@ -121,7 +121,7 @@ Making DCIK public carries **low-to-moderate risk**. The repo contains no secret
 
 - [x] **R3:** Soften "99.99%" claim to "exceeds what any single human analyst can produce"
 - [ ] **R3:** Add DISCLAIMER section to README (DLPFC reference is metaphorical, not scientific)
-- [x] **R4:** Remove "principal-first" from manifest.json → "principal-first" or "user-interest"
+- [x] **R4:** Remove "james-first" from manifest.json → "principal-first" or "user-interest"
 - [x] **R5:** Enable GitHub branch protection on main
 - [x] **R2:** Add CONTRIBUTING.md
 - [ ] **R3:** Add example/case study to README (non-proprietary topic)

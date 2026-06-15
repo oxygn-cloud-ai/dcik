@@ -203,6 +203,8 @@ For enterprise administrators deploying DCIK to all users in an organisation:
 2. In Claude Desktop or claude.ai: **Customise → Skills → Organisation Skills → Upload**
 3. All users in the organisation can invoke `/DCIK`
 
+> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md` and verify its contents match the release checksum.
+
 ### Individual (Personal Skills)
 
 For individual Claude Desktop or claude.ai users:
@@ -210,6 +212,8 @@ For individual Claude Desktop or claude.ai users:
 1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
 2. In Claude Desktop or claude.ai: **Settings → Skills → Add Skill → Upload ZIP**
 3. Invoke with `/DCIK <topic>`
+
+> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md` and verify its contents match the release checksum.
 
 Alternatively, install manually:
 

@@ -3,7 +3,10 @@
 **ID:** P27
 **Domain:** Psychology, behavioural economics, cognitive science
 **Source:** Munger (25 tendencies), Kahneman, Cialdini, Farnam Street
+**Compendium:** true
 **Invoke when:** The assessment involves human judgment, predictions, negotiations, or decision-making. Always — bias is universal.
+
+> **Note:** This is a compendium perspective — it catalogs multiple related biases in a single reference file. The standard 12-question cap is waived for compendiums.
 
 ## Lens
 

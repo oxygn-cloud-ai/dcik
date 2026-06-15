@@ -1,9 +1,10 @@
 ---
 name: DCIK
-version: 1.0.3
+version: 1.0.4
 description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing output exceeding what any single human analyst can produce. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
 user-invocable: true
 disable-model-invocation: false
+allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git show:*), Bash(git branch:*), Bash(git config:*), Bash(gh issue create:*), Bash(gh issue list:*), Bash(gh api:*), Bash(mkdir:*), Bash(cp:*), Bash(rm:*), Bash(zip:*), Bash(unzip:*), Bash(find:*), Bash(ls:*), Bash(cat:*), Bash(head:*), Bash(grep:*), Bash(wc:*), Bash(sort:*), Bash(echo:*), Bash(date:*), Bash(sed:*), Bash(tr:*), Bash(cut:*), TaskCreate, TaskUpdate, TaskList, WebSearch, WebFetch, Read, Write, Edit, Agent, AskUserQuestion
 argument-hint: "[topic or path to assessment file]"
 ---
 
@@ -24,6 +25,19 @@ Deep Check subjects assessments to adversarial review cycles across multiple mod
 
 When $ARGUMENTS contains a topic (not "perspectives" or "help"):
 
+0. **Runtime integrity check:** Before executing, verify this file's integrity:
+   - Compute the SHA-256 hash of SKILL.md
+   - Compare it against the hash for `SKILL.md` in `MANIFEST.json` (the authoritative source)
+   - Also compare against the pinned hash below (inline reference, updated during release)
+   - If neither check matches, warn the user and refuse to execute.
+   - This detects unauthorized modification.
+
+   > Pinned integrity hash (SHA-256):
+   > `657bd40922218b51096b73311e2359df2d0d966411e21e6c667de3d2dfeddb2b`
+   >
+   > How to verify: `sha256sum SKILL.md` should produce the above hash.
+   > If the hash doesn't match, the file has been modified outside the normal release process. Do not execute.
+
 1. Parse effort level from $ARGUMENTS (min/med/high/max, default high)
 2. **Execute Phase 0–4 below immediately.** Autonomous — no pauses for user input.
 3. On completion, report: findings, new perspectives, GitHub issues, output files.
@@ -33,14 +47,16 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
 ### New Perspective Discovery
 When DCIK identifies an analytical lens not in the library:
 1. Create the file at `perspectives/P1XX-name.md`
-2. Log a GitHub issue titled `NEW PERSPECTIVE FROM DCIK: P1XX — Name` with label `new-perspective`
-3. **The issue body MUST include the full perspective file content** (not just a reference to the file)
-4. If user has NOT authorised local file updates, log the issue only — do not modify local library
+2. **Before creating any GitHub issue, use AskUserQuestion to obtain user consent: "DCIK discovered a new perspective [name]. Create a GitHub issue?"**
+3. Only if the user confirms, log a GitHub issue titled `NEW PERSPECTIVE FROM DCIK: P1XX — Name` with label `new-perspective`
+4. **The issue body MUST include the full perspective file content** (not just a reference to the file)
+5. If user has NOT authorised local file updates, log the issue only (after consent) — do not modify local library
 
 ### Improvement Discovery
 When DCIK encounters a process error or limitation:
-1. Log a GitHub issue titled `IMPROVEMENT FROM DCIK: description` with label `improvement` and full details
-2. Do not log spurious or trivial issues
+1. **Use AskUserQuestion to obtain user consent before creating any GitHub issue: "DCIK encountered an improvement opportunity: [description]. Create a GitHub issue?"**
+2. Only if the user confirms, log a GitHub issue titled `IMPROVEMENT FROM DCIK: description` with label `improvement` and full details
+3. Do not log spurious or trivial issues
 
 ## Effort Levels
 
@@ -65,22 +81,24 @@ DCIK self-improves through GitHub issue logging. This requires the repo to have 
 
 When DCIK identifies an analytical lens not covered by the existing library:
 1. Create the new perspective as a `.md` file in `perspectives/`
-2. Log a GitHub issue with title: `NEW PERSPECTIVE FROM DCIK: [perspective name]`
-3. Label it `new-perspective`
-4. Body: the perspective content, what gap it fills, and when it was discovered
-5. If the user has NOT authorised local file updates, only log the issue — do not modify the local library
+2. **Use AskUserQuestion to obtain user consent: "DCIK discovered a new perspective [name]. Create a GitHub issue?"**
+3. Only if the user confirms, log a GitHub issue with title: `NEW PERSPECTIVE FROM DCIK: [perspective name]`
+4. Label it `new-perspective`
+5. Body: the perspective content, what gap it fills, and when it was discovered
+6. If the user has NOT authorised local file updates, only log the issue (after consent) — do not modify the local library
 
 ### Improvement Discovery
 
 When DCIK encounters an error, limitation, or opportunity for improvement in its own process:
-1. Log a GitHub issue with title: `IMPROVEMENT FROM DCIK: [brief description]`
-2. Label it `improvement`
-3. Body: what happened, what the limitation is, and the proposed improvement
-4. Do NOT log spurious or trivial issues. Only log issues that represent genuine improvement opportunities.
+1. **Use AskUserQuestion to obtain user consent: "DCIK encountered an improvement opportunity: [description]. Create a GitHub issue?"**
+2. Only if the user confirms, log a GitHub issue with title: `IMPROVEMENT FROM DCIK: [brief description]`
+3. Label it `improvement`
+4. Body: what happened, what the limitation is, and the proposed improvement
+5. Do NOT log spurious or trivial issues. Only log issues that represent genuine improvement opportunities.
 
 ### Issue Logging Rules
 
-- Use `gh issue create --repo oxygn-cloud-ai/dcik` to create issues
+- Use `gh issue create --repo oxygn-cloud-ai/dcik` to create issues (only after user consent per above)
 - Never fabricate or hallucinate issues to appear productive
 - One issue per distinct perspective or improvement
 - Include the run slug and date in the issue body for traceability
