@@ -155,7 +155,7 @@
 | Adversarial Resilience | 6 | 0 | 0 | 6 |
 | Desktop Distribution | 6 | 0 | 0 | 6 |
 
-**Overall**: 75 passed, 0 failed, 0 warnings out of 74 applicable checks
+**Overall**: 73 passed, 0 failed, 0 warnings (74 checks total; C6 N/A)
 
 ---
 
@@ -175,7 +175,7 @@ All 4 warnings from the original audit have been addressed:
 3. ~~AR1: Perspective injection~~ → CI validation workflow with format + injection checks
 4. ~~AR6: SKILL.md injection~~ → CI flags SKILL.md changes for manual review
 
-**Clean bill of health: 75 passed, 0 failed, 0 warnings.**
+**Clean bill of health: 73 passed, 0 failed, 0 warnings.**
 
 ### Clean Bill of Health
 
