@@ -9,9 +9,9 @@ This document describes how DCIK is built. For *why* it is built this way, see [
 DCIK is a **skill**, not an application. It executes within the Claude Code runtime — a Markdown instruction set that the model follows under tool restrictions declared in YAML frontmatter. There is no server, no database, no persistent process. The entire system is:
 
 - One `SKILL.md` (the orchestrator)
-- N perspective files in `perspectives/` (the analytical library)
-- One `package.json` + `cli/install.js` (the npm distribution)
-- One `desktop/` directory with `manifest.json` (the Claude Desktop / claude.ai distribution)
+- 177 perspective files in `perspectives/` (the analytical library)
+- One `SKILL.zip` (bundled distribution for Claude Desktop / claude.ai upload)
+- One `desktop/` directory with `manifest.json` (the Claude Desktop / claude.ai mirror)
 
 Architectural choices that flow from the philosophy:
 
@@ -20,7 +20,7 @@ Architectural choices that flow from the philosophy:
 - **Risk-adaptive depth.** The effort level system (`min`/`med`/`high`/`max`) controls how many perspectives are initially loaded and how aggressively the process escalates. This is not a fixed percentage — it is a behavioural control that allocates analytical effort where risk is highest.
 - **Model-agnostic orchestration.** DCIK probes available models at the start of each run. The orchestrator handles odd cycles; the best available secondary model handles even cycles. If only one model is available, adversarial passes use explicitly different prompts.
 - **Self-improving through GitHub issues.** New perspectives and process improvements are logged as issues on the canonical repo. When DCIK discovers a lens not in the library, it creates the file locally and logs an issue remotely. The library compounds.
-- **Installation as distribution, not development.** `npx dcik install` clones from the remote GitHub repo. The npm package is a thin installer — it doesn't bundle the skill, it fetches it. This ensures the installed skill is always from the canonical source.
+- **Distribution is a file copy.** Users download SKILL.zip or clone the repo and copy files. There is no installation step — DCIK is a Markdown skill that Claude Code reads directly. No compilation, no package manager, no runtime.
 
 ---
 
@@ -34,29 +34,25 @@ Architectural choices that flow from the philosophy:
 │  README.md         ← User entry point                               │
 │  PHILOSOPHY.md     ← Vision, principles, non-negotiables            │
 │  ARCHITECTURE.md   ← This file                                      │
-│  package.json      ← npm distribution metadata                      │
 │  perspectives/     ← 177 analytical lenses (P01-P177)                  │
-│  cli/install.js    ← npm installer (spawnSync, arg-array safe)      │
-│  desktop/          ← Claude Desktop / claude.ai distribution        │
+│  desktop/          ← Claude Desktop / claude.ai mirror              │
 │    SKILL.md        ←   Copy of orchestrator                         │
 │    manifest.json   ←   Org skill manifest                           │
 │    perspectives/   ←   Copy of library                              │
 │  SKILL.zip         ← Bundled org skill for admin upload             │
 └──────────────────────┬──────────────────────────────────────────────┘
                        │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-    npx dcik    SKILL.zip    git clone
-    install     upload       (manual)
-          │            │            │
-          ▼            ▼            ▼
+          ┌────────────┴────────────┐
+          ▼                         ▼
+    SKILL.zip upload           git clone
+    (Desktop/claude.ai)        (CLI + manual)
+          │                         │
+          ▼                         ▼
 ┌─────────────────────────────────────────────────────────────────────┐
 │              INSTALL TARGET (~/.claude/skills/DCIK/)                │
 │                                                                     │
 │  SKILL.md          ← The orchestrator Claude Code executes          │
 │  perspectives/     ← The analytical library (perspective files)     │
-│                                                                     │
-│  (No .git, no cli/, no desktop/, no package.json — stripped)       │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -104,15 +100,13 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 │   ├── P22-agency-analysis.md
 │   ├── P23-survivorship-detection.md
 │   └── P24-circle-of-competence.md
-├── cli/
-│   └── install.js                    npm installer (spawnSync with argument arrays)
 └── desktop/
     ├── SKILL.md                      Copy of orchestrator for org skill
     ├── manifest.json                 Org skill manifest (name, files, config)
     ├── README.md                     Copy of README for the ZIP bundle
     ├── logo.png                      Copy for ZIP bundle
     └── perspectives/                 Copy of library for ZIP bundle
-        └── (24 .md files)
+        └── (177 .md files)
 ```
 
 ---
@@ -288,16 +282,14 @@ For each source cited:
 
 ## 8. Distribution Architecture
 
-### 8.1 npm Distribution
+### 8.1 SKILL.zip Distribution (Primary)
 
-The npm package (`dcik`) is a thin installer:
-- `package.json` defines the package metadata and `bin` entry point
-- `cli/install.js` is the installer script
-- The installer uses `spawnSync` with argument arrays (not `exec` with string interpolation) for security
-- The installer always clones from `https://github.com/oxygn-cloud-ai/dcik.git` — never from a local copy
-- Post-install: strips `.git`, `cli/`, `desktop/`, `package.json`, `.gitignore`, `README.md` from the skill directory
+The `SKILL.zip` file bundles SKILL.md and all 177 perspective files for one-click upload:
+- Built from source: `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md`
+- Uploaded via Claude Desktop / claude.ai Settings → Skills → Add Skill
+- Verified against MANIFEST.json for integrity (SHA-256 hashes of every file)
 
-### 8.2 Claude Desktop / claude.ai Distribution
+### 8.2 Git Clone Distribution
 
 The `desktop/` directory contains the organisation skill bundle:
 - `SKILL.md` — copy of the orchestrator
@@ -310,12 +302,14 @@ The `SKILL.zip` file in the repo root is pre-built for admin upload. Enterprise 
 ### 8.3 Installation Flow
 
 ```
-User types: npx dcik install
-  └──► npm downloads package from registry
-        └──► cli/install.js executes
-              └──► spawnSync('git', ['clone', '--depth', '1', '--branch', 'main', REPO_URL, SKILL_DIR])
-                    └──► Strips non-skill files
-                          └──► Done. User types /DCIK <topic>.
+User downloads SKILL.zip from latest release
+  └──► Upload via Claude Desktop/claude.ai Settings → Skills → Add Skill
+        └──► Done. User types /DCIK <topic>.
+
+User clones repo: git clone https://github.com/oxygn-cloud-ai/dcik.git
+  └──► mkdir -p ~/.claude/skills/DCIK
+        └──► cp SKILL.md perspectives/ ~/.claude/skills/DCIK/
+              └──► Done. User types /DCIK <topic>.
 ```
 
 Both distribution paths converge on the same installed state: `~/.claude/skills/DCIK/SKILL.md` + `perspectives/`.
@@ -368,12 +362,12 @@ DCIK maintains no persistent state outside of run directories created in the use
 
 Issue logging uses the `gh` CLI, which requires the user to be authenticated to GitHub. DCIK does not store or transmit credentials. If `gh` is not authenticated, issue logging is skipped — the run continues with a warning.
 
-### 10.4 npm Package Security
+### 10.4 Distribution Security
 
-- `cli/install.js` uses `spawnSync` with argument arrays (not shell string interpolation)
-- The installer always fetches from the canonical GitHub remote
-- The npm package contains no pre-built binaries or post-install scripts beyond the installer
+- SKILL.zip contents are verified against MANIFEST.json (SHA-256 hashes)
+- Git clone users get the canonical repo directly — no intermediary
 - GitHub secret scanning and push protection are enabled on the repo
+- Branch protection requires signed commits, PR review, and linear history
 
 ---
 
@@ -385,7 +379,7 @@ DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.0`). 
 - The file format or distribution architecture changes (major bump)
 - Fixes to existing files (patch bump)
 
-The npm package version in `package.json` follows the same number. The desktop manifest version follows the same number.
+The version in `package.json` and `desktop/manifest.json` follows the same number. All 9 version locations are kept in sync.
 
 ---
 
