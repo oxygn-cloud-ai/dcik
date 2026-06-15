@@ -1,12 +1,11 @@
 # Perspective: Reason-Respecting Tendency
 
 **ID:** P116
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Langer (mindlessness)
 **Invoke when:** The assessment accepts explanations that sound plausible without testing whether they're actually true. Always.
 
 ## Lens
-
-Humans comply more readily when given a reason — even a bad one. Langer's famous experiment: "Excuse me, I have 5 pages. May I use the Xerox machine because I have to make copies?" (93% compliance — the reason was tautological but people heard "because" and complied). The word "because" triggers automatic acceptance. Assessments deploy "because" constantly.
 
 1. **Because audit:** For every causal claim: "X because Y." Is Y a real reason or a plausible-sounding placeholder? "The market will grow because of increasing demand" — why is demand increasing?
 2. **Reason quality:** Does the reason actually explain the outcome, or just restate it in different words? "Revenue grew because sales increased." That's not a reason.

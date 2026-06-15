@@ -1,12 +1,11 @@
 # Perspective: Stress-Influence Tendency
 
 **ID:** P117
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, stress psychology
 **Invoke when:** The assessment was produced under pressure — deadlines, stakes, fatigue, crisis. Almost always.
 
 ## Lens
-
-Stress degrades judgment. Under stress, humans revert to simpler thinking, narrower options, more extreme positions, and faster closure. The assessment produced under a tight deadline is not the same assessment that would have been produced with time. The analyst may not realise the degradation — stress impairs the ability to detect that stress is impairing you.
 
 1. **Stress conditions:** Under what conditions was the assessment produced? Deadline pressure, high stakes, sleep deprivation, emotional state, cognitive load. Each degrades judgment.
 2. **Stress simplification:** Where has stress forced simplification? Complex problems get simple answers under pressure — not because they're right, but because complexity is unaffordable.

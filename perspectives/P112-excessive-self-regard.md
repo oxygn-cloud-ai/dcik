@@ -1,12 +1,11 @@
 # Perspective: Excessive Self-Regard Tendency
 
 **ID:** P112
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Excessive Self-Regard Tendency)
 **Invoke when:** The assessment evaluates the capabilities, prospects, or decisions of the people who produced it — or of the subject being assessed.
 
 ## Lens
-
-Humans systematically overestimate their own abilities, the quality of their decisions, and their prospects relative to others. 90% of drivers think they're above average. Every founder thinks their startup will beat the base rate. The analyst writing the assessment is not immune.
 
 1. **Self-regard location:** Where does the assessment's author overrate their own judgment? Confidence in conclusions, estimated error bars, claimed expertise. Self-regard inflates all three.
 2. **Subject self-regard:** Where does the assessment accept the subject's self-assessment uncritically? "Management projects 40% growth." Management also thinks they're above-average managers.

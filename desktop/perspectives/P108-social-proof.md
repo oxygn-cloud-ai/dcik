@@ -1,12 +1,11 @@
 # Perspective: Social-Proof Tendency
 
 **ID:** P108
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Social-Proof Tendency), Cialdini
 **Invoke when:** The assessment references consensus, market trends, or what others are doing as evidence.
 
 ## Lens
-
-Humans determine what is correct by observing what others believe is correct. The more people who believe something, the more likely others are to adopt that belief — regardless of its truth. Social proof drives investment fads, market bubbles, management trends, and analytical consensus.
 
 1. **Consensus audit:** What does the assessment treat as true because others treat it as true? "Everyone agrees the market will grow at X%." "Industry consensus is Y." Consensus is not evidence.
 2. **Information cascade:** Are people believing something because earlier people believed it, not because of independent analysis? Cascades form when each person assumes the crowd knows something they don't.

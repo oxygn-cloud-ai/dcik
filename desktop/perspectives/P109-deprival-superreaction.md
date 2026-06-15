@@ -1,12 +1,11 @@
 # Perspective: Deprival-Superreaction Tendency
 
 **ID:** P109
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Deprival-Superreaction Tendency), Kahneman (loss aversion)
 **Invoke when:** The assessment involves potential losses, changes to existing arrangements, or threats to what parties currently possess.
 
 ## Lens
-
-Humans react to loss far more intensely than to equivalent gain. Losing $100 hurts roughly twice as much as gaining $100 pleases. The threat of losing something already possessed triggers irrational behaviour — hoarding, escalation of commitment, desperate defence of the status quo. This tendency operates in individuals, organisations, and markets.
 
 1. **Loss inventory:** What would each party lose if the assessment's recommendation is followed? Status, control, income, identity, relationships, autonomy. Losses loom larger than equivalent gains.
 2. **Loss-driven behaviour:** How will parties behave to avoid perceived loss? They will fight harder to protect what they have than to gain something new. Are these behaviours priced into the assessment?

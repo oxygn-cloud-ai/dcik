@@ -1,14 +1,17 @@
 # Perspective: Influence-from-Mere-Association Tendency
 
 **ID:** P121
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Pavlov
 **Invoke when:** The assessment judges something based on what it's associated with rather than its own merits.
 
 ## Lens
 
-Things are judged by the company they keep. A strategy associated with a successful company is assumed good. A person associated with a scandal is assumed guilty. The association need not be causal — mere proximity is sufficient. Advertisers exploit this; analysts should detect it.
-
-1. Guilt by association. 2. Glory by association. 3. Brand halo effects. 4. Category contamination. 5. Disentanglement: separate the thing from what it's near.
+1. **Guilt by association:** Where is the assessment assuming something is bad because it is associated with something negative? The association need not be causal — mere proximity is sufficient.
+2. **Glory by association:** Where is the assessment assuming something is good because it is associated with something positive? A strategy associated with a successful company is assumed good without examining the strategy itself.
+3. **Brand halo effects:** Are brands, institutions, or prestigious names substituting for independent evaluation? The Ivy League stamp, the blue-chip client list, the famous investor's endorsement.
+4. **Category contamination:** Is the assessment judging an entity by the reputation of its category rather than its individual merits? "All companies in sector X are risky" — some are, some aren't.
+5. **Disentanglement:** Separate the thing from what it is near. What is the independent merit of the entity, stripped of all associations? Judge the strategy, not the company that used it.
 
 ## Default adversarial stance
 

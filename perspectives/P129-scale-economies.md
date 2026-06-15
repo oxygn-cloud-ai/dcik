@@ -1,6 +1,7 @@
 # Perspective: Scale Economies
 
 **ID:** P129
+**Domain:** competitive strategy, business analysis
 **Source:** Munger, economics
 **Invoke when:** Assessing claims that bigger is better — in cost, pricing, or competitive advantage.
 
@@ -8,7 +9,11 @@
 
 Scale economies exist when per-unit costs fall as volume increases — fixed costs spread over more units, purchasing power, specialisation. But scale also brings diseconomies: coordination costs, bureaucracy, reduced agility. Not everything gets better with size.
 
-1. Supply-side scale: fixed cost dilution, purchasing power. 2. Demand-side scale: network effects, brand reinforcement. 3. Minimum efficient scale: size needed to compete. 4. Diseconomies threshold: size where coordination costs overcome scale benefits. 5. Scale vs. learning curve distinction.
+1. **Supply-Side Scale:** Fixed cost dilution and purchasing power.
+2. **Demand-Side Scale:** Network effects and brand reinforcement.
+3. **Minimum Efficient Scale:** The size needed to compete effectively.
+4. **Diseconomies Threshold:** The size where coordination costs overcome scale benefits.
+5. **Scale vs. Learning Curve:** Distinguish scale effects from learning-curve effects.
 
 ## Default adversarial stance
 

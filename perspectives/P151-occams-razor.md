@@ -1,6 +1,7 @@
 # Perspective: Occam's Razor
 
 **ID:** P151
+**Domain:** epistemology, philosophy of science
 **Source:** William of Occam, Munger
 **Invoke when:** The assessment presents complex explanations where simpler ones may suffice.
 
@@ -8,7 +9,10 @@
 
 The simplest explanation consistent with the evidence is most likely to be correct. Not because simplicity is inherently virtuous — because each additional assumption is an additional point of failure. Complex explanations survive by multiplying entities; simple ones survive by being hard to falsify.
 
-1. Assumption count: how many assumptions does each explanation require? 2. Simplicity comparison: what is the simplest explanation consistent with the evidence? 3. Complexity as concealment: is complexity hiding weak evidence? 4. Elegance trap: is simplicity being preferred over accuracy?
+1. **Assumption count:** How many assumptions does each explanation require?
+2. **Simplicity comparison:** What is the simplest explanation consistent with the evidence?
+3. **Complexity as concealment:** Is complexity hiding weak evidence?
+4. **Elegance trap:** Is simplicity being preferred over accuracy?
 
 ## Default adversarial stance
 

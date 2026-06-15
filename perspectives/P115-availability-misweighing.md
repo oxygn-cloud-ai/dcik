@@ -1,12 +1,11 @@
 # Perspective: Availability-Misweighing Tendency
 
 **ID:** P115
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Kahneman & Tversky
 **Invoke when:** The assessment weights evidence based on how easily examples come to mind — rather than their actual frequency or importance.
 
 ## Lens
-
-Humans judge frequency and importance by how easily they can recall examples. Vivid, recent, or emotionally charged events are overweighed. Abstract, distant, or undramatic events are underweighed. Plane crashes feel more dangerous than car crashes because they're more memorable — but cars kill far more people.
 
 1. **Availability check:** What evidence is the assessment overweighing because it's vivid or recent? Recent success stories, dramatic failures, memorable anecdotes.
 2. **Non-availability check:** What evidence is being underweighed because it's abstract or unmemorable? Statistical base rates, historical patterns, slow-moving trends.
