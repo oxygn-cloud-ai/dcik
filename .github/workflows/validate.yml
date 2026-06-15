@@ -70,3 +70,22 @@ jobs:
             exit 1
           fi
           echo "::notice::MANIFEST.json is up to date."
+
+  redteam:
+    runs-on: ubuntu-latest
+    if: github.repository == 'oxygn-cloud-ai/dcik' && github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Behavioral red team (changed perspectives only)
+        run: |
+          CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}..HEAD" | grep '^perspectives/' || true)
+          if [ -n "$CHANGED" ]; then
+            echo "$CHANGED" | xargs bash .github/scripts/redteam-perspective.sh
+          else
+            echo "No perspective files changed in this PR."
+          fi
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
