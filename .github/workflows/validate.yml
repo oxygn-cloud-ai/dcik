@@ -83,7 +83,7 @@ jobs:
         run: |
           CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}..HEAD" | grep '^perspectives/' || true)
           if [ -n "$CHANGED" ]; then
-            echo "$CHANGED" | xargs bash .github/scripts/redteam-perspective.sh
+            printf '%s\0' $CHANGED | xargs -0 bash .github/scripts/redteam-perspective.sh
           else
             echo "No perspective files changed in this PR."
           fi
