@@ -69,9 +69,11 @@ while IFS= read -r hash; do
   SUBJECT=$(git log -1 --format='%s' "$hash" 2>/dev/null)
   echo "  Subject: ${SUBJECT}"
 
-  # Skip merge commits — they're signed by GitHub, not the PR author
-  if echo "$SUBJECT" | grep -qE '^Merge '; then
-    echo "  SKIP: Merge commit (signed by GitHub, not PR author)"
+  # Skip merge commits — they're signed by GitHub, not the PR author.
+  # Check parent count (merge commits have 2+ parents) rather than subject line.
+  PARENT_COUNT=$(git cat-file -p "$hash" 2>/dev/null | grep -c '^parent ' || echo 0)
+  if [ "$PARENT_COUNT" -ge 2 ]; then
+    echo "  SKIP: Merge commit ($PARENT_COUNT parents — signed by GitHub, not PR author)"
     echo ""
     continue
   fi
