@@ -21,7 +21,7 @@ Distribute the discipline of adversarial analysis as a self-improving skill:
 - **A growing perspective library** — 177 lenses and counting, each a discrete analytical protocol drawn from law, finance, engineering, psychology, military strategy, cognitive science, and Charlie Munger's mental models.
 - **A structured adversarial process** — minimum three cycles, alternating models, mandatory web research with contradiction requirements, convergence detection.
 - **A self-improving architecture** — new perspectives discovered during runs become part of the library. Every run improves the tool for every future run.
-- **A zero-friction install** — `npx dcik install` or a single SKILL.zip upload. No configuration. No API keys. No onboarding.
+- **A zero-friction install** — a single SKILL.zip upload or git clone. No configuration. No API keys. No onboarding.
 
 DCIK is the single source of truth for its own methodology. There is one repo, one branch, one place to land changes.
 
@@ -43,7 +43,7 @@ DCIK automates that dissent. The thesis is not that AI is better than humans —
 
 4. **The tool self-improves.** New perspectives are logged as GitHub issues and added to the library. Process improvements are captured. The skill version reflects accumulated analytical capability, not just code changes.
 
-5. **Installation is trivial.** `npx dcik install` or upload a ZIP. No configuration required. The skill works immediately.
+5. **Installation is trivial.** upload a ZIP or git clone. No configuration required. The skill works immediately.
 
 ## Design Principles
 
