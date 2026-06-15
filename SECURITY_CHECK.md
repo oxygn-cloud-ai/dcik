@@ -25,7 +25,7 @@
 
 | # | Test | Result | Evidence |
 |---|------|--------|----------|
-| P1 | Personal names in code | PASS | "James" references removed in v1.0.1 (was in SKILL.md:190, desktop/SKILL.md:190). |
+| P1 | Personal names in code | PASS | Personal name references removed in v1.0.1 (was in SKILL.md:190, desktop/SKILL.md:190). |
 | P2 | Email addresses | PASS | No personal emails. Only `dcik@oxygn.xyz` (project alias) and `james+myzr@oxygn.cloud` (only in SECURITY_CHECK.md — not in DCIK source). |
 | P3 | Usernames | PASS | `A0DLPFC` only in CODEOWNERS (required for GitHub). |
 | P4 | Hostnames | PASS | `OxygnServer01` not referenced in DCIK source files (CLAUDE.md, SKILL.md, perspectives/, cli/, desktop/). Note: referenced in this audit file and in gitignored `.claude/` config files. |
@@ -180,7 +180,7 @@ All 4 warnings from the original audit have been addressed:
 ### Clean Bill of Health
 
 - Zero secrets in codebase or git history
-- Zero PII remaining (all "James" references removed in v1.0.1)
+- Zero PII remaining (all personal name references removed in v1.0.1)
 - Zero npm dependencies — no supply chain risk
 - Zero injection surfaces in the installer
 - All stale documentation counts corrected

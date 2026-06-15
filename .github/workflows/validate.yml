@@ -1,5 +1,9 @@
 name: Content Validation
 
+# NOTE: SKILL.zip is a build artifact for GitHub Releases and should NOT be
+# committed to the repository. The .gitignore already excludes *.zip files.
+# To rebuild SKILL.zip locally: `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md`
+
 on:
   pull_request:
     branches: [main]
@@ -28,6 +32,19 @@ permissions:
   contents: read
 
 jobs:
+  signature-check:
+    runs-on: ubuntu-latest
+    if: github.repository == 'oxygn-cloud-ai/dcik' && github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Verify PR commit signatures
+        run: bash .github/scripts/verify-commit-signatures.sh
+        env:
+          ALLOWED_SIGNING_KEYS: ${{ vars.ALLOWED_SIGNING_KEYS }}
+
   validate:
     runs-on: ubuntu-latest
     if: github.repository == 'oxygn-cloud-ai/dcik'
@@ -43,3 +60,13 @@ jobs:
         run: bash .github/scripts/validate-perspectives.sh
         env:
           PERSPECTIVES_DIR: desktop/perspectives
+
+      - name: Verify MANIFEST.json is up to date
+        run: |
+          bash .github/scripts/generate-manifest.sh > /tmp/generated-manifest.json
+          if ! diff -q MANIFEST.json /tmp/generated-manifest.json > /dev/null 2>&1; then
+            echo "::error::MANIFEST.json is out of date. Run '.github/scripts/generate-manifest.sh --write' to regenerate."
+            diff MANIFEST.json /tmp/generated-manifest.json || true
+            exit 1
+          fi
+          echo "::notice::MANIFEST.json is up to date."

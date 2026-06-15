@@ -51,13 +51,15 @@ check_format() {
   }
 
   # Lens must have numbered questions (at least 4, at most 12)
-  local lens_count
+  # Compendium perspectives (marked with "**Compendium:** true") are exempt from the 12-max cap
+  local lens_count is_compendium
   lens_count=$(sed -n '/## Lens/,/## Default/p' "$file" | grep -cE '^[0-9]+\. ' 2>/dev/null) || lens_count=0
+  is_compendium=$(grep -cE '^\*\*Compendium:\*\* true' "$file" 2>/dev/null) || is_compendium=0
   if [ "$lens_count" -lt 4 ]; then
     echo "  FORMAT: Lens has $lens_count questions (minimum 4)"
     issues=$((issues + 1))
-  elif [ "$lens_count" -gt 12 ]; then
-    echo "  FORMAT: Lens has $lens_count questions (maximum 12)"
+  elif [ "$lens_count" -gt 12 ] && [ "$is_compendium" -eq 0 ]; then
+    echo "  FORMAT: Lens has $lens_count questions (maximum 12; compendiums exempt)"
     issues=$((issues + 1))
   fi
 
