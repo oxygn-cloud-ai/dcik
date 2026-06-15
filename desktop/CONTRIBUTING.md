@@ -7,17 +7,29 @@ DCIK is designed to grow. Contributions are welcome.
 | Tool | Required? | Purpose |
 |------|-----------|---------|
 | **Git** | Yes | Version control |
-| **Node.js 18+** | For installer changes | `cli/install.js` runner |
 | **gh CLI** | For testing issue logging | `gh issue create` in auto-improvement |
+| **bash 3.2+** | For CI scripts | `.github/scripts/` validation (macOS ships 3.2) |
 | **shasum / sha256sum** | For manifest updates | Hash verification |
-| **bash 4+** | For CI scripts | `.github/scripts/` validation |
 
-All CI checks run on GitHub Actions. You can run them locally before pushing:
+All CI checks run on GitHub Actions. Run locally before pushing:
 
 ```bash
+# Format + injection validation (root + desktop)
 bash .github/scripts/validate-perspectives.sh
-bash .github/scripts/generate-manifest.sh --write
-shasum -a 256 SKILL.md  # verify the pinned hash matches
+PERSPECTIVES_DIR=desktop/perspectives bash .github/scripts/validate-perspectives.sh
+
+# Manifest staleness check
+bash .github/scripts/generate-manifest.sh > /tmp/manifest.json
+diff -q MANIFEST.json /tmp/manifest.json
+
+# Commit signature verification (PRs only)
+bash .github/scripts/verify-commit-signatures.sh
+
+# Behavioral red team (optional, needs DEEPSEEK_API_KEY)
+DEEPSEEK_API_KEY=... bash .github/scripts/redteam-perspective.sh perspectives/*.md
+
+# Integrity hash
+shasum -a 256 SKILL.md
 ```
 
 ## How to contribute

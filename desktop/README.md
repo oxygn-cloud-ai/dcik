@@ -30,43 +30,34 @@ DCIK runs inside Claude Code. You need one of:
 | **Claude Desktop** | macOS/Windows app with Skills support. |
 | **claude.ai** | Web interface with Skills support (Organisation or Personal). |
 
-**No API keys required.** DCIK uses whatever models are available in your Claude environment. It probes at startup and adapts — it works with a single model or multiple models.
+**No API keys. No package managers. No dependencies.** DCIK is a single SKILL.md file plus 177 perspective files. It uses whatever models are available in your Claude environment.
 
-**For manual installation only:** `git` must be available. For the npm installer: Node.js 18+.
-
-**For the auto-improvement system:** `gh` CLI must be authenticated (`gh auth login`). This is optional — DCIK works fully without it; new perspectives are saved locally but not logged to GitHub.
+For the auto-improvement system (optional): `gh` CLI authenticated with `gh auth login`. New perspectives are saved locally either way.
 
 ## Quick Start
 
-### Installation via SKILL.zip (Recommended)
+### SKILL.zip (Recommended)
 
-1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
-2. **Claude Desktop / claude.ai:** Upload via Settings → Skills → Add Skill
+1. Download from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
+2. **Claude Desktop / claude.ai:** Settings → Skills → Add Skill → Upload ZIP
 3. **Claude Code CLI:** Unzip to `~/.claude/skills/DCIK/`
-4. Invoke with `/DCIK <topic>`
+4. Invoke: `/DCIK <topic>`
 
-> The ZIP contains SKILL.md and all 177 perspective files. You can verify its contents against the repo with `unzip -l SKILL.zip`.
-
-### Installation via npm
-
-```bash
-npx dcik install
-```
-
-Requires Node.js 18+. Installs to `~/.claude/skills/DCIK/`. Always clones from the canonical repository and verifies commit signatures.
-
-### Manual Installation
+### Git Clone
 
 ```bash
 git clone https://github.com/oxygn-cloud-ai/dcik.git
-cp -r dcik/SKILL.md ~/.claude/skills/DCIK/
+mkdir -p ~/.claude/skills/DCIK
+cp dcik/SKILL.md ~/.claude/skills/DCIK/
 cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
 ```
 
 ### First Run
 
 ```
-/DCIK max "Should we enter the European market?"
+/DCIK min "Should we enter this market?"          # Quick check, 5 perspectives
+/DCIK high "Is this deal fairly structured?"       # Deep check, 10+ perspectives
+/DCIK max path/to/assessment.md                    # Exhaustive, 177 perspectives
 ```
 
 No configuration. No onboarding. The skill executes immediately.
