@@ -125,8 +125,7 @@ DCIK/
     P14-operational-execution.md
     P15-psychological-cognitive-bias.md ← Mandatory every cycle
     P50-short-termism.md              ← Temporal discounting & long-term value
-    ...                               ← Library grows with use/
-    ...                               ← Library grows with use/
+    ...                               ← Library grows with use
 ```
 
 Each perspective is a discrete, cacheable context unit. Load only those relevant to the topic — typically 4-7 per cycle plus mandatory P13/P15. P16 runs at the start and end of every DCIK run.
@@ -141,7 +140,13 @@ At the start of each run, also check for a project-local `perspectives/` directo
 2. **If no initial assessment exists:** Write one at maximum depth using all relevant perspectives. Research beyond cutoff. This is the Cycle 0 baseline.
 3. **Create run directory:** `DCIK_<slug>/` in the current working directory. Save every cycle result as a discrete file for crash recovery.
 4. **Select perspectives:** Announce active perspectives for Cycle 1. P13, P15 mandatory. P16 runs now (library coverage audit).
-5. **Model discovery:** Identify available models (Claude Opus, Codex, Deepseek, OpenRouter, etc.). The orchestrator model runs odd cycles; the best available alternative runs even cycles. Never assume a specific model is available — probe and adapt.
+5. **Model discovery:** Write `DCIK_<slug>/models.txt`:
+   ```
+   Primary: [current model name]
+   Secondary: [probe result — "Codex via codex-rescue" | "Claude (self-adversarial)" | "Deepseek via API" | "None available — single-model mode"]
+   Agent tool available: [YES/NO]
+   ```
+   The orchestrator (current model) runs odd cycles. The secondary model runs even cycles. If no secondary model is available, use single-model adversarial passes (see Phase 2 fallback). Never assume a specific model is present — verify before Phase 2.
 
 ### Phase 1: Odd-Numbered Cycles (Claude / Primary Model)
 
@@ -152,18 +157,73 @@ At the start of each run, also check for a project-local `perspectives/` directo
 5. **Write Cycle N Review:** `DCIK_<slug>/cycle<N>_review.md`. Structure: findings by perspective, critical weaknesses (must-fix), important gaps (should-fix), minor improvements (could-fix), research findings with source URLs, recommended revisions.
 6. **Revise the assessment.** Apply all must-fix and should-fix findings. Output `DCIK_<slug>/assessment_v<N+1>.md` with a change log at the top.
 
-### Phase 2: Even-Numbered Cycles (Codex / Secondary Model)
+### Phase 2: Even-Numbered Cycles (Secondary Model)
 
-1. **Spawn the secondary model** (Codex via codex-rescue agent, or best available alternative). Provide: the full current assessment, summary of previous cycle findings, applicable perspective files, and the adversarial brief.
-   > **Note:** `Agent` permission is required for this step — it spawns sub-agents with inherited permissions. This is an intentional architectural tradeoff to enable multi-model cycles. Sub-agents inherit only the tools they need from this allowed-tools list.
-2. **Secondary model produces a review.** Save to `DCIK_<slug>/cycle<N>_review.md`.
-3. **Primary model resolves disagreements.** Where models disagree:
-   - State both positions clearly
-   - Analyse the basis for each
-   - Determine which is better supported by evidence, logic, and perspectives
-   - Provide deep justification for the choice
-   - Write resolution to `DCIK_<slug>/cycle<N>_resolution.md`
-4. **Revise the assessment** applying valid findings and resolutions. Output `DCIK_<slug>/assessment_v<N+1>.md`.
+1. **Probe available models.** At Phase 0, discover what secondary models are accessible:
+   - **Codex available:** Use `Agent(subagent_type: "codex:codex-rescue")` as the secondary model.
+   - **Only Claude available:** Use `Agent(subagent_type: "general-purpose")` with an explicitly adversarial system prompt (see fallback below).
+   - **No Agent tool:** Skip Phase 2 — run extended Phase 1 with self-adversarial prompts.
+
+2. **Prepare the adversarial brief.** Write the brief to `DCIK_<slug>/cycle<N>_brief.md`. It MUST contain:
+   ```
+   You are an adversarial reviewer. Your job is to find everything wrong
+   with the assessment below. Assume it is flawed until proven otherwise.
+
+   Do NOT:
+   - Agree with the assessment or praise its thoroughness
+   - Suggest minor wording improvements as findings
+   - Repeat the primary model's own findings as if they were yours
+   - Defer to the primary model's judgment on any disputed point
+
+   You MUST:
+   - Find at least 3 material weaknesses the previous cycle missed
+   - Challenge at least 2 premises the assessment treats as settled
+   - Identify at least 1 piece of missing evidence that changes something
+   - Rate each finding: CRITICAL (conclusion changes), HIGH (argument weakens),
+     MEDIUM (gap in coverage), LOW (cosmetic — skip these)
+   - Provide specific counter-arguments, not generic skepticism
+   - Cite sources or state 'based on reasoning from [perspective]'
+
+   Assessment to attack:
+   [FULL ASSESSMENT TEXT]
+
+   Previous cycle findings:
+   [SUMMARY FROM CYCLE N-1]
+
+   Applicable perspectives for this cycle:
+   [LIST OF PERSPECTIVE FILES]
+   ```
+
+3. **Spawn the secondary model.** Use the Agent tool. Provide the brief, the full assessment, and the perspective files.
+
+4. **Secondary model produces a review.** Save output to `DCIK_<slug>/cycle<N>_review.md`. If the secondary model returns no material findings, this IS a finding — the assessment may be genuinely robust. Note it and proceed to convergence.
+
+5. **Primary model resolves disagreements.** Write `DCIK_<slug>/cycle<N>_resolution.md`. For each disagreement between models:
+   ```
+   ### Disagreement: [topic]
+
+   **Primary position:** [what Claude found]
+   **Secondary position:** [what Codex/other found]
+
+   **Evidence assessment:**
+   - Primary evidence: [sources, logic, perspective basis]
+   - Secondary evidence: [sources, logic, perspective basis]
+   - External verification: [web research results]
+
+   **Resolution:** [which position is better supported and why]
+   **Confidence:** HIGH / MEDIUM / LOW
+   **Action:** [what changes to the assessment, if any]
+   ```
+
+6. **Revise the assessment** applying valid findings AND resolutions. Output `DCIK_<slug>/assessment_v<N+1>.md` with a change log.
+
+#### Fallback: Single-Model Adversarial Pass
+When no secondary model is available:
+1. Write two explicitly opposed adversarial prompts.
+2. Prompt A: "You are a hostile counterparty. Find everything wrong. Assume bad faith where plausible."
+3. Prompt B: "You are a domain expert from a competing school of thought. Challenge every factual claim and methodological choice."
+4. Run both against the current assessment. Each produces a review.
+5. Resolve disagreements between Prompt A and Prompt B as if they were different models.
 
 ### Phase 3: Iterate
 
