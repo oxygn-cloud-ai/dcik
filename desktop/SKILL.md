@@ -67,9 +67,9 @@ DCIK uses a risk-adaptive depth system — not fixed percentages of the perspect
 | **min** | 5 core: P13, P15 + 3 most topic-relevant | No escalation. Single-pass adversarial check. | 1 |
 | **med** | 5 core + P08 + 2 more domain-matched | Escalate to 10 if material issues found. Second pass on weaknesses. | 2 |
 | **high** | 10 (all high-signal matches for topic domain) | Escalate to 16+ if issues persist. Broad coverage. | 3+ |
-| **max** | Full library (24+). Plus P16 meta-audit. | Full escalation until convergence. Exhaustive coverage. | Until convergence |
+| **max** | Full library — ALL perspectives. Plus P16 meta-audit. | Exhaustive coverage. Runs until convergence. Use for assessments where being wrong is expensive. | Until convergence |
 
-**Why this beats fixed percentages:** A trivial topic doesn't need 80% of 24 perspectives. A critical topic with emerging issues needs more, not a fixed cap. Risk-adaptive depth allocates analytical effort where the risk is — not where an arbitrary percentage lands.
+**Why this beats fixed percentages:** A trivial topic doesn't need every perspective. A critical topic with emerging issues gets all of them. Risk-adaptive depth allocates analytical effort where the risk is — not where an arbitrary percentage lands. Max means max: every lens in the library, no exceptions.
 
 When a cycle finds material issues, the next cycle adds perspectives to test the fix from more angles. When cycles find only minor issues, the process converges naturally.
 
