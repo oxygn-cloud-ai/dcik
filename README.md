@@ -4,21 +4,11 @@
 
 # DCIK — Dorsolateral Cognitive Inference Kinetics
 
-**Deep Check.** Multi-model adversarial analysis producing assessments that exceed the quality of any single-AI-prompted output — through structured iterative opposition and a growing library of analytical perspectives.
+**Deep Check.** Multi-model adversarial analysis. 177 analytical perspectives, autonomous 3+ cycle process, self-improving library. Exceeds what any single AI prompt can produce.
 
 ```
 Claude ──► Attack ──► Improve ──► Other Model ──► Attack ──► Resolve ──► Repeat
 ```
-
-## Why We Built This
-
-A single AI prompt produces a single answer. That answer reflects one model's training distribution, one pass through the context window, one set of unexamined assumptions. It has never been challenged. It has never been forced to defend itself.
-
-A human expert facing a consequential decision does not write one draft and call it done. They seek dissent. They ask colleagues to find the flaws. They sit with the counterarguments. They iterate.
-
-DCIK automates that dissent. It forces assessments through adversarial cycles — model against model, perspective against perspective — until every weakness has been found, every assumption challenged, and every claim verified against current sources. The output is not what any single model would produce on its own. It is what emerges when models are forced to attack each other's work and the best arguments survive.
-
-We built it because the cost of being wrong — on an investment, a contract, a strategy — exceeds the cost of being thorough. And because no one should have to choose between speed and depth.
 
 ## Prerequisites
 
@@ -30,9 +20,9 @@ DCIK runs inside Claude Code. You need one of:
 | **Claude Desktop** | macOS/Windows app with Skills support. |
 | **claude.ai** | Web interface with Skills support (Organisation or Personal). |
 
-**No API keys. No package managers. No dependencies.** DCIK is a single SKILL.md file plus 177 perspective files. It uses whatever models are available in your Claude environment.
+**What you need:** A Claude subscription with model access (Claude Code, Claude Desktop, or claude.ai). DCIK uses the models already available in your Claude environment — Sonnet, Opus, or any other model you have access to. No additional API keys or paid services required.
 
-For the auto-improvement system (optional): `gh` CLI authenticated with `gh auth login`. New perspectives are saved locally either way.
+**What you don't need:** npm, Node.js, Python, Docker, or any package manager. DCIK is plain Markdown files. The auto-improvement system optionally uses `gh` CLI for GitHub issue logging — everything works without it.
 
 ## Quick Start
 
@@ -234,6 +224,16 @@ The founder raised anyway — but with a cleaner term sheet and a clear understa
 ## Disclaimer
 
 DCIK output is AI-generated. It may contain errors, omissions, or outdated information. It does not constitute professional advice — legal, financial, medical, or otherwise. Users bear sole responsibility for decisions based on DCIK output. The DLPFC reference in the name is metaphorical — DCIK is an analytical framework, not a scientific instrument.
+
+## Why We Built This
+
+A single AI prompt produces a single answer. That answer reflects one model's training distribution, one pass through the context window, one set of unexamined assumptions. It has never been challenged. It has never been forced to defend itself.
+
+A human expert facing a consequential decision does not write one draft and call it done. They seek dissent. They ask colleagues to find the flaws. They sit with the counterarguments. They iterate.
+
+DCIK automates that dissent. The thesis is not that AI is better than humans — it is that structured adversarial iteration produces better results than single-pass analysis, regardless of who or what performs the analysis.
+
+We built it because the cost of being wrong — on an investment, a contract, a strategy — exceeds the cost of being thorough. And because no one should have to choose between speed and depth.
 
 ## Repository
 
