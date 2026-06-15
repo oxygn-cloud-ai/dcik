@@ -49,10 +49,10 @@ DCIK uses a risk-adaptive depth system — not fixed percentages of the perspect
 
 | Level | Starting Perspectives | Escalation Behaviour | Cycles |
 |---|---|---|---|
-| **min** | 5 core: P13, P15 + 3 most topic-relevant | No escalation. Single-pass adversarial check. | 1 |
-| **med** | 5 core + P08 + 2 more domain-matched | Escalate to 10 if material issues found. Second pass on weaknesses. | 2 |
+| **min** | 5 core: P0013, P0015 + 3 most topic-relevant | No escalation. Single-pass adversarial check. | 1 |
+| **med** | 5 core + P0008 + 2 more domain-matched | Escalate to 10 if material issues found. Second pass on weaknesses. | 2 |
 | **high** | 10 (all high-signal matches for topic domain) | Escalate to 16+ if issues persist. Broad coverage. | 3+ |
-| **max** | Full library — ALL perspectives. Plus P16 meta-audit. | Exhaustive coverage. Runs until convergence. Use for assessments where being wrong is expensive. | Until convergence |
+| **max** | Full library — ALL perspectives. Plus P0016 meta-audit. | Exhaustive coverage. Runs until convergence. Use for assessments where being wrong is expensive. | Until convergence |
 
 **Why this beats fixed percentages:** A trivial topic doesn't need every perspective. A critical topic with emerging issues gets all of them. Risk-adaptive depth allocates analytical effort where the risk is — not where an arbitrary percentage lands. Max means max: every lens in the library, no exceptions.
 
@@ -94,26 +94,26 @@ When DCIK encounters an error, limitation, or opportunity for improvement in its
 DCIK/
   SKILL.md                          ← this file
   perspectives/
-    P01-legal-regulatory.md
-    P02-financial-economic.md
-    P03-technical-engineering.md
-    P04-competitive-market.md
-    P05-ethical-societal.md
-    P06-historical-precedent.md
-    P07-stakeholder-beneficiary.md
-    P08-counterparty-adversary.md
-    P09-jurisdictional-geographic.md
-    P10-temporal-future-proofing.md
-    P11-systems-second-order.md
-    P12-information-asymmetry.md
-    P13-challenge-the-premise.md        ← Mandatory every cycle
-    P14-operational-execution.md
-    P15-psychological-cognitive-bias.md ← Mandatory every cycle
-    P50-short-termism.md              ← Temporal discounting & long-term value
+    P0001-legal-regulatory.md
+    P0002-financial-economic.md
+    P0003-technical-engineering.md
+    P0004-competitive-market.md
+    P0005-ethical-societal.md
+    P0006-historical-precedent.md
+    P0007-stakeholder-beneficiary.md
+    P0008-counterparty-adversary.md
+    P0009-jurisdictional-geographic.md
+    P0010-temporal-future-proofing.md
+    P0011-systems-second-order.md
+    P0012-information-asymmetry.md
+    P0013-challenge-the-premise.md        ← Mandatory every cycle
+    P0014-operational-execution.md
+    P0015-psychological-cognitive-bias.md ← Mandatory every cycle
+    P0050-short-termism.md              ← Temporal discounting & long-term value
     ...                               ← Library grows with use
 ```
 
-Each perspective is a discrete, cacheable context unit. Load only those relevant to the topic — typically 4-7 per cycle plus mandatory P13/P15. P16 runs at the start and end of every DCIK run.
+Each perspective is a discrete, cacheable context unit. Load only those relevant to the topic — typically 4-7 per cycle plus mandatory P0013/P0015. P0016 runs at the start and end of every DCIK run.
 
 At the start of each run, also check for a project-local `perspectives/` directory (merged with global library per user preference).
 
@@ -124,7 +124,7 @@ At the start of each run, also check for a project-local `perspectives/` directo
 1. **Identify the assessment target.** File, topic, or analysis to subject to DCIK.
 2. **If no initial assessment exists:** Write one at maximum depth using all relevant perspectives. Research beyond cutoff. This is the Cycle 0 baseline.
 3. **Create run directory:** `DCIK_<slug>/` in the current working directory. Save every cycle result as a discrete file for crash recovery.
-4. **Select perspectives:** Announce active perspectives for Cycle 1. P13, P15 mandatory. P16 runs now (library coverage audit).
+4. **Select perspectives:** Announce active perspectives for Cycle 1. P0013, P0015 mandatory. P0016 runs now (library coverage audit).
 5. **Model discovery:** Write `DCIK_<slug>/models.txt`:
    ```
    Primary: [current model name]
@@ -227,12 +227,12 @@ Minimum 3 complete cycles. After Cycle 3:
    - Never list "bugs found" or "issues fixed." Never use before/after tables. Never claim DCIK "validated" or "approved" anything. The tone: the original was competent but incomplete — DCIK made it harder to be wrong.
 2. **Full assessment:** `DCIK_<slug>/FINAL_ASSESSMENT.md` — the complete revised assessment incorporating all cycle findings.
 3. **Process documentation:** `DCIK_<slug>/PROCESS_SUMMARY.md` — cycles run, perspectives applied, key findings, resolved disagreements, research sources, confidence levels, remaining uncertainties.
-4. **P16 end-of-run audit:** Identify at least one candidate improvement to the perspective library. Write new perspectives. Log GitHub issues with user consent.
+4. **P0016 end-of-run audit:** Identify at least one candidate improvement to the perspective library. Write new perspectives. Log GitHub issues with user consent.
 5. **Report to user:** Display the WHAT_CHANGED.md summary, the FINAL_ASSESSMENT.md path, and any new perspectives discovered.
 
-## P13 Structured Protocol
+## P0013 Structured Protocol
 
-P13 (Challenge the Premise) is mandatory every cycle. Apply this structured protocol:
+P0013 (Challenge the Premise) is mandatory every cycle. Apply this structured protocol:
 
 1. **Extract every premise.** List every stated and unstated premise the assessment depends on.
 2. **Invert each premise.** For each: what if the opposite is true? What if it's not true in the way assumed?
@@ -255,7 +255,7 @@ Per cycle, minimum:
 
 ## Perspective Priority
 
-When perspectives conflict (e.g., P08 Counterparty says push harder, P05 Ethical says this is unfair):
+When perspectives conflict (e.g., P0008 Counterparty says push harder, P0005 Ethical says this is unfair):
 - **Principal's interests come first**, unless expressly instructed otherwise
 - Legal and commercial viability are constraints, not goals
 - Fairness is not an independent priority unless the user says it is

@@ -34,7 +34,7 @@ Architectural choices that flow from the philosophy:
 │  README.md         ← User entry point                               │
 │  PHILOSOPHY.md     ← Vision, principles, non-negotiables            │
 │  ARCHITECTURE.md   ← This file                                      │
-│  perspectives/     ← 177 analytical lenses (P01-P177)                  │
+│  perspectives/     ← 177 analytical lenses (P0001-P0177)                  │
 │  desktop/          ← Claude Desktop / claude.ai mirror              │
 │    SKILL.md        ←   Copy of orchestrator                         │
 │    manifest.json   ←   Org skill manifest                           │
@@ -75,33 +75,33 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── logo.png                          Oxygn logo (1024px transparent)
 ├── logo.svg                          Oxygn logo (circle-safe white vector)
 ├── social-preview.png                GitHub social card image (512px)
-├── perspectives/                     Analytical library (177 lenses, P01-P177)
-│   ├── P01-legal-regulatory.md
-│   ├── P02-financial-economic.md
-│   ├── P03-technical-engineering.md
-│   ├── P04-competitive-market.md
-│   ├── P05-ethical-societal.md
-│   ├── P06-historical-precedent.md
-│   ├── P07-stakeholder-beneficiary.md
-│   ├── P08-counterparty-adversary.md
-│   ├── P09-jurisdictional-geographic.md
-│   ├── P10-temporal-future-proofing.md
-│   ├── P11-systems-second-order.md
-│   ├── P12-information-asymmetry.md
-│   ├── P13-challenge-the-premise.md          (mandatory every cycle)
-│   ├── P14-operational-execution.md
-│   ├── P15-psychological-cognitive-bias.md   (mandatory every cycle)
-│   ├── P16-meta-perspective.md               (runs at start and end)
-│   ├── P17-inversion.md
-│   ├── P18-incentive-analysis.md
-│   ├── P19-base-rate-awareness.md
-│   ├── P20-margin-of-safety.md
-│   ├── P21-lollapalooza-convergence.md
-│   ├── P22-agency-analysis.md
-│   ├── P23-survivorship-detection.md
-│   ├── P24-circle-of-competence.md
-│   ├── ...                               (P25-P177 — 153 more perspectives)
-│   └── P177-complexity-bias.md
+├── perspectives/                     Analytical library (177 lenses, P0001-P0177)
+│   ├── P0001-legal-regulatory.md
+│   ├── P0002-financial-economic.md
+│   ├── P0003-technical-engineering.md
+│   ├── P0004-competitive-market.md
+│   ├── P0005-ethical-societal.md
+│   ├── P0006-historical-precedent.md
+│   ├── P0007-stakeholder-beneficiary.md
+│   ├── P0008-counterparty-adversary.md
+│   ├── P0009-jurisdictional-geographic.md
+│   ├── P0010-temporal-future-proofing.md
+│   ├── P0011-systems-second-order.md
+│   ├── P0012-information-asymmetry.md
+│   ├── P0013-challenge-the-premise.md          (mandatory every cycle)
+│   ├── P0014-operational-execution.md
+│   ├── P0015-psychological-cognitive-bias.md   (mandatory every cycle)
+│   ├── P0016-meta-perspective.md               (runs at start and end)
+│   ├── P0017-inversion.md
+│   ├── P0018-incentive-analysis.md
+│   ├── P0019-base-rate-awareness.md
+│   ├── P0020-margin-of-safety.md
+│   ├── P0021-lollapalooza-convergence.md
+│   ├── P0022-agency-analysis.md
+│   ├── P0023-survivorship-detection.md
+│   ├── P0024-circle-of-competence.md
+│   ├── ...                               (P0025-P0177 — 153 more perspectives)
+│   └── P0177-complexity-bias.md
 └── desktop/
     ├── SKILL.md                      Copy of orchestrator for org skill
     ├── manifest.json                 Org skill manifest (name, files, config)
@@ -142,8 +142,8 @@ Files are kept under 2KB to minimise context consumption when loaded. The lens q
 
 DCIK does not load all 177 perspectives at once. Instead:
 
-1. **Cycle 0 (baseline assessment):** Load P13, P15, and 3–5 perspectives most relevant to the topic domain. If the topic is an investment decision, load P02 (Financial), P08 (Counterparty), P12 (Information Asymmetry), P18 (Incentive Analysis), P20 (Margin of Safety).
-2. **Cycle 1+ (adversarial):** Load the same set plus escalation perspectives based on what the previous cycle found. If financial weaknesses were found, add P19 (Base Rates), P23 (Survivorship Detection), P24 (Circle of Competence).
+1. **Cycle 0 (baseline assessment):** Load P0013, P0015, and 3–5 perspectives most relevant to the topic domain. If the topic is an investment decision, load P0002 (Financial), P0008 (Counterparty), P0012 (Information Asymmetry), P0018 (Incentive Analysis), P0020 (Margin of Safety).
+2. **Cycle 1+ (adversarial):** Load the same set plus escalation perspectives based on what the previous cycle found. If financial weaknesses were found, add P0019 (Base Rates), P0023 (Survivorship Detection), P0024 (Circle of Competence).
 3. **Convergence:** When the last two cycles found nothing material, stop.
 
 The orchestrator selects perspectives based on:
@@ -156,14 +156,14 @@ The orchestrator selects perspectives based on:
 
 | Category | IDs | Purpose |
 |---|---|---|
-| **Mandatory** | P13, P15 | Every cycle. Premise challenge and cognitive bias check. |
-| **Meta** | P16 | Start and end of run. Library coverage audit. |
-| **Structural** | P01, P02, P03, P04, P09, P14 | Domain-matched analysis. |
-| **Adversarial** | P07, P08, P12, P22 | Counterparty, stakeholder, and agency analysis. |
-| **Temporal** | P06, P10, P17, P19, P23 | Time, history, base rates, and inversion. |
-| **Risk/Resilience** | P05, P11, P20, P21 | Margin of safety, convergence, systems, ethics. |
-| **Meta-Cognitive** | P13, P15, P16, P24 | Self-awareness, bias, competence boundaries. |
-| **Behavioural** | P18, P22 | Incentive and agency mapping. |
+| **Mandatory** | P0013, P0015 | Every cycle. Premise challenge and cognitive bias check. |
+| **Meta** | P0016 | Start and end of run. Library coverage audit. |
+| **Structural** | P0001, P0002, P0003, P0004, P0009, P0014 | Domain-matched analysis. |
+| **Adversarial** | P0007, P0008, P0012, P0022 | Counterparty, stakeholder, and agency analysis. |
+| **Temporal** | P0006, P0010, P0017, P0019, P0023 | Time, history, base rates, and inversion. |
+| **Risk/Resilience** | P0005, P0011, P0020, P0021 | Margin of safety, convergence, systems, ethics. |
+| **Meta-Cognitive** | P0013, P0015, P0016, P0024 | Self-awareness, bias, competence boundaries. |
+| **Behavioural** | P0018, P0022 | Incentive and agency mapping. |
 
 ---
 
@@ -191,7 +191,7 @@ INIT ──► CYCLE_1 (primary adversarial) ──► REVISE ──► CYCLE_2 
 - Create run directory (`DCIK_<slug>/`)
 - Select initial perspectives
 - Probe available models
-- Run P16 (library coverage audit)
+- Run P0016 (library coverage audit)
 
 **Phase 1 — Primary Adversarial (odd cycles):**
 - Load current assessment
@@ -215,7 +215,7 @@ INIT ──► CYCLE_1 (primary adversarial) ──► REVISE ──► CYCLE_2 
 **Phase 4 — Finalise:**
 - Write final assessment
 - Write process summary
-- Run P16 end-of-run audit
+- Run P0016 end-of-run audit
 - Log new perspectives/improvements as GitHub issues
 
 ### 5.3 Crash Recovery
@@ -340,7 +340,7 @@ When DCIK encounters a limitation in its own process:
 The perspective library is designed to compound:
 - Each new perspective benefits all future assessments
 - Domain-specific perspectives (created in project-local `perspectives/` directories) can be promoted to the global library
-- P16 audits for missing lenses at the start and end of every run
+- P0016 audits for missing lenses at the start and end of every run
 - The library grows monotonically — perspectives are added, never removed (deprecated perspectives are marked as such but retained for historical runs)
 
 ---
