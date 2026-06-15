@@ -99,7 +99,9 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 │   ├── P21-lollapalooza-convergence.md
 │   ├── P22-agency-analysis.md
 │   ├── P23-survivorship-detection.md
-│   └── P24-circle-of-competence.md
+│   ├── P24-circle-of-competence.md
+│   ├── ...                               (P25-P177 — 153 more perspectives)
+│   └── P177-complexity-bias.md
 └── desktop/
     ├── SKILL.md                      Copy of orchestrator for org skill
     ├── manifest.json                 Org skill manifest (name, files, config)
