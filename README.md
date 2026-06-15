@@ -22,7 +22,11 @@ We built it because the cost of being wrong — on an investment, a contract, a 
 
 ## Quick Start
 
-### Installation via npm (Recommended)
+### Installation via SKILL.zip (Recommended)
+
+Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest) and upload it to your Claude Code skills directory, or use the manual method below.
+
+### Installation via npm (Coming Soon)
 
 ```bash
 npx dcik install
@@ -30,7 +34,7 @@ npx dcik install
 
 Installs DCIK at `~/.claude/skills/DCIK/`. Invoke with `/DCIK <topic>`. Always installs from the canonical repository.
 
-### Alternative: Manual Installation
+### Manual Installation (Primary Method)
 
 ```bash
 # Clone the repository
@@ -91,13 +95,13 @@ DCIK uses risk-adaptive depth — it starts with high-signal perspectives and es
 | `min` | 5 core: premise challenge, cognitive bias check, + 3 most topic-relevant | Single pass. Quick adversarial check. |
 | `med` | 5 core + counterparty analysis + 2 domain-matched | Escalates to 10 if material issues found. Two cycles. |
 | `high` | 10+ (all high-signal matches for the topic domain) | Escalates to 16+ if issues persist. Three cycles minimum. |
-| `max` | Full library (24+) + meta-perspective audit | Exhaustive coverage. Runs until convergence. Default for critical work. |
+| `max` | Full library (177+) + meta-perspective audit | Exhaustive coverage. Runs until convergence. Default for critical work. |
 
 Invoke with `/DCIK min|med|high|max <topic>`. If no level specified, defaults to `high`.
 
 ## The Perspective Library
 
-DCIK's analytical power comes from its perspective library — 24 discrete analytical lenses, each a self-contained protocol for examining an assessment from a specific angle. Perspectives are loaded only when relevant to the topic, keeping context usage efficient.
+DCIK's analytical power comes from its perspective library — 177 discrete analytical lenses, each a self-contained protocol for examining an assessment from a specific angle. Perspectives are loaded only when relevant to the topic, keeping context usage efficient.
 
 | ID | Perspective | Domain |
 |---|---|---|

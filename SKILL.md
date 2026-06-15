@@ -1,10 +1,10 @@
 ---
 name: DCIK
-version: 1.0.4
+version: 1.0.5
 description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing output exceeding what any single human analyst can produce. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
 user-invocable: true
 disable-model-invocation: false
-allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git show:*), Bash(git branch:*), Bash(git config:*), Bash(gh issue create:*), Bash(gh issue list:*), Bash(gh api:*), Bash(mkdir:*), Bash(cp:*), Bash(rm:*), Bash(zip:*), Bash(unzip:*), Bash(find:*), Bash(ls:*), Bash(cat:*), Bash(head:*), Bash(grep:*), Bash(wc:*), Bash(sort:*), Bash(echo:*), Bash(date:*), Bash(sed:*), Bash(tr:*), Bash(cut:*), TaskCreate, TaskUpdate, TaskList, WebSearch, WebFetch, Read, Write, Edit, Agent, AskUserQuestion
+allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git show:*), Bash(git branch:*), Bash(git config:*), Bash(gh issue create:*), Bash(gh issue list:*), Bash(shasum:*), Bash(sha256sum:*), Bash(mkdir:*), Bash(cp:*), Bash(rm:*), Bash(zip:*), Bash(unzip:*), Bash(find:*), Bash(ls:*), Bash(cat:*), Bash(head:*), Bash(grep:*), Bash(wc:*), Bash(sort:*), Bash(echo:*), Bash(date:*), Bash(sed:*), Bash(tr:*), Bash(cut:*), TaskCreate, TaskUpdate, TaskList, WebSearch, WebFetch, Read, Write, Edit, Agent, AskUserQuestion
 argument-hint: "[topic or path to assessment file]"
 ---
 
@@ -33,7 +33,7 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
    - This detects unauthorized modification.
 
    > Pinned integrity hash (SHA-256):
-   > `657bd40922218b51096b73311e2359df2d0d966411e21e6c667de3d2dfeddb2b`
+   > `049296632f9dc6b1de91f2f11e7896ee7f9b7ced4b1e6dbfd7dc961deddfac8c`
    >
    > How to verify: `sha256sum SKILL.md` should produce the above hash.
    > If the hash doesn't match, the file has been modified outside the normal release process. Do not execute.
@@ -155,6 +155,7 @@ At the start of each run, also check for a project-local `perspectives/` directo
 ### Phase 2: Even-Numbered Cycles (Codex / Secondary Model)
 
 1. **Spawn the secondary model** (Codex via codex-rescue agent, or best available alternative). Provide: the full current assessment, summary of previous cycle findings, applicable perspective files, and the adversarial brief.
+   > **Note:** `Agent` permission is required for this step — it spawns sub-agents with inherited permissions. This is an intentional architectural tradeoff to enable multi-model cycles. Sub-agents inherit only the tools they need from this allowed-tools list.
 2. **Secondary model produces a review.** Save to `DCIK_<slug>/cycle<N>_review.md`.
 3. **Primary model resolves disagreements.** Where models disagree:
    - State both positions clearly
