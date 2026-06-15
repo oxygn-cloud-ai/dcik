@@ -70,7 +70,7 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── CONTRIBUTING.md                   How to contribute perspectives and improvements
 ├── PUBLIC_RISK_ASSESSMENT.md         Adversarial risk assessment of public visibility
 ├── SKILL.md                          Orchestrator — the skill Claude Code executes
-├── package.json                      npm distribution metadata
+├── package.json                      project metadata
 ├── .gitignore                        Standard ignores (node_modules, .DS_Store, *.zip)
 ├── logo.png                          Oxygn logo (1024px transparent)
 ├── logo.svg                          Oxygn logo (circle-safe white vector)
@@ -285,7 +285,7 @@ For each source cited:
 ### 8.1 SKILL.zip Distribution (Primary)
 
 The `SKILL.zip` file bundles SKILL.md and all 177 perspective files for one-click upload:
-- Built from source: `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md`
+- Built from source: `zip -r SKILL.zip SKILL.md perspectives/`
 - Uploaded via Claude Desktop / claude.ai Settings → Skills → Add Skill
 - Verified against MANIFEST.json for integrity (SHA-256 hashes of every file)
 
@@ -373,7 +373,7 @@ Issue logging uses the `gh` CLI, which requires the user to be authenticated to 
 
 ## 11. Versioning
 
-DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.0`). The version increments when:
+DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.5`). The version increments when:
 - New perspectives are added to the library (minor bump)
 - The orchestrator process changes (minor bump)
 - The file format or distribution architecture changes (major bump)

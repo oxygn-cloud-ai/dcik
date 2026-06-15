@@ -1,6 +1,8 @@
 # Security Check — DCIK Repository
 
 **Date**: 2026-06-15T09:13:00Z
+> **Note:** This audit was conducted on v1.0.1 (June 2026) when DCIK included a Node.js CLI installer and planned npm distribution. As of v1.0.5, the CLI installer has been removed and npm distribution has been dropped. References to npm tokens, lifecycle scripts, package files, and CLI installer are historical. DCIK is now distributed via SKILL.zip (GitHub Releases) and git clone only.
+
 **Tests run**: chk2 adapted for local codebase audit (14 applicable categories, ~80 checks)
 **Target**: /Volumes/TB8/OxygnAI/Repos/DCIK + github.com/oxygn-cloud-ai/dcik
 **Version**: 1.0.1

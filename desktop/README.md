@@ -199,7 +199,7 @@ For enterprise administrators deploying DCIK to all users in an organisation:
 2. In Claude Desktop or claude.ai: **Customise → Skills → Organisation Skills → Upload**
 3. All users in the organisation can invoke `/DCIK`
 
-> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md` and verify its contents match the release checksum.
+> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -r SKILL.zip SKILL.md perspectives/` and verify its contents match the release checksum.
 
 ### Individual (Personal Skills)
 
@@ -209,16 +209,31 @@ For individual Claude Desktop or claude.ai users:
 2. In Claude Desktop or claude.ai: **Settings → Skills → Add Skill → Upload ZIP**
 3. Invoke with `/DCIK <topic>`
 
-> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md` and verify its contents match the release checksum.
+> **Note:** SKILL.zip is built from source. Verify its contents against the repo: `unzip -l SKILL.zip`.
 
-Alternatively, install manually:
+## Case Study — Should We Bootstrap or Raise?
 
-```bash
-git clone https://github.com/oxygn-cloud-ai/dcik.git
-# Copy to your skills directory
-cp -r dcik/SKILL.md ~/.claude/skills/DCIK/
-cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
+A founder is deciding whether to bootstrap their SaaS company or raise venture capital. They've written a 3-page assessment leaning toward raising. They run:
+
 ```
+/DCIK max path/to/raise-vs-bootstrap.md
+```
+
+**What DCIK found that the founder missed:**
+
+- **P18 (Incentive Analysis):** The VC's incentives diverge from the founder's after Series A. The VC needs a billion-dollar exit; the founder wants independence. The assessment assumed alignment.
+- **P17 (Inversion):** Instead of asking "why raise?", DCIK inverted: "what would make bootstrapping impossible?" The answer — customer acquisition cost exceeding revenue — hadn't been modelled.
+- **P06 (Historical Precedent):** Base rates for VC-backed SaaS companies in the founder's vertical showed 70% fail to reach Series B. The assessment used tech-industry-wide numbers, which are inflated by outliers.
+- **P08 (Counterparty):** Term sheet analysis revealed a liquidation preference that would leave the founder with nothing in a moderate exit. The founder had focused on valuation, not structure.
+- **P15 (Cognitive Bias):** Survivorship bias — the founder's peer group was all VC-backed successes. The dead companies weren't visible.
+
+**Process:** 6 adversarial cycles across 24 perspectives. 3 rounds of web research with contradicting sources. The revised assessment was significantly more cautious about raising, included a bootstrapping scenario model, and flagged the liquidation preference as a negotiation point.
+
+The founder raised anyway — but with a cleaner term sheet and a clear understanding of the tradeoffs.
+
+## Disclaimer
+
+DCIK output is AI-generated. It may contain errors, omissions, or outdated information. It does not constitute professional advice — legal, financial, medical, or otherwise. Users bear sole responsibility for decisions based on DCIK output. The DLPFC reference in the name is metaphorical — DCIK is an analytical framework, not a scientific instrument.
 
 ## Repository
 
