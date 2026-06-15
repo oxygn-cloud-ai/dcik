@@ -1,12 +1,11 @@
 # Perspective: Doubt-Avoidance Tendency
 
 **ID:** P111
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Doubt-Avoidance Tendency)
 **Invoke when:** The assessment reaches firm conclusions without acknowledging uncertainty. When ambiguity is resolved by fiat rather than investigation.
 
 ## Lens
-
-Uncertainty is psychologically uncomfortable. The human brain rushes to eliminate doubt — any answer feels better than no answer. This drives premature closure: accepting the first plausible explanation, constructing narratives that feel complete, and treating estimates as facts. The analyst who says "I don't know" is psychologically sophisticated. The analyst who never says it is avoiding doubt.
 
 1. **Closure detection:** Where has the assessment reached a conclusion without sufficient evidence? The answer arrived too quickly, too cleanly, with too few caveats. Doubt-avoidance favours certainty over accuracy.
 2. **Forced resolution:** What questions has the assessment resolved by assumption rather than investigation? "We don't know X, so we'll assume Y." The assumption becomes treated as fact in subsequent analysis.

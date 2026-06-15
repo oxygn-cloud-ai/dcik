@@ -1,12 +1,11 @@
 # Perspective: Inconsistency-Avoidance Tendency
 
 **ID:** P110
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Inconsistency-Avoidance Tendency), Festinger (cognitive dissonance)
 **Invoke when:** The assessment defends prior commitments, resists updating beliefs, or treats consistency as a virtue rather than a potential trap.
 
 ## Lens
-
-Humans have a powerful drive to be — and appear — consistent. Once we commit to a belief, decision, or identity, we filter new information to maintain that commitment. Changing your mind is psychologically expensive. Defending a wrong position feels cheaper than admitting error. This tendency is exploited by anyone who can extract a small commitment and then escalate.
 
 1. **Commitment inventory:** What prior commitments is the assessment defending? Past investments, stated positions, public predictions, strategic decisions. Each is a sunk cost the analysis may be protecting.
 2. **Foot-in-the-door:** Has a small commitment been escalated into a large one? "We've already invested in this approach, so we should..." Initial commitments create consistency pressure for larger follow-on commitments.

@@ -1,12 +1,11 @@
 # Perspective: Liking/Loving Tendency
 
 **ID:** P118
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Cialdini
 **Invoke when:** The assessment evaluates people, teams, or entities the analyst likes, admires, or identifies with.
 
 ## Lens
-
-Humans distort reality to favour what they like. We overlook flaws in people we love, overrate the prospects of founders we admire, and discount negative evidence about entities we're invested in. Liking is not bias — it's architecture. It operates below awareness and resists correction.
 
 1. **Liking location:** Who or what does the analyst like in this assessment? The founder, the company, the strategy, the sector, the technology. Liking inflates favourable judgments.
 2. **Halo effect:** Is one positive trait colouring all judgments? The charismatic founder's strategy is assumed brilliant. The prestigious investor's portfolio company is assumed sound. Halos blind.

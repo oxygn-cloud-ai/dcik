@@ -1,12 +1,11 @@
 # Perspective: Authority-Misinfluence Tendency
 
 **ID:** P113
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Milgram
 **Invoke when:** The assessment cites experts, authorities, or credentials as evidence — rather than evaluating the underlying arguments.
 
 ## Lens
-
-Humans defer to authority — sometimes appropriately (surgeons know more about surgery), sometimes disastrously (following orders to harm). Authority substitutes for independent judgment: "Expert X says Y" becomes "Y is true." The more prestigious the authority, the less scrutiny their claims receive.
 
 1. **Authority citation audit:** Where does the assessment cite authority instead of evidence? "According to McKinsey..." "As Professor X argues..." Authority adds weight but not truth.
 2. **Authority domain check:** Is the cited authority actually an authority in the relevant domain? A Nobel economist may be useless on organisational psychology. Authority is domain-specific.

@@ -1,6 +1,7 @@
 # Perspective: Moat Durability
 
 **ID:** P132
+**Domain:** competitive strategy, business analysis
 **Source:** Munger, Morningstar
 **Invoke when:** Assessing how long competitive advantages will last.
 
@@ -8,7 +9,11 @@
 
 A moat's value is not its current width but its durability. A wide moat that lasts 3 years is worth less than a narrow moat that lasts 30. Durability is the most under-analysed dimension of competitive advantage.
 
-1. Erosion rate estimation. 2. Erosion drivers. 3. Half-life calculation. 4. Moat trend direction. 5. Durability premium.
+1. **Erosion Rate:** How fast is the moat eroding?
+2. **Erosion Drivers:** What forces are eroding the moat?
+3. **Half-Life Calculation:** What is the moat's estimated half-life?
+4. **Moat Trend Direction:** Is the moat widening, narrowing, or stable?
+5. **Durability Premium:** How much extra value does durability command?
 
 ## Default adversarial stance
 

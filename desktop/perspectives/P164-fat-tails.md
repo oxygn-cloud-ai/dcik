@@ -1,6 +1,7 @@
 # Perspective: Fat Tails
 
 **ID:** P164
+**Domain:** Systems theory, complexity science
 **Source:** Taleb, Munger, Mandelbrot
 **Invoke when:** The assessment uses normal distributions or assumes extreme events are rare.
 
@@ -8,7 +9,11 @@
 
 In fat-tailed domains, extreme events are not rare — they're expected. Financial markets, wars, technological disruptions, pandemics — these follow power laws, not normal distributions. The normal distribution says a 10-sigma event happens once in the history of the universe. In financial markets, they happen every few years. The model is wrong; the world is fat-tailed.
 
-1. Distribution type: normal or fat-tailed? 2. Sigma estimation: how many sigmas is the worst case? 3. Historical extremes: what are the actual extreme events in this domain? 4. Tail risk pricing: are extreme events priced or ignored? 5. Fragility to tails: how does the subject perform under extreme events?
+1. **Distribution type:** Normal or fat-tailed?
+2. **Sigma estimation:** How many sigmas is the worst case?
+3. **Historical extremes:** What are the actual extreme events in this domain?
+4. **Tail risk pricing:** Are extreme events priced or ignored?
+5. **Fragility to tails:** How does the subject perform under extreme events?
 
 ## Default adversarial stance
 

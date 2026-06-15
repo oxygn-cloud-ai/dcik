@@ -1,0 +1,26 @@
+name: Content Validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'perspectives/**'
+      - 'SKILL.md'
+      - 'desktop/SKILL.md'
+  push:
+    branches: [main]
+    paths:
+      - 'perspectives/**'
+      - 'SKILL.md'
+      - 'desktop/SKILL.md'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate perspective files
+        run: bash .github/scripts/validate-perspectives.sh

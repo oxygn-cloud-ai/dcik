@@ -1,12 +1,11 @@
 # Perspective: Overoptimism Tendency
 
 **ID:** P107
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Overoptimism Tendency)
 **Invoke when:** The assessment makes projections, forecasts, or claims about future outcomes. Almost always.
 
 ## Lens
-
-Humans systematically overestimate the probability of positive outcomes and underestimate the probability of negative ones. This is not a personality flaw — it is a cognitive architecture. Plans assume best-case or base-case; reality delivers something worse.
 
 1. **Optimism location:** Where are projections rosier than base rates would suggest? Timelines, costs, revenues, adoption rates, competitive responses.
 2. **Optimism magnitude:** By what percentage are projections likely too optimistic? Studies consistently show 20-50% overoptimism in cost and timeline estimates.

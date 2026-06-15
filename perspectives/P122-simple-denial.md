@@ -1,14 +1,17 @@
 # Perspective: Simple Pain-Avoiding Psychological Denial
 
 **ID:** P122
+**Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger
 **Invoke when:** The assessment confronts uncomfortable truths — and may be avoiding them.
 
 ## Lens
 
-Reality too painful to accept is denied. The founder who can't face that their business is failing. The investor who can't admit a position is worthless. The analyst who can't acknowledge that their preferred conclusion is wrong. Denial is not conscious — the denier genuinely doesn't see what they're avoiding.
-
-1. Pain points: where would the truth hurt? 2. Avoidance patterns: topics glossed over, questions not asked, evidence not sought. 3. What would be devastating to learn? 4. Forced confrontation.
+1. **Pain points:** Where would the truth hurt most? Reality too painful to accept is denied. Identify the conclusions the assessment seems most motivated to avoid.
+2. **Avoidance patterns:** What topics are glossed over, questions not asked, evidence not sought? Denial is not conscious — the denier genuinely doesn't see what they're avoiding.
+3. **Devastating truth:** What would be devastating for the assessment's author or sponsor to learn? The founder who can't face that their business is failing. The investor who can't admit a position is worthless.
+4. **Forced confrontation:** What happens when the denied reality is forced into view? Confrontation produces either acceptance (the pain is processed) or intensified denial (more elaborate rationalisation).
+5. **Motivated scepticism vs. credulity:** Where is the assessment sceptical about evidence it doesn't want to believe, and credulous about evidence it does? The asymmetry reveals denial.
 
 ## Default adversarial stance
 
