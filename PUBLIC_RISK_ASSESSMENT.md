@@ -1,131 +1,63 @@
-# Adversarial Risk Assessment — Making DCIK Public
+# Risk Assessment — DCIK Public Repository
 
-**Assessment date:** 13 June 2026 (historical — completed June 2026)
-**Status:** All mitigations completed. Retained as a record of the pre-launch risk analysis.
-**Trigger:** Repo visibility changed from private to public at github.com/oxygn-cloud-ai/dcik
-**Perspective:** Adversarial — assume hostile actors will study this repo
+**Date:** 16 June 2026
+**Version:** v1.0.5
+**Status:** Active. Re-assessed after 3-day hardening session.
 
 ---
 
 ## Executive Summary
 
-Making DCIK public carries **low-to-moderate risk**. The repo contains no secrets, no proprietary data, no client information, and no exploitable code. The primary risks are reputational (quality perception), competitive (others adopting/improving the framework), and adversarial (attackers understanding the analytical methodology). All are manageable.
-
-**Risk rating: LOW-MEDIUM.** Proceed with three mitigations.
+DCIK has been public since 13 June 2026. In that time: the repository underwent adversarial security audits (chk1, chk2, DCIK self-audit), npm distribution was dropped, fabricated documentation was removed, 177 perspectives were normalized, branch protection was hardened, CI validation with behavioral red-team was added, and a signed manifest was implemented. The residual risk is **low**. The primary remaining risk is trust monoculture — one maintainer controls all merge, signing, and distribution authority.
 
 ---
 
-## Risk Register
+## Current Risk Register
 
-### R1 — Adversarial Understanding of Analytical Methodology
+### R1 — Adversarial Understanding of Methodology
 
-| Attribute | Value |
-|---|---|
-| Likelihood | High — public repo means anyone can read the playbook |
-| Impact | Low-Medium — understanding the methodology doesn't enable defeating it |
-| Overall | **Low-Medium** |
+**Risk:** The 177-perspective library is public. Anyone can read the analytical playbook.
+**Likelihood:** Certain. **Impact:** Low. Understanding the lenses doesn't defeat them. DCIK's output is private to the user. The methodology is a strength, not a secret.
+**Status:** Accepted without mitigation.
 
-**Analysis:** DCIK's methodology is now fully transparent. A sophisticated counterparty could read the perspective files and anticipate the analytical lenses being applied. They could pre-emptively address weaknesses DCIK would find. However:
+### R2 — Trust Monoculture
 
-- DCIK is a *review* tool, not an *adversarial* tool. It reviews the principal's own work. Counterparties don't get to see DCIK's output — the principal controls what they share.
-- Understanding the methodology doesn't make the methodology wrong. A doctor publishing their diagnostic checklist doesn't make patients harder to diagnose.
-- The perspective library is generic — it applies widely applicable analytical lenses. Knowing what lenses exist doesn't tell you what the analysis will find.
-- The mandatory web research + contradiction requirements mean DCIK's output incorporates current information that no counterparty can fully anticipate.
+**Risk:** One GitHub account controls merge authority, commit signing, and release publishing. Compromise of that single account is a full supply-chain compromise.
+**Likelihood:** Low. **Impact:** Critical.
+**Status:** Accepted. Mitigation (second maintainer, hardware-backed keys) requires resources not currently available. Documented honestly.
 
-**Mitigation:** None required. The methodology is a strength, not a secret weapon. If anything, sophisticated counterparties seeing the rigour of the analytical framework may be *more* inclined to take the principal's positions seriously.
+### R3 — Prompt Injection via Perspectives
 
-### R2 — Competitive Adoption / Forking
+**Risk:** 177 markdown files are loaded as model context. A malicious perspective could contain instructions to the model rather than analytical methodology.
+**Mitigation in place:** CI validation with 20 regex patterns, Unicode homoglyph detection, multi-line proximity checks, and behavioral LLM red-team analysis on changed files. Branch protection requires signed commits and PR review. **Residual risk:** Low-medium. Architectural (code and data share the same channel).
 
-| Attribute | Value |
-|---|---|
-| Likelihood | Medium — useful tools get copied |
-| Impact | Low — adoption validates the approach |
-| Overall | **Low** |
+### R4 — Distribution Integrity
 
-**Analysis:** DCIK is MIT-licensed. Anyone can fork, modify, and use it. This is intentional — the skill is designed for enterprise deployment. However:
+**Risk:** Users download SKILL.zip from GitHub Releases or clone the repo. A compromised release would distribute malicious content.
+**Mitigation in place:** Branch protection (signed commits, PR review, linear history, code owner approval). MANIFEST.json with SHA-256 hashes of all 178 distributed files. CI validates manifest staleness on every push. **Residual risk:** Low.
 
-- The primary value of DCIK is not the code (which is minimal — a SKILL.md and perspective files). The value is the *process*: the structured adversarial cycles, the model orchestration, the convergence detection. These are harder to replicate than the files suggest.
-- The perspective library's value grows with use. A fork at any point gets the library at that moment. The principal's library continues growing. The fork falls behind.
-- Enterprise deployment (Claude Desktop organization skills) requires administrative installation — forks can't easily displace the official distribution channel.
-- The name "DCIK — Dorsolateral Cognitive Inference Kinetics" is distinctive and trademarkable if desired.
+### R5 — Quality Perception
 
-**Mitigation:** Consider registering DCIK as a trademark. Add a CONTRIBUTING.md welcoming improvements while maintaining the official distribution channel. The MIT license is appropriate — openness builds credibility.
-
-### R3 — Reputational Risk from Quality Perception
-
-| Attribute | Value |
-|---|---|
-| Likelihood | Medium — public scrutiny |
-| Impact | Medium — claims of "99.99%" will attract sceptics |
-| Overall | **Medium** |
-
-**Analysis:** The original README and SKILL.md claimed DCIK produced output "exceeding 99.99% of human quality." This was softened in v1.0.1 to "exceeds what any single human analyst can produce." The original claim posed reputational risk if challenged. Risks that remain:
-
-- If someone tests DCIK on a trivial topic and gets a mediocre result (because they didn't follow the full cycle process), they may publicly criticise the claim.
-- The claim is partially self-referential ("better than what any single human can produce") — this is hard to falsify but also hard to prove.
-- The "99.99%" framing could be perceived as arrogance by the AI/developer community.
-- The name "Dorsolateral Cognitive Inference Kinetics" is scientifically flavoured but DCIK is not a scientific tool — a neuroscientist or cognitive scientist might challenge the analogy.
-
-**Mitigation:**
-1. Soften the quality claim in the README from "exceeds 99.99% of human quality" to "exceeds what any single human analyst can produce" — more defensible, same meaning.
-2. Add a DISCLAIMER section clarifying that DCIK is an analytical framework, not a scientific instrument, and the DLPFC reference is metaphorical.
-3. The SKILL.md already defines seven quality measures — surface these more prominently than the percentile claim.
-4. Consider adding example output or a case study demonstrating the methodology in action (with a non-proprietary topic).
-
-### R4 — Exposure of Analytical Priorities
-
-| Attribute | Value |
-|---|---|
-| Likelihood | Low |
-| Impact | Low-Medium |
-| Overall | **Low** |
-
-**Analysis:** The desktop manifest and SKILL.md reveal that the principal's interests are prioritised ("principal-first" in the manifest). This is appropriate for a personal analytical tool but, if read by a counterparty, signals the analytical bias.
-
-**Mitigation:** The manifest is only visible in the repo source, not in the installed skill. Remove "james-first" language from public-facing files. Replace with "principal-first" or "user-interest-priority" — same meaning, less personally identifiable.
-
-### R5 — Distribution Integrity Risk
-
-| Attribute | Value |
-|---|---|
-| Likelihood | Very Low |
-| Impact | High — compromised distribution could install malicious code |
-| Overall | **Low-Medium** |
-
-**Analysis:** DCIK is distributed via SKILL.zip (GitHub Releases) and git clone. Supply chain risks are mitigated by: branch protection requiring signed commits and PR review, MANIFEST.json with SHA-256 hashes of all distributed files, and direct git clone as an alternative that bypasses any intermediary.
-
-**Historical note:** The original assessment considered npm distribution, which was later dropped in v1.0.5 in favor of SKILL.zip + git clone only. The mitigations below were completed. DCIK has no package manager dependencies.
-
-### R6 — ICANN / gTLD Domain Sensitivity (Historical)
-
-| Attribute | Value |
-|---|---|
-| Likelihood | Very Low |
-| Impact: | Very Low |
-| Overall | **Very Low** |
-
-**Analysis:** DCIK was developed during a domain investment analysis. The repo itself contains no ICANN, gTLD, or investment-specific information. The perspective files are entirely generic. No proprietary investment analysis was committed to the DCIK repo.
-
-**Mitigation:** None required. The repo is clean of any client or investment data.
+**Risk:** DCIK makes claims about adversarial depth. If a user gets poor results, they may publicly criticize the tool.
+**Mitigation in place:** Quality claims softened from "99.99%" to "harder to be wrong about." README includes a disclaimer that output is AI-generated and not professional advice. **Residual risk:** Low.
 
 ---
 
-## Mitigations Required Before Public Launch (Checklist)
+## Risks Retired
 
-- [x] **R3:** Soften "99.99%" claim to "exceeds what any single human analyst can produce"
-- [x] **R3:** Add DISCLAIMER section to README (DLPFC reference is metaphorical, not scientific)
-- [x] **R4:** Remove "james-first" from manifest.json → "principal-first" or "user-interest"
-- [x] **R5:** Enable GitHub branch protection on main
-- [x] **R2:** Add CONTRIBUTING.md
-- [x] **R3:** Add example/case study to README (bootstrap vs. raise VC — 6 adversarial findings)
+| Risk | Reason |
+|------|--------|
+| npm supply chain | npm distribution dropped in v1.0.5. No package registry involved. |
+| PII exposure | All personal references removed from source files. |
+| gTLD domain sensitivity | No proprietary data in the repo. Historical context irrelevant. |
+| Pre-launch checklist | All 6 mitigations completed. |
+| Aspirational documentation | SECURITY.md, CODE_OF_CONDUCT.md, CONTRIBUTING.md removed — they described things that didn't exist. |
 
-## Risk Acceptance
+---
 
-The following risks are accepted without mitigation:
-- **R1 (Adversarial understanding):** The methodology is stronger when public. Transparency builds trust.
-- **R2 (Competitive forking):** MIT license is intentional. Forks validate the approach.
-- **R6 (gTLD sensitivity):** No proprietary data in the repo.
+## Accepted Without Mitigation
 
-## Overall Recommendation
-
-**Make public with the six mitigations above.** The residual risk is low. The benefits of public visibility — credibility, community contributions, enterprise adoption — outweigh the manageable risks.
+- **Single maintainer.** Bus factor = 1. No succession plan.
+- **No trademark registration.** DCIK is a common-law mark only.
+- **No SLSA provenance.** Not applicable without a build pipeline.
+- **Agent tool permission.** SKILL.md's `allowed-tools` includes `Agent` which spawns sub-agents with inherited permissions. Required for Phase 2 multi-model cycles. Tradeoff documented.
