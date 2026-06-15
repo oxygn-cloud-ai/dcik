@@ -1,0 +1,60 @@
+FROM alpine:3.21
+
+RUN apk add --no-cache git bash curl jq zip unzip
+
+WORKDIR /test
+COPY . /test/dcik
+
+RUN echo "=== TEST 1: Git clone install instructions ===" && \
+    mkdir -p ~/.claude/skills/DCIK && \
+    cp /test/dcik/SKILL.md ~/.claude/skills/DCIK/ && \
+    cp -r /test/dcik/perspectives ~/.claude/skills/DCIK/perspectives/ && \
+    echo "PASS" && \
+    echo "" && \
+    echo "=== TEST 2: Perspective file count ===" && \
+    COUNT=$(ls ~/.claude/skills/DCIK/perspectives/*.md | wc -l) && \
+    [ "$COUNT" -eq 177 ] && echo "PASS: $COUNT perspectives" || echo "FAIL: $COUNT (expected 177)" && \
+    echo "" && \
+    echo "=== TEST 3: SKILL.md exists and has required sections ===" && \
+    grep -q 'name: DCIK' ~/.claude/skills/DCIK/SKILL.md && echo "PASS: frontmatter" && \
+    grep -q 'Phase 0' ~/.claude/skills/DCIK/SKILL.md && echo "PASS: Phase 0" && \
+    grep -q 'Phase 2' ~/.claude/skills/DCIK/SKILL.md && echo "PASS: Phase 2" && \
+    grep -q 'WHAT_CHANGED.md' ~/.claude/skills/DCIK/SKILL.md && echo "PASS: WHAT_CHANGED.md" && \
+    grep -q '# Perspective:' ~/.claude/skills/DCIK/perspectives/P01-legal-regulatory.md && echo "PASS: P01" && \
+    echo "" && \
+    echo "=== TEST 4: Duplicate Auto-Improvement check ===" && \
+    DUPES=$(grep -c 'Auto-Improvement System' ~/.claude/skills/DCIK/SKILL.md) && \
+    [ "$DUPES" -eq 1 ] && echo "PASS: No duplicate sections ($DUPES found)" || echo "FAIL: $DUPES Auto-Improvement sections (expected 1)" && \
+    echo "" && \
+    echo "=== TEST 5: MANIFEST.json hash verification ===" && \
+    cd /test/dcik && \
+    for f in $(python3 -c "import json; [print(k) for k in json.load(open('MANIFEST.json'))['files']]" 2>/dev/null || \
+      jq -r '.files | keys[]' MANIFEST.json); do \
+      EXPECTED=$(jq -r ".files[\"$f\"]" MANIFEST.json); \
+      ACTUAL=$(sha256sum "$f" | awk '{print $1}'); \
+      if [ "$EXPECTED" != "$ACTUAL" ]; then echo "FAIL: $f hash mismatch"; FAILS=$((FAILS+1)); fi; \
+    done && \
+    echo "MANIFEST: all hashes verified" && \
+    echo "" && \
+    echo "=== TEST 6: SKILL.zip rebuild + verify ===" && \
+    rm -f SKILL.zip && zip -r SKILL.zip SKILL.md perspectives/ > /dev/null && \
+    ZIP_COUNT=$(unzip -l SKILL.zip | grep '\.md$' | wc -l) && \
+    [ "$ZIP_COUNT" -eq 178 ] && echo "PASS: SKILL.zip has $ZIP_COUNT files" || echo "FAIL: $ZIP_COUNT files (expected 178)" && \
+    echo "" && \
+    echo "=== TEST 7: No npm/node references ===" && \
+    ! grep -rq 'npx dcik\|npm install\|cli/install' SKILL.md README.md CONTRIBUTING.md PHILOSOPHY.md 2>/dev/null && \
+    echo "PASS: No npm references" || echo "FAIL: npm references found" && \
+    echo "" && \
+    echo "=== TEST 8: All desktop files byte-identical ===" && \
+    for f in SKILL.md README.md PHILOSOPHY.md ARCHITECTURE.md SECURITY.md CONTRIBUTING.md; do \
+      if ! diff -q "$f" "desktop/$f" > /dev/null 2>&1; then echo "FAIL: desktop/$f differs"; fi; \
+    done && \
+    echo "PASS: desktop mirror identical" && \
+    echo "" && \
+    echo "=== TEST 9: Version consistency ===" && \
+    VERSIONS=$(for f in package.json SKILL.md desktop/SKILL.md MANIFEST.json .claude-plugin/plugin.json .claude-plugin/marketplace.json desktop/.claude-plugin/plugin.json desktop/.claude-plugin/marketplace.json; do \
+      grep -oE '"version": *"[^"]*"|version: [0-9.]*' "$f" 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+'; done | sort -u) && \
+    COUNT=$(echo "$VERSIONS" | wc -l) && \
+    [ "$COUNT" -eq 1 ] && echo "PASS: All versions = $VERSIONS" || echo "FAIL: Inconsistent versions: $VERSIONS" && \
+    echo "" && \
+    echo "=== ALL TESTS COMPLETE ==="
