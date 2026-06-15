@@ -1,7 +1,7 @@
 ---
 name: DCIK
 version: 1.0.5
-description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing output exceeding what any single human analyst can produce. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
+description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing assessments that are harder to be wrong about. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
 user-invocable: true
 disable-model-invocation: false
 allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git show:*), Bash(git branch:*), Bash(git config:*), Bash(gh issue create:*), Bash(gh issue list:*), Bash(shasum:*), Bash(sha256sum:*), Bash(mkdir:*), Bash(cp:*), Bash(rm:*), Bash(zip:*), Bash(unzip:*), Bash(find:*), Bash(ls:*), Bash(cat:*), Bash(head:*), Bash(grep:*), Bash(wc:*), Bash(sort:*), Bash(echo:*), Bash(date:*), Bash(sed:*), Bash(tr:*), Bash(cut:*), TaskCreate, TaskUpdate, TaskList, WebSearch, WebFetch, Read, Write, Edit, Agent, AskUserQuestion
@@ -33,7 +33,7 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
    - This detects unauthorized modification.
 
    > Pinned integrity hash (SHA-256):
-   > `389704dc053138f2f4504f45ed244de805e3d112806766182a1c1f0b7923ef5a`
+   > `63c91963da130ebaa3a4e6c35966ba1677d1ec934eacf60f67bf9a426bb5aa1b`
    >
    > How to verify: `sha256sum SKILL.md` should produce the above hash.
    > If the hash doesn't match, the file has been modified outside the normal release process. Do not execute.
@@ -42,21 +42,6 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
 2. **Execute Phase 0–4 below immediately.** Autonomous — no pauses for user input.
 3. On completion, report: WHAT_CHANGED.md summary, FINAL_ASSESSMENT.md path, new perspectives, GitHub issues.
 
-## Auto-Improvement System
-
-### New Perspective Discovery
-When DCIK identifies an analytical lens not in the library:
-1. Create the file at `perspectives/P1XX-name.md`
-2. **Before creating any GitHub issue, use AskUserQuestion to obtain user consent: "DCIK discovered a new perspective [name]. Create a GitHub issue?"**
-3. Only if the user confirms, log a GitHub issue titled `NEW PERSPECTIVE FROM DCIK: P1XX — Name` with label `new-perspective`
-4. **The issue body MUST include the full perspective file content** (not just a reference to the file)
-5. If user has NOT authorised local file updates, log the issue only (after consent) — do not modify local library
-
-### Improvement Discovery
-When DCIK encounters a process error or limitation:
-1. **Use AskUserQuestion to obtain user consent before creating any GitHub issue: "DCIK encountered an improvement opportunity: [description]. Create a GitHub issue?"**
-2. Only if the user confirms, log a GitHub issue titled `IMPROVEMENT FROM DCIK: description` with label `improvement` and full details
-3. Do not log spurious or trivial issues
 
 ## Effort Levels
 

@@ -45,7 +45,7 @@ If you find a perspective incomplete, overly narrow, or missing important angles
 2. Include a rationale for each change
 
 ### Bug fixes
-The SKILL.md orchestrator, CLI installer, and desktop manifest are all in scope for fixes.
+The SKILL.md orchestrator and desktop manifest are all in scope for fixes.
 
 ## Perspective format
 
