@@ -5,22 +5,41 @@ on:
     branches: [main]
     paths:
       - 'perspectives/**'
+      - 'desktop/perspectives/**'
       - 'SKILL.md'
       - 'desktop/SKILL.md'
+      - '.github/scripts/validate-perspectives.sh'
+      - '.github/workflows/validate.yml'
+      - 'cli/install.js'
+      - 'package.json'
   push:
     branches: [main]
     paths:
       - 'perspectives/**'
+      - 'desktop/perspectives/**'
       - 'SKILL.md'
       - 'desktop/SKILL.md'
+      - '.github/scripts/validate-perspectives.sh'
+      - '.github/workflows/validate.yml'
+      - 'cli/install.js'
+      - 'package.json'
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    if: github.repository == 'oxygn-cloud-ai/dcik'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
 
       - name: Validate perspective files
         run: bash .github/scripts/validate-perspectives.sh
+
+      - name: Validate desktop perspective files
+        run: bash .github/scripts/validate-perspectives.sh
+        env:
+          PERSPECTIVES_DIR: desktop/perspectives

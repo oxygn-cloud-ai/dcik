@@ -1,6 +1,6 @@
 ---
 name: DCIK
-version: 1.0.2
+version: 1.0.3
 description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing output exceeding what any single human analyst can produce. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
 user-invocable: true
 disable-model-invocation: false
