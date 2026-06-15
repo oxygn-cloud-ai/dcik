@@ -20,55 +20,56 @@ DCIK automates that dissent. It forces assessments through adversarial cycles �
 
 We built it because the cost of being wrong — on an investment, a contract, a strategy — exceeds the cost of being thorough. And because no one should have to choose between speed and depth.
 
+## Prerequisites
+
+DCIK runs inside Claude Code. You need one of:
+
+| Environment | Requirement |
+|-------------|-------------|
+| **Claude Code CLI** | `claude` command available. [Install guide](https://docs.anthropic.com/en/docs/claude-code/overview). |
+| **Claude Desktop** | macOS/Windows app with Skills support. |
+| **claude.ai** | Web interface with Skills support (Organisation or Personal). |
+
+**No API keys required.** DCIK uses whatever models are available in your Claude environment. It probes at startup and adapts — it works with a single model or multiple models.
+
+**For manual installation only:** `git` must be available. For the npm installer: Node.js 18+.
+
+**For the auto-improvement system:** `gh` CLI must be authenticated (`gh auth login`). This is optional — DCIK works fully without it; new perspectives are saved locally but not logged to GitHub.
+
 ## Quick Start
 
 ### Installation via SKILL.zip (Recommended)
 
-Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest) and upload it to your Claude Code skills directory, or use the manual method below.
+1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
+2. **Claude Desktop / claude.ai:** Upload via Settings → Skills → Add Skill
+3. **Claude Code CLI:** Unzip to `~/.claude/skills/DCIK/`
+4. Invoke with `/DCIK <topic>`
 
-### Installation via npm (Coming Soon)
+> The ZIP contains SKILL.md and all 177 perspective files. You can verify its contents against the repo with `unzip -l SKILL.zip`.
+
+### Installation via npm
 
 ```bash
 npx dcik install
 ```
 
-Installs DCIK at `~/.claude/skills/DCIK/`. Invoke with `/DCIK <topic>`. Always installs from the canonical repository.
+Requires Node.js 18+. Installs to `~/.claude/skills/DCIK/`. Always clones from the canonical repository and verifies commit signatures.
 
-### Manual Installation (Primary Method)
+### Manual Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/oxygn-cloud-ai/dcik.git
-
-# Copy skill to your global Claude Code config
 cp -r dcik/SKILL.md ~/.claude/skills/DCIK/
 cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
-
-# Or copy to a specific project
-cp -r dcik/SKILL.md /path/to/your/project/.claude/skills/DCIK/
-cp -r dcik/perspectives /path/to/your/project/.claude/skills/DCIK/perspectives/
-```
-
-### Development: Local Plugin
-
-For testing or development:
-
-```bash
-claude --plugin-dir ./dcik
 ```
 
 ### First Run
 
-```bash
-# Quick adversarial check (5 perspectives, 1 cycle)
-/DCIK min "Should we enter the European market?"
-
-# Standard deep check (10+ perspectives, 3+ cycles)
-/DCIK high "Is this SAFE investment fairly structured?"
-
-# Maximum depth (all 177 perspectives, runs until convergence)
-/DCIK max path/to/assessment.md
 ```
+/DCIK max "Should we enter the European market?"
+```
+
+No configuration. No onboarding. The skill executes immediately.
 
 ## What It Does
 
@@ -207,6 +208,8 @@ For enterprise administrators deploying DCIK to all users in an organisation:
 2. In Claude Desktop or claude.ai: **Customise → Skills → Organisation Skills → Upload**
 3. All users in the organisation can invoke `/DCIK`
 
+> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md` and verify its contents match the release checksum.
+
 ### Individual (Personal Skills)
 
 For individual Claude Desktop or claude.ai users:
@@ -214,6 +217,8 @@ For individual Claude Desktop or claude.ai users:
 1. Download `SKILL.zip` from the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest)
 2. In Claude Desktop or claude.ai: **Settings → Skills → Add Skill → Upload ZIP**
 3. Invoke with `/DCIK <topic>`
+
+> **Note:** SKILL.zip is built from source. You can rebuild it from the repo with `zip -j SKILL.zip SKILL.md && zip -j SKILL.zip perspectives/*.md` and verify its contents match the release checksum.
 
 Alternatively, install manually:
 

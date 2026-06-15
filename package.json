@@ -25,5 +25,8 @@
     "type": "git",
     "url": "https://github.com/oxygn-cloud-ai/dcik.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
