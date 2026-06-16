@@ -1,0 +1,12 @@
+title = "DCIK gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Confirmed-false-positive generic-api-key matches in documentation (verified 2026-06-17; not real credentials)."
+# Most precise lever: suppress only these two historical commits.
+commits = [
+  "5c0450195b2e2ada5117528b1ecaafd06228f4b0",
+  "b7f217a81dd6abb4a9c24e0a374ee41da2777c06",
+]

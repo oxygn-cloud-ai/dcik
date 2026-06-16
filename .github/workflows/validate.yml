@@ -79,11 +79,12 @@ jobs:
 
       - name: Behavioral red team (changed perspectives only)
         run: |
-          CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}..HEAD" | grep '^perspectives/' || true)
+          CHANGED=$(git diff --name-only "origin/${BASE_REF}..HEAD" | grep '^perspectives/' || true)
           if [ -n "$CHANGED" ]; then
             printf '%s\0' $CHANGED | xargs -0 bash .github/scripts/redteam-perspective.sh
           else
             echo "No perspective files changed in this PR."
           fi
         env:
+          BASE_REF: ${{ github.base_ref }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}

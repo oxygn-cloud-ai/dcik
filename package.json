@@ -1,6 +1,6 @@
 {
   "name": "dcik",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "DCIK — Dorsolateral Cognitive Inference Kinetics. Deep Check: multi-model adversarial analysis for Claude Code.",
   "repository": {
     "type": "git",
