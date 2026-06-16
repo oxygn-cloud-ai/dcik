@@ -3,7 +3,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/oxygn-cloud-ai/dcik/releases"><img src="https://img.shields.io/github/v/release/oxygn-cloud-ai/dcik" /></a>
   <a href="https://github.com/oxygn-cloud-ai/dcik/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" /></a>
   <a href="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml"><img src="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml/badge.svg?branch=main" /></a>
 </p>
@@ -188,4 +187,4 @@ This skill executes code on your machine. Review the [source](https://github.com
 DCIK output is AI-generated. It may contain errors or omissions. It does not constitute professional advice of any kind — legal, financial, medical, or otherwise. You bear sole responsibility for decisions based on its output. The DLPFC reference in the name is metaphorical: DCIK is an analytical framework.
 
 <br>
-<p align="center">MIT · <a href="https://github.com/oxygn-cloud-ai/dcik">github.com/oxygn-cloud-ai/dcik</a> · v1.0.5 · single maintainer</p>
+<p align="center">MIT · <a href="https://github.com/oxygn-cloud-ai/dcik">github.com/oxygn-cloud-ai/dcik</a> · v1.0.5</p>
