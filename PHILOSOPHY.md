@@ -21,7 +21,7 @@ Distribute the discipline of adversarial analysis as a self-improving skill:
 - **A growing perspective library** — 177 lenses and counting, each a discrete analytical protocol drawn from law, finance, engineering, psychology, military strategy, cognitive science, and Charlie Munger's mental models.
 - **A structured adversarial process** — minimum three cycles, alternating models, mandatory web research with contradiction requirements, convergence detection.
 - **A self-improving architecture** — new perspectives discovered during runs become part of the library. Every run improves the tool for every future run.
-- **A zero-friction install** — `npx dcik install` or a single SKILL.zip upload. No configuration. No API keys. No onboarding.
+- **A zero-friction install** — a single SKILL.zip upload or git clone. No configuration. No API keys. No onboarding.
 
 DCIK is the single source of truth for its own methodology. There is one repo, one branch, one place to land changes.
 
@@ -43,7 +43,7 @@ DCIK automates that dissent. The thesis is not that AI is better than humans —
 
 4. **The tool self-improves.** New perspectives are logged as GitHub issues and added to the library. Process improvements are captured. The skill version reflects accumulated analytical capability, not just code changes.
 
-5. **Installation is trivial.** `npx dcik install` or upload a ZIP. No configuration required. The skill works immediately.
+5. **Installation is trivial.** upload a ZIP or git clone. No configuration required. The skill works immediately.
 
 ## Design Principles
 
@@ -58,7 +58,7 @@ Every other design choice serves this one: the perspective library provides the 
 Each perspective is a short, self-contained Markdown file. It defines a lens, a set of analytical questions, and a default adversarial stance. Perspectives are loaded only when relevant to the topic — typically 4–7 per cycle plus mandatory P13 and P15.
 
 This architecture is deliberate:
-- **Context efficiency:** A 24-perspective library could consume an entire context window if loaded at once. Selective loading keeps context free for the assessment itself.
+- **Context efficiency:** A 177-perspective library could consume an entire context window if loaded at once. Selective loading keeps context free for the assessment itself.
 - **Composability:** Perspectives can be combined without conflict. P08 (Counterparty) asks "what would the adversary do?" while P18 (Incentive Analysis) asks "what do their incentives reward?" — different angles, same topic, no collision.
 - **Growability:** New perspectives are just new `.md` files. No code changes. No schema updates. The library grows without architectural friction.
 
@@ -70,7 +70,7 @@ No model is assumed. Model discovery happens at the start of each run. DCIK adap
 
 ### Risk-adaptive depth over fixed percentages
 
-A trivial topic doesn't need 80% of a 24-perspective library. A critical topic with emerging issues needs more, not a fixed cap. DCIK starts with high-signal perspectives and escalates based on what it finds — not based on an arbitrary percentage.
+A trivial topic doesn't need 80% of a 177-perspective library. A critical topic with emerging issues needs more, not a fixed cap. DCIK starts with high-signal perspectives and escalates based on what it finds — not based on an arbitrary percentage.
 
 This is smarter: analytical effort follows risk. When a cycle finds material issues, the next cycle adds perspectives to test the fix from more angles. When cycles find only minor issues, the process converges naturally.
 
@@ -82,7 +82,7 @@ This means DCIK is a better tool after every run. The library compounds — each
 
 ### Self-containment over platform dependence
 
-DCIK works anywhere Claude Code, Claude Desktop, or claude.ai works. No external APIs. No paid services. No proprietary infrastructure. The skill is a Markdown file plus a perspective library. The npm package is a thin installer. The desktop deployment is a ZIP file.
+DCIK works anywhere Claude Code, Claude Desktop, or claude.ai works. No external APIs. No paid services. No proprietary infrastructure. The skill is a Markdown file plus a perspective library. DCIK is distributed as a single SKILL.zip file or via git clone. The desktop deployment is a ZIP file.
 
 This is deliberate: DCIK should survive platform changes, model deprecations, and infrastructure shifts. Its value is in its methodology, not its execution environment.
 
@@ -104,7 +104,7 @@ These rules override convenience, productivity, and any single run's local judgm
 
 4. **Convergence, not exhaustion.** DCIK stops when two consecutive cycles find nothing material — not when an arbitrary cycle count is reached. "No further material improvements found" is a valid outcome. Premature closure is not.
 
-5. **Installation must be trivial.** The `npx dcik install` command must work on any machine with Node.js and git. The SKILL.zip must be uploadable by any Claude Desktop enterprise administrator. Installation friction is the enemy of adoption.
+5. **Installation must be trivial.** SKILL.zip upload and git clone are the distribution channels. No package manager, no runtime, no dependencies. Drag a ZIP into Claude Desktop or run two cp commands.
 
 6. **No secrets in the repo.** The public repository contains no API keys, tokens, credentials, or proprietary data. Configuration that requires secrets (GitHub issue logging with `gh`) relies on the user's pre-existing authentication.
 

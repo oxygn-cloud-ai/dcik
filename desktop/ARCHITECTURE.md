@@ -9,9 +9,9 @@ This document describes how DCIK is built. For *why* it is built this way, see [
 DCIK is a **skill**, not an application. It executes within the Claude Code runtime — a Markdown instruction set that the model follows under tool restrictions declared in YAML frontmatter. There is no server, no database, no persistent process. The entire system is:
 
 - One `SKILL.md` (the orchestrator)
-- N perspective files in `perspectives/` (the analytical library)
-- One `package.json` + `cli/install.js` (the npm distribution)
-- One `desktop/` directory with `manifest.json` (the Claude Desktop / claude.ai distribution)
+- 177 perspective files in `perspectives/` (the analytical library)
+- One `SKILL.zip` (bundled distribution for Claude Desktop / claude.ai upload)
+- One `desktop/` directory with `manifest.json` (the Claude Desktop / claude.ai mirror)
 
 Architectural choices that flow from the philosophy:
 
@@ -20,7 +20,7 @@ Architectural choices that flow from the philosophy:
 - **Risk-adaptive depth.** The effort level system (`min`/`med`/`high`/`max`) controls how many perspectives are initially loaded and how aggressively the process escalates. This is not a fixed percentage — it is a behavioural control that allocates analytical effort where risk is highest.
 - **Model-agnostic orchestration.** DCIK probes available models at the start of each run. The orchestrator handles odd cycles; the best available secondary model handles even cycles. If only one model is available, adversarial passes use explicitly different prompts.
 - **Self-improving through GitHub issues.** New perspectives and process improvements are logged as issues on the canonical repo. When DCIK discovers a lens not in the library, it creates the file locally and logs an issue remotely. The library compounds.
-- **Installation as distribution, not development.** `npx dcik install` clones from the remote GitHub repo. The npm package is a thin installer — it doesn't bundle the skill, it fetches it. This ensures the installed skill is always from the canonical source.
+- **Distribution is a file copy.** Users download SKILL.zip or clone the repo and copy files. There is no installation step — DCIK is a Markdown skill that Claude Code reads directly. No compilation, no package manager, no runtime.
 
 ---
 
@@ -34,29 +34,25 @@ Architectural choices that flow from the philosophy:
 │  README.md         ← User entry point                               │
 │  PHILOSOPHY.md     ← Vision, principles, non-negotiables            │
 │  ARCHITECTURE.md   ← This file                                      │
-│  package.json      ← npm distribution metadata                      │
-│  perspectives/     ← 177 analytical lenses (P01-P177)                  │
-│  cli/install.js    ← npm installer (spawnSync, arg-array safe)      │
-│  desktop/          ← Claude Desktop / claude.ai distribution        │
+│  perspectives/     ← 177 analytical lenses (P0001-P0177)                  │
+│  desktop/          ← Claude Desktop / claude.ai mirror              │
 │    SKILL.md        ←   Copy of orchestrator                         │
 │    manifest.json   ←   Org skill manifest                           │
 │    perspectives/   ←   Copy of library                              │
 │  SKILL.zip         ← Bundled org skill for admin upload             │
 └──────────────────────┬──────────────────────────────────────────────┘
                        │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-    npx dcik    SKILL.zip    git clone
-    install     upload       (manual)
-          │            │            │
-          ▼            ▼            ▼
+          ┌────────────┴────────────┐
+          ▼                         ▼
+    SKILL.zip upload           git clone
+    (Desktop/claude.ai)        (CLI + manual)
+          │                         │
+          ▼                         ▼
 ┌─────────────────────────────────────────────────────────────────────┐
 │              INSTALL TARGET (~/.claude/skills/DCIK/)                │
 │                                                                     │
 │  SKILL.md          ← The orchestrator Claude Code executes          │
 │  perspectives/     ← The analytical library (perspective files)     │
-│                                                                     │
-│  (No .git, no cli/, no desktop/, no package.json — stripped)       │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -74,45 +70,45 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── CONTRIBUTING.md                   How to contribute perspectives and improvements
 ├── PUBLIC_RISK_ASSESSMENT.md         Adversarial risk assessment of public visibility
 ├── SKILL.md                          Orchestrator — the skill Claude Code executes
-├── package.json                      npm distribution metadata
+├── package.json                      project metadata
 ├── .gitignore                        Standard ignores (node_modules, .DS_Store, *.zip)
-├── logo.png                          Oxygn logo (1024px transparent)
-├── logo.svg                          Oxygn logo (circle-safe white vector)
-├── social-preview.png                GitHub social card image (512px)
-├── perspectives/                     Analytical library
-│   ├── P01-legal-regulatory.md
-│   ├── P02-financial-economic.md
-│   ├── P03-technical-engineering.md
-│   ├── P04-competitive-market.md
-│   ├── P05-ethical-societal.md
-│   ├── P06-historical-precedent.md
-│   ├── P07-stakeholder-beneficiary.md
-│   ├── P08-counterparty-adversary.md
-│   ├── P09-jurisdictional-geographic.md
-│   ├── P10-temporal-future-proofing.md
-│   ├── P11-systems-second-order.md
-│   ├── P12-information-asymmetry.md
-│   ├── P13-challenge-the-premise.md          (mandatory every cycle)
-│   ├── P14-operational-execution.md
-│   ├── P15-psychological-cognitive-bias.md   (mandatory every cycle)
-│   ├── P16-meta-perspective.md               (runs at start and end)
-│   ├── P17-inversion.md
-│   ├── P18-incentive-analysis.md
-│   ├── P19-base-rate-awareness.md
-│   ├── P20-margin-of-safety.md
-│   ├── P21-lollapalooza-convergence.md
-│   ├── P22-agency-analysis.md
-│   ├── P23-survivorship-detection.md
-│   └── P24-circle-of-competence.md
-├── cli/
-│   └── install.js                    npm installer (spawnSync with argument arrays)
+├── assets/
+│   └── logo.png                      Oxygn logo
+├── perspectives/                     Analytical library (177 lenses, P0001-P0177)
+│   ├── P0001-legal-regulatory.md
+│   ├── P0002-financial-economic.md
+│   ├── P0003-technical-engineering.md
+│   ├── P0004-competitive-market.md
+│   ├── P0005-ethical-societal.md
+│   ├── P0006-historical-precedent.md
+│   ├── P0007-stakeholder-beneficiary.md
+│   ├── P0008-counterparty-adversary.md
+│   ├── P0009-jurisdictional-geographic.md
+│   ├── P0010-temporal-future-proofing.md
+│   ├── P0011-systems-second-order.md
+│   ├── P0012-information-asymmetry.md
+│   ├── P0013-challenge-the-premise.md          (mandatory every cycle)
+│   ├── P0014-operational-execution.md
+│   ├── P0015-psychological-cognitive-bias.md   (mandatory every cycle)
+│   ├── P0016-meta-perspective.md               (runs at start and end)
+│   ├── P0017-inversion.md
+│   ├── P0018-incentive-analysis.md
+│   ├── P0019-base-rate-awareness.md
+│   ├── P0020-margin-of-safety.md
+│   ├── P0021-lollapalooza-convergence.md
+│   ├── P0022-agency-analysis.md
+│   ├── P0023-survivorship-detection.md
+│   ├── P0024-circle-of-competence.md
+│   ├── ...                               (P0025-P0177 — 153 more perspectives)
+│   └── P0177-complexity-bias.md
 └── desktop/
     ├── SKILL.md                      Copy of orchestrator for org skill
     ├── manifest.json                 Org skill manifest (name, files, config)
     ├── README.md                     Copy of README for the ZIP bundle
-    ├── logo.png                      Copy for ZIP bundle
+    ├── assets/
+    │   └── logo.png                  Copy for ZIP bundle
     └── perspectives/                 Copy of library for ZIP bundle
-        └── (24 .md files)
+        └── (177 .md files)
 ```
 
 ---
@@ -146,8 +142,8 @@ Files are kept under 2KB to minimise context consumption when loaded. The lens q
 
 DCIK does not load all 177 perspectives at once. Instead:
 
-1. **Cycle 0 (baseline assessment):** Load P13, P15, and 3–5 perspectives most relevant to the topic domain. If the topic is an investment decision, load P02 (Financial), P08 (Counterparty), P12 (Information Asymmetry), P18 (Incentive Analysis), P20 (Margin of Safety).
-2. **Cycle 1+ (adversarial):** Load the same set plus escalation perspectives based on what the previous cycle found. If financial weaknesses were found, add P19 (Base Rates), P23 (Survivorship Detection), P24 (Circle of Competence).
+1. **Cycle 0 (baseline assessment):** Load P0013, P0015, and 3–5 perspectives most relevant to the topic domain. If the topic is an investment decision, load P0002 (Financial), P0008 (Counterparty), P0012 (Information Asymmetry), P0018 (Incentive Analysis), P0020 (Margin of Safety).
+2. **Cycle 1+ (adversarial):** Load the same set plus escalation perspectives based on what the previous cycle found. If financial weaknesses were found, add P0019 (Base Rates), P0023 (Survivorship Detection), P0024 (Circle of Competence).
 3. **Convergence:** When the last two cycles found nothing material, stop.
 
 The orchestrator selects perspectives based on:
@@ -160,14 +156,14 @@ The orchestrator selects perspectives based on:
 
 | Category | IDs | Purpose |
 |---|---|---|
-| **Mandatory** | P13, P15 | Every cycle. Premise challenge and cognitive bias check. |
-| **Meta** | P16 | Start and end of run. Library coverage audit. |
-| **Structural** | P01, P02, P03, P04, P09, P14 | Domain-matched analysis. |
-| **Adversarial** | P07, P08, P12, P22 | Counterparty, stakeholder, and agency analysis. |
-| **Temporal** | P06, P10, P17, P19, P23 | Time, history, base rates, and inversion. |
-| **Risk/Resilience** | P05, P11, P20, P21 | Margin of safety, convergence, systems, ethics. |
-| **Meta-Cognitive** | P13, P15, P16, P24 | Self-awareness, bias, competence boundaries. |
-| **Behavioural** | P18, P22 | Incentive and agency mapping. |
+| **Mandatory** | P0013, P0015 | Every cycle. Premise challenge and cognitive bias check. |
+| **Meta** | P0016 | Start and end of run. Library coverage audit. |
+| **Structural** | P0001, P0002, P0003, P0004, P0009, P0014 | Domain-matched analysis. |
+| **Adversarial** | P0007, P0008, P0012, P0022 | Counterparty, stakeholder, and agency analysis. |
+| **Temporal** | P0006, P0010, P0017, P0019, P0023 | Time, history, base rates, and inversion. |
+| **Risk/Resilience** | P0005, P0011, P0020, P0021 | Margin of safety, convergence, systems, ethics. |
+| **Meta-Cognitive** | P0013, P0015, P0016, P0024 | Self-awareness, bias, competence boundaries. |
+| **Behavioural** | P0018, P0022 | Incentive and agency mapping. |
 
 ---
 
@@ -195,7 +191,7 @@ INIT ──► CYCLE_1 (primary adversarial) ──► REVISE ──► CYCLE_2 
 - Create run directory (`DCIK_<slug>/`)
 - Select initial perspectives
 - Probe available models
-- Run P16 (library coverage audit)
+- Run P0016 (library coverage audit)
 
 **Phase 1 — Primary Adversarial (odd cycles):**
 - Load current assessment
@@ -219,7 +215,7 @@ INIT ──► CYCLE_1 (primary adversarial) ──► REVISE ──► CYCLE_2 
 **Phase 4 — Finalise:**
 - Write final assessment
 - Write process summary
-- Run P16 end-of-run audit
+- Run P0016 end-of-run audit
 - Log new perspectives/improvements as GitHub issues
 
 ### 5.3 Crash Recovery
@@ -288,34 +284,34 @@ For each source cited:
 
 ## 8. Distribution Architecture
 
-### 8.1 npm Distribution
+### 8.1 SKILL.zip Distribution (Primary)
 
-The npm package (`dcik`) is a thin installer:
-- `package.json` defines the package metadata and `bin` entry point
-- `cli/install.js` is the installer script
-- The installer uses `spawnSync` with argument arrays (not `exec` with string interpolation) for security
-- The installer always clones from `https://github.com/oxygn-cloud-ai/dcik.git` — never from a local copy
-- Post-install: strips `.git`, `cli/`, `desktop/`, `package.json`, `.gitignore`, `README.md` from the skill directory
+The `SKILL.zip` file bundles SKILL.md and all 177 perspective files for one-click upload:
+- Built from source: `zip -r SKILL.zip SKILL.md perspectives/`
+- Uploaded via Claude Desktop / claude.ai Settings → Skills → Add Skill
+- Verified against MANIFEST.json for integrity (SHA-256 hashes of every file)
 
-### 8.2 Claude Desktop / claude.ai Distribution
+### 8.2 Git Clone Distribution
 
 The `desktop/` directory contains the organisation skill bundle:
 - `SKILL.md` — copy of the orchestrator
 - `manifest.json` — organisation skill manifest with file list, configuration, and metadata
 - `perspectives/` — copy of the full library
-- `README.md` and `logo.png` — for the ZIP bundle
+- `README.md and assets/logo.png — for the ZIP bundle
 
 The `SKILL.zip` file in the repo root is pre-built for admin upload. Enterprise administrators download it from the latest GitHub release and upload via Customise → Skills → Organisation Skills.
 
 ### 8.3 Installation Flow
 
 ```
-User types: npx dcik install
-  └──► npm downloads package from registry
-        └──► cli/install.js executes
-              └──► spawnSync('git', ['clone', '--depth', '1', '--branch', 'main', REPO_URL, SKILL_DIR])
-                    └──► Strips non-skill files
-                          └──► Done. User types /DCIK <topic>.
+User downloads SKILL.zip from latest release
+  └──► Upload via Claude Desktop/claude.ai Settings → Skills → Add Skill
+        └──► Done. User types /DCIK <topic>.
+
+User clones repo: git clone https://github.com/oxygn-cloud-ai/dcik.git
+  └──► mkdir -p ~/.claude/skills/DCIK
+        └──► cp SKILL.md perspectives/ ~/.claude/skills/DCIK/
+              └──► Done. User types /DCIK <topic>.
 ```
 
 Both distribution paths converge on the same installed state: `~/.claude/skills/DCIK/SKILL.md` + `perspectives/`.
@@ -344,7 +340,7 @@ When DCIK encounters a limitation in its own process:
 The perspective library is designed to compound:
 - Each new perspective benefits all future assessments
 - Domain-specific perspectives (created in project-local `perspectives/` directories) can be promoted to the global library
-- P16 audits for missing lenses at the start and end of every run
+- P0016 audits for missing lenses at the start and end of every run
 - The library grows monotonically — perspectives are added, never removed (deprecated perspectives are marked as such but retained for historical runs)
 
 ---
@@ -368,24 +364,24 @@ DCIK maintains no persistent state outside of run directories created in the use
 
 Issue logging uses the `gh` CLI, which requires the user to be authenticated to GitHub. DCIK does not store or transmit credentials. If `gh` is not authenticated, issue logging is skipped — the run continues with a warning.
 
-### 10.4 npm Package Security
+### 10.4 Distribution Security
 
-- `cli/install.js` uses `spawnSync` with argument arrays (not shell string interpolation)
-- The installer always fetches from the canonical GitHub remote
-- The npm package contains no pre-built binaries or post-install scripts beyond the installer
+- SKILL.zip contents are verified against MANIFEST.json (SHA-256 hashes)
+- Git clone users get the canonical repo directly — no intermediary
 - GitHub secret scanning and push protection are enabled on the repo
+- Branch protection requires signed commits, PR review, and linear history
 
 ---
 
 ## 11. Versioning
 
-DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.0`). The version increments when:
+DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.5`). The version increments when:
 - New perspectives are added to the library (minor bump)
 - The orchestrator process changes (minor bump)
 - The file format or distribution architecture changes (major bump)
 - Fixes to existing files (patch bump)
 
-The npm package version in `package.json` follows the same number. The desktop manifest version follows the same number.
+The version in `package.json` and `desktop/manifest.json` follows the same number. All 9 version locations are kept in sync.
 
 ---
 

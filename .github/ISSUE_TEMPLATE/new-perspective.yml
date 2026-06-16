@@ -1,0 +1,90 @@
+name: New Perspective
+description: Propose a new analytical perspective for the DCIK library. You must follow the format exactly or your submission will be rejected.
+title: "New Perspective: "
+labels: ["new-perspective"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Every field below is required.** Submissions missing fields or not following the format will be closed with a note explaining what's missing. You may resubmit after fixing.
+
+        Before submitting: check the [perspectives directory](https://github.com/oxygn-cloud-ai/dcik/tree/main/perspectives) to confirm this perspective doesn't already exist.
+
+  - type: input
+    id: name
+    attributes:
+      label: Perspective Name
+      description: Short, descriptive name. Sentence case.
+      placeholder: "Supply Chain Vulnerability"
+    validations:
+      required: true
+
+  - type: input
+    id: domain
+    attributes:
+      label: Domain
+      description: What field(s) of knowledge does this draw from? Be specific.
+      placeholder: "Supply chain management, logistics, operations security, procurement"
+    validations:
+      required: true
+
+  - type: textarea
+    id: invoke_when
+    attributes:
+      label: Invoke When
+      description: Under what conditions should DCIK apply this perspective? What makes it relevant?
+      placeholder: "The topic involves multi-party supply chains, single-source dependencies, logistics failure modes, or procurement risk."
+    validations:
+      required: true
+
+  - type: textarea
+    id: lens
+    attributes:
+      label: Lens (numbered questions)
+      description: |
+        The analytical questions DCIK will apply. Each must be a discrete, answerable question. Number them starting from 1.
+
+        **Minimum 4 questions. Maximum 12.** Fewer than 4 is too narrow to be a perspective. More than 12 is unfocused.
+      placeholder: |
+        1. Dependency mapping: Which nodes in the chain have no substitutes?
+        2. Geographic concentration: Are critical suppliers or routes clustered in one region?
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: adversarial_stance
+    attributes:
+      label: Default Adversarial Stance
+      description: |
+        The baseline hostile assumption DCIK brings to this perspective. One to three sentences. Must be falsifiable — it should drive specific questions, not generic skepticism.
+
+        Weak: "Things might go wrong."
+        Strong: "Every single-source dependency will fail at the worst possible moment. Geographic clusters guarantee correlated disruption."
+      placeholder: "Every single-source dependency will fail at the worst possible moment. Geographic clusters guarantee correlated disruption."
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example Application
+      description: Describe a concrete scenario where this perspective would have caught something others missed. This is how we verify the perspective produces value.
+      placeholder: "A company assessing its cloud provider risk would see geographic concentration if all three 'redundant' providers use the same AWS region."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      description: You must check every box. Unchecked submissions are rejected.
+      options:
+        - label: "I have searched existing perspectives and this is not a duplicate."
+          required: true
+        - label: "This file contains no instructions to AI models (no prompt injection)."
+          required: true
+        - label: "I understand my submission may be rejected, modified, or merged with existing perspectives at the maintainer's discretion."
+          required: true
+        - label: "I license this perspective under the MIT license (same as the project)."
+          required: true

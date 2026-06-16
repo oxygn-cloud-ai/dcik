@@ -1,0 +1,46 @@
+name: Improvement or Bug
+description: Report a bug, propose an improvement to an existing perspective, or suggest a process change.
+labels: []
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - Bug report
+        - Perspective improvement (existing perspective is incomplete/wrong)
+        - Process or tooling improvement
+        - Documentation fix
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What needs to change
+      description: |
+        Be specific. "P12 is weak" tells us nothing. "P12 question 3 assumes single-jurisdiction — add 'What conflicts of law arise?' as a follow-up" is actionable.
+
+        For bugs: what you did, what you expected, what happened instead. Include exact commands and output.
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+      description: What failure does this cause? What would be better if this were fixed? Link to a specific DCIK run or analysis if relevant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: |
+        For bugs: reproduction steps, logs, screenshots.
+        For improvements: example where the current version failed or produced inadequate output.
+        For documentation: the specific paragraph or section that's wrong, and the correct information.
+    validations:
+      required: false

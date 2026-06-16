@@ -3,3 +3,7 @@ node_modules/
 .DS_Store
 dist/
 .claude/
+.env
+.env.*
+.env.local
+assess/

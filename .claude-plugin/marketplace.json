@@ -1,19 +1,19 @@
 {
   "name": "dcik-marketplace",
   "owner": {
-    "name": "Oxygn Cloud AI",
+    "name": "Oxygn Pte Ltd",
     "email": "dcik@oxygn.xyz"
   },
   "metadata": {
     "description": "DCIK — Dorsolateral Cognitive Inference Kinetics. 177-perspective multi-model adversarial analysis skill for Claude Code. Produces assessments that exceed any single-AI-prompted output.",
-    "version": "1.0.1"
+    "version": "1.0.5"
   },
   "plugins": [
     {
       "name": "dcik",
       "source": "./",
       "description": "Deep Check: 177 analytical perspectives (Munger, Farnam Street, Heuer & Pherson, Army Red Team, Kahneman, Taleb, Boyd, Snowden, Meadows) in a multi-model adversarial review engine. Install with /plugin marketplace add oxygn-cloud-ai/dcik then /plugin install dcik@dcik-marketplace",
-      "version": "1.0.1",
+      "version": "1.0.5",
       "license": "MIT",
       "category": "productivity",
       "tags": [
