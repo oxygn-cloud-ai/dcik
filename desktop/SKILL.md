@@ -1,14 +1,14 @@
 ---
 name: DCIK
 version: 1.0.5
-description: Deep Check — Dorsolateral Cognitive Inference Kinetics. Multi-model adversarial analysis producing assessments that are harder to be wrong about. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
+description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis producing assessments that are harder to be wrong about. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
 user-invocable: true
 disable-model-invocation: false
 allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git show:*), Bash(git branch:*), Bash(git config:*), Bash(gh issue create:*), Bash(gh issue list:*), Bash(shasum:*), Bash(sha256sum:*), Bash(mkdir:*), Bash(cp:*), Bash(rm:*), Bash(zip:*), Bash(unzip:*), Bash(find:*), Bash(ls:*), Bash(cat:*), Bash(head:*), Bash(grep:*), Bash(wc:*), Bash(sort:*), Bash(echo:*), Bash(date:*), Bash(sed:*), Bash(tr:*), Bash(cut:*), TaskCreate, TaskUpdate, TaskList, WebSearch, WebFetch, Read, Write, Edit, Agent, AskUserQuestion
 argument-hint: "[topic or path to assessment file]"
 ---
 
-# DCIK — Dorsolateral Cognitive Inference Kinetics
+# DCIK — Dorsolateral Contrary Inference Katabasis
 
 **CRITICAL: When invoked with a topic, execute immediately. Do not display methodology. Begin Phase 0 now.**
 
@@ -33,7 +33,7 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
    - This detects unauthorized modification.
 
    > Pinned integrity hash (SHA-256):
-   > `f62ba2c377c0af4325723ecf46e758e3971afdad8aa6d1df787a35dd5b2467d9`
+   > `d78b6cbbeb403455ca2e1b560a05209c1948afd5189efe2932fe2f995e90233f`
    >
    > How to verify: `sha256sum SKILL.md` should produce the above hash.
    > If the hash doesn't match, the file has been modified outside the normal release process. Do not execute.

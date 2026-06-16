@@ -7,9 +7,11 @@
   <a href="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml"><img src="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml/badge.svg?branch=main" /></a>
 </p>
 
-# DCIK
+# DCIK — Dorsolateral Contrary Inference Katabasis
 
-**Adversarial depth for consequential decisions.** A Claude Code skill that subjects any assessment to multi-model attack across 177 analytical perspectives, autonomous web research, and structured adversarial iteration.
+**Thinking deeply by arguing with yourself.**
+
+A Claude Code skill that subjects any assessment to multi-model attack across 177 analytical perspectives, autonomous web research, and structured adversarial iteration.
 
 <br>
 
