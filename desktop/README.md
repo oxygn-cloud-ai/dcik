@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/oxygn-cloud-ai/dcik/releases"><img src="https://img.shields.io/github/v/release/oxygn-cloud-ai/dcik?color=000&label=" /></a>
-  <a href="https://github.com/oxygn-cloud-ai/dcik/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-000" /></a>
-  <a href="https://github.com/oxygn-cloud-ai/dcik/actions"><img src="https://img.shields.io/github/actions/workflow/status/oxygn-cloud-ai/dcik/validate.yml?branch=main&color=000&label=" /></a>
+  <a href="https://github.com/oxygn-cloud-ai/dcik/releases"><img src="https://img.shields.io/github/v/release/oxygn-cloud-ai/dcik" /></a>
+  <a href="https://github.com/oxygn-cloud-ai/dcik/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" /></a>
+  <a href="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml"><img src="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml/badge.svg?branch=main" /></a>
 </p>
 
 # DCIK
