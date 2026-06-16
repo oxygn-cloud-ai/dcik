@@ -1,6 +1,6 @@
 # Perspective: Four Ways of Seeing
 
-**ID:** P99
+**ID:** P0099
 **Domain:** Intelligence analysis, perspective-taking, empathy, strategy
 **Source:** U.S. Army Red Team Handbook, UFMCS
 **Invoke when:** The assessment views a situation from only one perspective — typically the subject's own.

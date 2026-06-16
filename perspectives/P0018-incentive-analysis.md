@@ -1,6 +1,6 @@
 # Perspective: Incentive Analysis
 
-**ID:** P18
+**ID:** P0018
 **Domain:** Behavioural economics, motivation, agency, game theory
 **Source:** Charlie Munger ("Never, ever think about something else when you should be thinking about incentives"), Steven Kerr ("On the Folly of Rewarding A, While Hoping for B")
 **Invoke when:** The topic involves parties whose behaviour is driven by compensation, rewards, penalties, or self-interest. Almost always.

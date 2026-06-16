@@ -1,6 +1,6 @@
 # Perspective: Pavlovian Conditioning
 
-**ID:** P85
+**ID:** P0085
 **Domain:** Psychology, behavioural conditioning, learning
 **Source:** Pavlov, Munger
 **Invoke when:** The assessment involves repeated patterns, habits, or automatic responses — in markets, organisations, or individuals.

@@ -1,6 +1,6 @@
 # Perspective: Gresham's Law Extended
 
-**ID:** P68
+**ID:** P0068
 **Domain:** Economics, information theory, organisational behaviour, sociology
 **Source:** Gresham, Munger (extended application), information economics
 **Invoke when:** The assessment involves environments where quality competes with quantity, truth competes with convenience, or standards compete with shortcuts.

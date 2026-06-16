@@ -1,6 +1,6 @@
 # Perspective: Temporal & Future-Proofing
 
-**ID:** P10
+**ID:** P0010
 **Domain:** Time, change, future scenarios, resilience over time
 **Invoke when:** The topic involves long time horizons, future uncertainty, or needs to remain valid under changing conditions.
 

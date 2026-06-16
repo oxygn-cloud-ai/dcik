@@ -1,6 +1,6 @@
 # Perspective: Influence-from-Mere-Association Tendency
 
-**ID:** P121
+**ID:** P0121
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Pavlov
 **Invoke when:** The assessment judges something based on what it's associated with rather than its own merits.

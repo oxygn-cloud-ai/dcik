@@ -1,6 +1,6 @@
 # Perspective: Optionality & Asymmetric Payoffs
 
-**ID:** P32
+**ID:** P0032
 **Domain:** Decision theory, finance, strategy, risk management
 **Source:** Taleb (Antifragile, Black Swan), Munger, Kelly criterion, real options theory
 **Invoke when:** The assessment involves decisions under uncertainty, investments, strategic choices, or any situation where outcomes are not binary.

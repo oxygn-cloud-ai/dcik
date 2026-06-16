@@ -1,6 +1,6 @@
 # Perspective: Circle of Competence
 
-**ID:** P24
+**ID:** P0024
 **Domain:** Epistemology, expertise, self-awareness, knowledge boundaries
 **Source:** Charlie Munger, Warren Buffett, Socrates
 **Invoke when:** The assessment makes claims requiring expertise, or the analyst (or subject) is operating in a domain where their knowledge has limits. Almost always.

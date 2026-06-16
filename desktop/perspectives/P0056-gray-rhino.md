@@ -1,6 +1,6 @@
 # Perspective: Gray Rhino Events
 
-**ID:** P56
+**ID:** P0056
 **Domain:** Risk management, strategy, foresight
 **Source:** Michele Wucker (The Gray Rhino), Munger
 **Invoke when:** The assessment identifies risks but dismisses them as "unlikely" or "someone else's problem." When obvious, high-impact risks are being ignored because they're uncomfortable.

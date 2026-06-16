@@ -1,6 +1,6 @@
 # Perspective: Cooperation & Interdependence
 
-**ID:** P48
+**ID:** P0048
 **Domain:** Game theory, cooperation, networks, ecosystems
 **Source:** Axelrod (Evolution of Cooperation), Farnam Street, systems theory
 **Invoke when:** The assessment involves partnerships, alliances, ecosystems, or any situation where outcomes depend on coordinated action by multiple parties.

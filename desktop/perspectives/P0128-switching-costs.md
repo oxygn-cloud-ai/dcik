@@ -1,6 +1,6 @@
 # Perspective: Switching Costs
 
-**ID:** P128
+**ID:** P0128
 **Domain:** competitive strategy, business analysis
 **Source:** Munger, Porter
 **Invoke when:** Assessing customer retention, competitive dynamics, or claims of sticky revenue.

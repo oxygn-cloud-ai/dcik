@@ -1,6 +1,6 @@
 # Perspective: Bottlenecks
 
-**ID:** P170
+**ID:** P0170
 **Domain:** Resilience engineering, network theory
 **Source:** Goldratt (Theory of Constraints), Munger
 **Invoke when:** The assessment evaluates system throughput, efficiency, or capacity.

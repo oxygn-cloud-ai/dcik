@@ -1,6 +1,6 @@
 # Perspective: Moral Hazard
 
-**ID:** P81
+**ID:** P0081
 **Domain:** Economics, insurance, risk, incentives
 **Source:** Economics, Munger
 **Invoke when:** Any party is insulated from the consequences of their decisions — when risk and responsibility are separated.

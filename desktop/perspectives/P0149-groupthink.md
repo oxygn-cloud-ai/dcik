@@ -1,6 +1,6 @@
 # Perspective: Groupthink
 
-**ID:** P149
+**ID:** P0149
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Janis, Munger
 **Invoke when:** The assessment was produced by a group, reflects consensus views, or shows signs of conformity pressure.

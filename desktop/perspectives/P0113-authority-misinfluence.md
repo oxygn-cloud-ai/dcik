@@ -1,6 +1,6 @@
 # Perspective: Authority-Misinfluence Tendency
 
-**ID:** P113
+**ID:** P0113
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Milgram
 **Invoke when:** The assessment cites experts, authorities, or credentials as evidence — rather than evaluating the underlying arguments.

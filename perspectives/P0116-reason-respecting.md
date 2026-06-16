@@ -1,6 +1,6 @@
 # Perspective: Reason-Respecting Tendency
 
-**ID:** P116
+**ID:** P0116
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Langer (mindlessness)
 **Invoke when:** The assessment accepts explanations that sound plausible without testing whether they're actually true. Always.

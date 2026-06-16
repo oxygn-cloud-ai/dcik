@@ -1,6 +1,6 @@
 # Perspective: Adversarial Collaboration
 
-**ID:** P105
+**ID:** P0105
 **Domain:** Methodology, epistemology, conflict resolution, science
 **Source:** Daniel Kahneman (adversarial collaboration), Heuer & Pherson
 **Invoke when:** The assessment involves disagreement, competing interpretations, or positions where the strongest arguments on both sides need to be surfaced.

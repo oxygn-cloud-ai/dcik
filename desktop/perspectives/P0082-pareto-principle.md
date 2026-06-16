@@ -1,6 +1,6 @@
 # Perspective: Pareto Principle (80/20)
 
-**ID:** P82
+**ID:** P0082
 **Domain:** Efficiency, resource allocation, systems, strategy
 **Source:** Pareto, Munger, Juran
 **Invoke when:** The assessment distributes attention, resources, or effort evenly across factors — when some factors are far more consequential than others.

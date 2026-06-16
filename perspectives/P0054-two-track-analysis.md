@@ -1,6 +1,6 @@
 # Perspective: Two-Track Analysis
 
-**ID:** P54
+**ID:** P0054
 **Domain:** Decision analysis, psychology, methodology
 **Source:** Munger (Two-Track Analysis)
 **Invoke when:** The assessment analyses decisions, strategies, or outcomes. Always — every decision has rational and psychological dimensions.

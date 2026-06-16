@@ -1,6 +1,6 @@
 # Perspective: Meta-Perspective (Library Self-Audit)
 
-**ID:** P16
+**ID:** P0016
 **Domain:** Meta-cognition, perspective completeness, analytical coverage
 **Invoke when:** At the start and end of every DCIK run. This perspective audits the perspective library itself.
 

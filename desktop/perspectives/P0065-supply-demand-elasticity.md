@@ -1,6 +1,6 @@
 # Perspective: Supply, Demand & Elasticity
 
-**ID:** P65
+**ID:** P0065
 **Domain:** Economics, market analysis, pricing, strategy
 **Source:** Economics (fundamental), Munger, Farnam Street
 **Invoke when:** The assessment involves markets, pricing, resource allocation, or any situation where quantities and prices interact.

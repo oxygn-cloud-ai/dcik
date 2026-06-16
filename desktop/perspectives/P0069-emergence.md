@@ -1,6 +1,6 @@
 # Perspective: Emergence
 
-**ID:** P69
+**ID:** P0069
 **Domain:** Complexity science, systems theory, strategy, innovation
 **Source:** Farnam Street, complexity theory, systems dynamics
 **Invoke when:** The assessment analyses complex systems where the whole behaves differently from the sum of its parts — where patterns arise from simple rules that no individual component intended.

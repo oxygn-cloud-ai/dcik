@@ -1,6 +1,6 @@
 # Perspective: Hierarchical Organisation
 
-**ID:** P62
+**ID:** P0062
 **Domain:** Organisational design, systems, biology, sociology
 **Source:** Farnam Street (Biology), Simon (hierarchy), organisational theory
 **Invoke when:** The assessment involves organisational structure, decision-making authority, or the design of complex systems that require coordination.

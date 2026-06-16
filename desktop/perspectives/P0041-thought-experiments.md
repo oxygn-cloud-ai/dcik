@@ -1,6 +1,6 @@
 # Perspective: Thought Experiments & Counterfactuals
 
-**ID:** P41
+**ID:** P0041
 **Domain:** Reasoning, epistemology, imagination, methodology
 **Source:** Einstein, Farnam Street, philosophy of science
 **Invoke when:** The assessment makes claims that cannot be empirically tested, or when empirical testing would be too costly or slow.

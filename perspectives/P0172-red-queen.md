@@ -1,6 +1,6 @@
 # Perspective: Red Queen Effect
 
-**ID:** P172
+**ID:** P0172
 **Domain:** Evolutionary biology, ecology, complexity economics
 **Source:** Van Valen, Munger, Farnam Street
 **Invoke when:** Assessing competitive dynamics where all parties must continuously improve just to maintain relative position.

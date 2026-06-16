@@ -1,6 +1,6 @@
 # Perspective: Culture as Control System
 
-**ID:** P155
+**ID:** P0155
 **Domain:** organizational behavior, management theory
 **Source:** Munger, organisational theory
 **Invoke when:** Assessing organisational behaviour, strategy execution, or cultural claims.

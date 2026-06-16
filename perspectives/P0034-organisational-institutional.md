@@ -1,6 +1,6 @@
 # Perspective: Organisational & Institutional Dynamics
 
-**ID:** P34
+**ID:** P0034
 **Domain:** Organisational behaviour, bureaucracy, governance, institutional economics
 **Source:** Munger, Parkinson, Weber (bureaucracy), organisational theory, corporate governance
 **Invoke when:** The assessment involves organisations — companies, government bodies, institutions — their behaviour, governance, culture, or decision-making.

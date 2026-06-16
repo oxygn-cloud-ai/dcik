@@ -1,6 +1,6 @@
 # Perspective: Hindsight Bias
 
-**ID:** P124
+**ID:** P0124
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Fischhoff
 **Invoke when:** The assessment judges past decisions by their outcomes rather than by the information available when they were made.

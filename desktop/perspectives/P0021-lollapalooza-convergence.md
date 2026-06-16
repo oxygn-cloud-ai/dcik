@@ -1,6 +1,6 @@
 # Perspective: Lollapalooza Convergence
 
-**ID:** P21
+**ID:** P0021
 **Domain:** Risk amplification, systems failure, multi-factor analysis
 **Source:** Charlie Munger ("Lollapalooza Effect"), complexity theory, Taleb (tail risks)
 **Invoke when:** The topic involves multiple risk factors, complex systems, or worst-case modelling. Especially when individual risks appear "manageable" in isolation.

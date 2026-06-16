@@ -1,6 +1,6 @@
 # Perspective: Debt Dynamics
 
-**ID:** P66
+**ID:** P0066
 **Domain:** Finance, strategy, risk, economics
 **Source:** Munger, Farnam Street, financial economics
 **Invoke when:** The assessment involves leverage, borrowing, credit, or any situation where obligations exceed current resources.

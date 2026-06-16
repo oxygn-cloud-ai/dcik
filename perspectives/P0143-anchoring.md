@@ -1,6 +1,6 @@
 # Perspective: Anchoring
 
-**ID:** P143
+**ID:** P0143
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Kahneman & Tversky, Munger
 **Invoke when:** Any number, valuation, or estimate appears in the assessment. The first number presented anchors all subsequent judgment.

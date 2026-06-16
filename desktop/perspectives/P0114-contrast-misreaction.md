@@ -1,6 +1,6 @@
 # Perspective: Contrast-Misreaction Tendency
 
-**ID:** P114
+**ID:** P0114
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Kahneman
 **Invoke when:** The assessment judges by comparison rather than absolute value. Anywhere "good relative to X" substitutes for "good."

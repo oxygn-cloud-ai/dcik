@@ -1,6 +1,6 @@
 # Perspective: Bubbles, Manias & Collective Delusion
 
-**ID:** P43
+**ID:** P0043
 **Domain:** Market psychology, financial history, behavioural economics
 **Source:** Kindleberger, Minsky, Shiller, Munger, Farnam Street
 **Invoke when:** The assessment involves asset prices, market valuations, investment trends, or any situation where collective enthusiasm may have detached from fundamental value.

@@ -1,6 +1,6 @@
 # Perspective: Margin of Safety
 
-**ID:** P20
+**ID:** P0020
 **Domain:** Risk management, engineering, investment, resilience
 **Source:** Benjamin Graham, Charlie Munger, safety engineering
 **Invoke when:** The topic involves estimates, projections, budgets, valuations, commitments, or any claim about future quantities.

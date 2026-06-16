@@ -1,6 +1,6 @@
 # Perspective: Fragility
 
-**ID:** P168
+**ID:** P0168
 **Domain:** Resilience engineering, network theory
 **Source:** Taleb, Munger
 **Invoke when:** The assessment evaluates systems, structures, or strategies under stress.

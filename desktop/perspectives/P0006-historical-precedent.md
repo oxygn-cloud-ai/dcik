@@ -1,6 +1,6 @@
 # Perspective: Historical & Precedent
 
-**ID:** P06
+**ID:** P0006
 **Domain:** History, precedents, patterns, analogies, lessons from the past
 **Invoke when:** The topic has historical analogues, precedent transactions, or past patterns that inform the present.
 

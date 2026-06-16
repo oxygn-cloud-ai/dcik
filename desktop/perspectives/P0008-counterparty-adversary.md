@@ -1,6 +1,6 @@
 # Perspective: Counterparty & Adversary
 
-**ID:** P08
+**ID:** P0008
 **Domain:** Opposing interests, adversarial analysis, counterparty motives
 **Invoke when:** The topic involves another party with potentially divergent interests, or where adversarial analysis is warranted.
 

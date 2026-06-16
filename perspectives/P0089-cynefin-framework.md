@@ -1,6 +1,6 @@
 # Perspective: Cynefin Framework
 
-**ID:** P89
+**ID:** P0089
 **Domain:** Decision-making, complexity, systems, strategy
 **Source:** Dave Snowden (Cynefin framework)
 **Invoke when:** The assessment applies the same analytical approach regardless of the type of problem — when complexity and context are ignored.

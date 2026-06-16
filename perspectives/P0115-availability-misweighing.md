@@ -1,6 +1,6 @@
 # Perspective: Availability-Misweighing Tendency
 
-**ID:** P115
+**ID:** P0115
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Kahneman & Tversky
 **Invoke when:** The assessment weights evidence based on how easily examples come to mind — rather than their actual frequency or importance.

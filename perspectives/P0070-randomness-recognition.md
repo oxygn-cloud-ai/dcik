@@ -1,6 +1,6 @@
 # Perspective: Randomness Recognition
 
-**ID:** P70
+**ID:** P0070
 **Domain:** Statistics, probability, decision science, epistemology
 **Source:** Taleb (Fooled by Randomness), Kahneman, Farnam Street
 **Invoke when:** The assessment identifies patterns, attributes outcomes to skill, or draws conclusions from historical data. Almost always — humans are terrible at recognising randomness.

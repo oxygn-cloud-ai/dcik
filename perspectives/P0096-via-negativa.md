@@ -1,6 +1,6 @@
 # Perspective: Via Negativa
 
-**ID:** P96
+**ID:** P0096
 **Domain:** Theology, philosophy, decision-making, epistemology
 **Source:** Negative theology, Taleb, Munger (inversion)
 **Invoke when:** The assessment focuses on what to do, what to add, what to build — rather than what to remove, what to stop, what to avoid.

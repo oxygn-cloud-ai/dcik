@@ -1,6 +1,6 @@
 # Perspective: Self-Preservation Instinct
 
-**ID:** P60
+**ID:** P0060
 **Domain:** Psychology, organisational behaviour, biology, strategy
 **Source:** Farnam Street (Biology section), evolutionary psychology, organisational theory
 **Invoke when:** The assessment assumes entities will act in the interest of shareholders, stakeholders, or stated missions — rather than in their own survival interest.

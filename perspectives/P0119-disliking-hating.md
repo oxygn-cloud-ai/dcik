@@ -1,6 +1,6 @@
 # Perspective: Disliking/Hating Tendency
 
-**ID:** P119
+**ID:** P0119
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger
 **Invoke when:** The assessment evaluates competitors, counterparties, or anyone the analyst dislikes.

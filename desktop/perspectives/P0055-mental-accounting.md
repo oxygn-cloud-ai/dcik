@@ -1,6 +1,6 @@
 # Perspective: Mental Accounting
 
-**ID:** P55
+**ID:** P0055
 **Domain:** Behavioural economics, decision psychology, financial analysis
 **Source:** Thaler (Mental Accounting), Munger, Kahneman
 **Invoke when:** The assessment involves financial decisions, resource allocation, budgeting, or any situation where money is being categorised and treated differently based on its source, intended use, or label.

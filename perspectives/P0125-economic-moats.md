@@ -1,6 +1,6 @@
 # Perspective: Economic Moats
 
-**ID:** P125
+**ID:** P0125
 **Domain:** competitive strategy, business analysis
 **Source:** Buffett, Munger
 **Invoke when:** Assessing competitive advantage durability.

@@ -1,6 +1,6 @@
 # Perspective: Short-Termism & Temporal Discounting
 
-**ID:** P50
+**ID:** P0050
 **Domain:** Psychology, economics, strategy, decision theory
 **Source:** Munger, Kahneman, behavioural economics, Farnam Street
 **Invoke when:** The assessment involves long-term decisions, investment horizons, or trade-offs between present and future value. Almost always.

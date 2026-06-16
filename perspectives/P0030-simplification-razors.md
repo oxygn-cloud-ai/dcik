@@ -1,6 +1,6 @@
 # Perspective: Simplification & Razors
 
-**ID:** P30
+**ID:** P0030
 **Domain:** Epistemology, reasoning, heuristics, methodology
 **Source:** Occam, Hanlon, Hitchens, Popper (falsification), Munger
 **Invoke when:** The assessment contains complex explanations, competing theories, or claims where simpler alternatives exist.

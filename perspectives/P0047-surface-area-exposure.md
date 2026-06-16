@@ -1,6 +1,6 @@
 # Perspective: Surface Area & Exposure
 
-**ID:** P47
+**ID:** P0047
 **Domain:** Risk, strategy, systems, security
 **Source:** Farnam Street, systems theory, security engineering
 **Invoke when:** The assessment involves risk exposure, vulnerability, attack surfaces, or any situation where interaction with the external environment creates risk.

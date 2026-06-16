@@ -1,6 +1,6 @@
 # Perspective: Capacity & Supply Discipline
 
-**ID:** P135
+**ID:** P0135
 **Domain:** competitive strategy, business analysis
 **Source:** Munger
 **Invoke when:** Assessing industries where overcapacity destroys returns.

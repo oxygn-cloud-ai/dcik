@@ -1,6 +1,6 @@
 # Perspective: Excessive Self-Regard Tendency
 
-**ID:** P112
+**ID:** P0112
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Excessive Self-Regard Tendency)
 **Invoke when:** The assessment evaluates the capabilities, prospects, or decisions of the people who produced it — or of the subject being assessed.

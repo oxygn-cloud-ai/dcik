@@ -1,6 +1,6 @@
 # Perspective: Creative Destruction
 
-**ID:** P67
+**ID:** P0067
 **Domain:** Innovation, strategy, economics, competition
 **Source:** Schumpeter, Munger, Christensen (disruption)
 **Invoke when:** The assessment assumes existing advantages, business models, or technologies will persist. When it doesn't account for the replacement of old by new.

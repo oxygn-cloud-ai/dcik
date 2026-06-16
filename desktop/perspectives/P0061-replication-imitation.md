@@ -1,6 +1,6 @@
 # Perspective: Replication & Imitation
 
-**ID:** P61
+**ID:** P0061
 **Domain:** Strategy, learning, innovation, biology metaphor
 **Source:** Farnam Street (Biology), Munger, evolutionary theory
 **Invoke when:** The assessment assumes originality or innovation is required — when replication of proven approaches may be sufficient or superior.

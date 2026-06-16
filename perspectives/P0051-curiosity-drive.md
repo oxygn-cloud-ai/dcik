@@ -1,6 +1,6 @@
 # Perspective: Curiosity & Intellectual Drive
 
-**ID:** P51
+**ID:** P0051
 **Domain:** Psychology, epistemology, learning, motivation
 **Source:** Munger (Curiosity Tendency), cognitive science, Farnam Street
 **Invoke when:** The assessment shows signs of intellectual complacency — accepting surface answers, not drilling deeper, or treating the first plausible explanation as sufficient.

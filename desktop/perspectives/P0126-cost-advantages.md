@@ -1,6 +1,6 @@
 # Perspective: Cost Advantages
 
-**ID:** P126
+**ID:** P0126
 **Domain:** competitive strategy, business analysis
 **Source:** Munger, Porter
 **Invoke when:** Assessing claimed cost leadership or structural low-cost positions.

@@ -1,6 +1,6 @@
 # Perspective: Deprival-Superreaction Tendency
 
-**ID:** P109
+**ID:** P0109
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Deprival-Superreaction Tendency), Kahneman (loss aversion)
 **Invoke when:** The assessment involves potential losses, changes to existing arrangements, or threats to what parties currently possess.

@@ -1,6 +1,6 @@
 # Perspective: Multidisciplinary Wisdom
 
-**ID:** P86
+**ID:** P0086
 **Domain:** Meta-cognition, methodology, intellectual breadth
 **Source:** Munger (Elementary Worldly Wisdom, Multidisciplinary Approach, Latticework of Mental Models)
 **Invoke when:** The assessment operates within a single discipline, framework, or analytical tradition — and may be missing insights from other fields.

@@ -1,6 +1,6 @@
 # Perspective: OODA Loop
 
-**ID:** P94
+**ID:** P0094
 **Domain:** Strategy, decision-making, competitive dynamics, military
 **Source:** John Boyd (OODA Loop — Observe, Orient, Decide, Act)
 **Invoke when:** The assessment involves competitive dynamics, fast-moving environments, or decision-making under time pressure.

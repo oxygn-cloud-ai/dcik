@@ -1,6 +1,6 @@
 # Perspective: Lindy Effect
 
-**ID:** P95
+**ID:** P0095
 **Domain:** Risk, longevity, robustness, forecasting
 **Source:** Taleb (Antifragile), Albert Goldman ("Lindy's Law")
 **Invoke when:** The assessment involves durability, longevity, or claims about how long something will last — technologies, businesses, ideas, institutions.

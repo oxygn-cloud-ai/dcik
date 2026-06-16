@@ -1,6 +1,6 @@
 # Perspective: The Map Is Not the Territory
 
-**ID:** P25
+**ID:** P0025
 **Domain:** Epistemology, modelling, abstraction, representation
 **Source:** Alfred Korzybski, Farnam Street
 **Invoke when:** The assessment relies on models, projections, abstractions, or representations of complex reality. Almost always.

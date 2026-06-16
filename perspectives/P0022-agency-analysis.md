@@ -1,6 +1,6 @@
 # Perspective: Agency Analysis
 
-**ID:** P22
+**ID:** P0022
 **Domain:** Principal-agent dynamics, governance, corporate structure
 **Source:** Jensen & Meckling, Munger (incentive-caused bias), corporate governance theory
 **Invoke when:** The topic involves any structure where one party (agent) acts on behalf of another (principal). This applies to directors, managers, advisors, lawyers, brokers, and any intermediary.

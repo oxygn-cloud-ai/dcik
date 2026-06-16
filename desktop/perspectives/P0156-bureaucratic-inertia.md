@@ -1,6 +1,6 @@
 # Perspective: Bureaucratic Inertia
 
-**ID:** P156
+**ID:** P0156
 **Domain:** organizational behavior, management theory
 **Source:** Munger, Parkinson, Weber
 **Invoke when:** Assessing organisational change, transformation, or any claim that an organisation will do something different from what it currently does.

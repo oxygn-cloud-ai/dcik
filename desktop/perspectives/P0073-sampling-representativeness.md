@@ -1,6 +1,6 @@
 # Perspective: Sampling & Representativeness
 
-**ID:** P73
+**ID:** P0073
 **Domain:** Statistics, research methodology, evidence quality
 **Source:** Farnam Street, statistics, Kahneman
 **Invoke when:** The assessment draws conclusions from data, examples, or evidence.

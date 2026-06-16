@@ -1,6 +1,6 @@
 # Perspective: Mr. Market
 
-**ID:** P83
+**ID:** P0083
 **Domain:** Investing, market psychology, valuation, behavioural finance
 **Source:** Benjamin Graham, Buffett, Munger
 **Invoke when:** The assessment involves market prices, valuations, or any claim that "the market says X."

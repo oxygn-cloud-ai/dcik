@@ -1,6 +1,6 @@
 # Perspective: Reversibility (Type 1 / Type 2 Decisions)
 
-**ID:** P104
+**ID:** P0104
 **Domain:** Decision-making, strategy, organisational design
 **Source:** Jeff Bezos (Type 1/Type 2 decisions)
 **Invoke when:** The assessment treats all decisions as equally consequential or applies the same decision-making process regardless of reversibility.

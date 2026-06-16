@@ -1,6 +1,6 @@
 # Perspective: Incentive-Caused Bias
 
-**ID:** P150
+**ID:** P0150
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Munger ("Never, ever think about something else when you should be thinking about incentives")
 **Invoke when:** The assessment is produced by someone whose incentives are not perfectly aligned with truth-seeking. Almost always.

@@ -1,6 +1,6 @@
 # Perspective: Sunk Cost Fallacy
 
-**ID:** P146
+**ID:** P0146
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Munger, economics, Arkes & Blumer
 **Invoke when:** The assessment is influenced by resources already spent — money, time, effort, reputation — that cannot be recovered.

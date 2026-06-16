@@ -1,6 +1,6 @@
 # Perspective: Second-Order Thinking
 
-**ID:** P160
+**ID:** P0160
 **Domain:** Systems theory, complexity science
 **Source:** Munger, Farnam Street
 **Invoke when:** The assessment considers only immediate consequences, not what happens next.

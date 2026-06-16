@@ -1,6 +1,6 @@
 # Perspective: Legal & Regulatory
 
-**ID:** P01
+**ID:** P0001
 **Domain:** Law, regulation, compliance, liability
 **Invoke when:** The topic involves contracts, statutes, regulatory frameworks, litigation risk, jurisdictional questions, or compliance obligations.
 

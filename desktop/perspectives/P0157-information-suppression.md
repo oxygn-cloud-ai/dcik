@@ -1,6 +1,6 @@
 # Perspective: Information Suppression
 
-**ID:** P157
+**ID:** P0157
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Munger
 **Invoke when:** Assessing whether decision-makers receive accurate information — or filtered, sanitised versions.

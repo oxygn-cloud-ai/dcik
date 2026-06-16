@@ -1,6 +1,6 @@
 # Perspective: Opportunity Cost & Trade-offs
 
-**ID:** P38
+**ID:** P0038
 **Domain:** Economics, decision theory, resource allocation
 **Source:** Economics (fundamental), Munger, Farnam Street
 **Invoke when:** The assessment recommends a course of action, allocates resources, or compares options. Always — every choice has an opportunity cost.

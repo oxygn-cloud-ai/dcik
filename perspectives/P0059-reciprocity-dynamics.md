@@ -1,6 +1,6 @@
 # Perspective: Reciprocity Dynamics
 
-**ID:** P59
+**ID:** P0059
 **Domain:** Social psychology, game theory, negotiation, relationship management
 **Source:** Cialdini, Farnam Street, Munger (Reciprocation Tendency)
 **Invoke when:** The assessment involves relationships, negotiations, partnerships, or any situation where past exchanges shape future behaviour.

@@ -1,6 +1,6 @@
 # Perspective: Extinction
 
-**ID:** P174
+**ID:** P0174
 **Domain:** Evolutionary biology, ecology, complexity economics
 **Source:** Darwin, Munger, evolutionary biology
 **Invoke when:** Assessing existential threats, obsolescence risk, or survival dynamics.

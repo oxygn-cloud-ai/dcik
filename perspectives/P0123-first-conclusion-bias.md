@@ -1,6 +1,6 @@
 # Perspective: First-Conclusion Bias
 
-**ID:** P123
+**ID:** P0123
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger
 **Invoke when:** The assessment reached its conclusion early and the rest of the analysis is rationalisation.

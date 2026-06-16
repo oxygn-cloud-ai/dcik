@@ -1,6 +1,6 @@
 # Perspective: Contrast & Distinction
 
-**ID:** P75
+**ID:** P0075
 **Domain:** Perception, communication, psychology
 **Source:** Farnam Street (Art), Kahneman, Munger
 **Invoke when:** The assessment compares options, benchmarks, or presents choices — anywhere relative judgment substitutes for absolute.
