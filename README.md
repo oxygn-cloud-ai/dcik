@@ -1,130 +1,115 @@
 <p align="center">
-  <img src="logo.png" alt="Oxygn" width="120" />
+  <img src="logo.png" alt="Oxygn" width="100" />
 </p>
 
-# DCIK — Dorsolateral Cognitive Inference Kinetics
+<p align="center">
+  <a href="https://github.com/oxygn-cloud-ai/dcik/releases"><img src="https://img.shields.io/github/v/release/oxygn-cloud-ai/dcik?color=000&label=" /></a>
+  <a href="https://github.com/oxygn-cloud-ai/dcik/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-000" /></a>
+  <a href="https://github.com/oxygn-cloud-ai/dcik/actions"><img src="https://img.shields.io/github/actions/workflow/status/oxygn-cloud-ai/dcik/validate.yml?branch=main&color=000&label=" /></a>
+</p>
 
-**Deep Check.** A Claude Code skill that subjects any assessment to structured adversarial review across 177 analytical perspectives and multiple AI models. It doesn't generate answers — it attacks them until every weakness is found.
+# DCIK
 
-```
-You write an assessment → DCIK applies 177 lenses → Multiple models attack it → You get a harder-to-be-wrong answer
-```
+**Adversarial depth for consequential decisions.** A Claude Code skill that subjects any assessment to multi-model attack across 177 analytical perspectives. It doesn't produce answers — it produces answers that survived being wrong.
+
+<br>
+
+> *"Structured adversarial iteration produces better results than single-pass analysis, regardless of who or what performs the analysis."*
 
 ---
 
-## Quick Start
+## Install
 
-DCIK runs inside Claude Code, Claude Desktop, or claude.ai. You need a Claude subscription with model access. Nothing else.
+Requires a Claude subscription with model access. No other dependencies.
 
 ```bash
-# Download the latest release
-# Upload to Claude Desktop/claude.ai: Settings → Skills → Add Skill → Upload ZIP
-
-# Or clone manually:
 git clone https://github.com/oxygn-cloud-ai/dcik.git
 mkdir -p ~/.claude/skills/DCIK
 cp dcik/SKILL.md ~/.claude/skills/DCIK/
 cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
 ```
 
-Then invoke:
+Or download `SKILL.zip` from [releases](https://github.com/oxygn-cloud-ai/dcik/releases) and upload via Claude Desktop/claude.ai Settings.
+
+## Use
+
 ```
-/DCIK min "Should we enter this market?"     # 5 perspectives, quick check
-/DCIK high "Is this deal well-structured?"    # 10+ perspectives, deep review
-/DCIK max path/to/assessment.md               # All 177, exhaustive
+/DCIK max path/to/assessment.md          # All 177 lenses, until convergence
+/DCIK high "Is this term sheet fair?"     # 10+ lenses, 3 cycles
+/DCIK min "Should we enter this market?"  # Quick adversarial check
 ```
 
-No configuration. No API keys. No dependencies. The skill executes immediately.
+---
+
+## How It Works
+
+| Stage | What happens |
+|-------|-------------|
+| **Load** | DCIK reads your assessment and selects relevant perspectives from a library of 177 analytical lenses |
+| **Attack** | The primary model finds every weakness, unstated assumption, and missing piece of evidence |
+| **Research** | Live web search surfaces contradicting sources beyond the model's training data |
+| **Oppose** | A secondary model independently attacks the revised assessment — different architecture, different blind spots |
+| **Resolve** | Where models disagree, the orchestrator resolves with evidence and structured reasoning |
+| **Repeat** | Minimum 3 cycles. Continues until no material weaknesses remain. |
+
+The output is a battle-tested assessment where every claim has been challenged, every premise inverted, and every source verified. Not "validated" — hardened.
+
+<details>
+<summary>Effort levels</summary>
+
+| Level | Perspectives | Cycles | For |
+|-------|-------------|--------|-----|
+| `min` | 5 | 1 | Quick sanity check |
+| `med` | 8 | 2 | Routine decisions |
+| `high` | 10+ | 3+ | Significant commitments |
+| `max` | 177 | Until convergence | Being wrong is expensive |
+
+</details>
 
 ---
 
-## What Makes It Different
+## The Library
 
-A single AI prompt produces a single answer — one model, one pass, unexamined assumptions. DCIK doesn't accept that.
+177 analytical lenses from law, finance, engineering, psychology, strategy, and cognitive science. Each is a self-contained protocol — DCIK loads only the ones relevant to your topic.
 
-| Instead of | DCIK does |
-|------------|-----------|
-| One model's opinion | Multiple models attacking each other's work |
-| Training-data-only answers | Live web research with contradicting sources |
-| Unexamined assumptions | Every premise inverted and stress-tested |
-| "Looks good to me" | Minimum 3 adversarial cycles, up to 10 |
-| Fixed methodology | 177 perspectives, self-improving library |
+| Lens | Asks |
+|------|------|
+| Legal & Regulatory | What laws apply? Where's the liability? |
+| Counterparty & Adversary | Who benefits from your failure? What's their best move? |
+| Challenge the Premise | Is the question itself wrong? |
+| Cognitive Bias | What is the analyst missing about their own thinking? |
+| Inversion | What would make this fail? Work backwards from failure. |
+| Premortem | Assume it failed. What went wrong? |
+| Multiplying by Zero | What single failure collapses everything? |
+| Base Rate Awareness | What actually happened in comparable situations? |
 
-The output isn't what any single model would produce. It's what emerges when every weakness has been found, every assumption challenged, and every claim verified against current sources.
-
----
-
-## Effort Levels
-
-| Level | Scope | When to use |
-|-------|-------|-------------|
-| `min` | 5 perspectives, 1 cycle | Quick sanity check |
-| `med` | 8 perspectives, 2 cycles | Routine decisions |
-| `high` | 10+ perspectives, 3+ cycles | Significant commitments |
-| `max` | All 177 perspectives, until convergence | Being wrong is expensive |
-
-Defaults to `high`. Invoke with `/DCIK <level> <topic>`.
+Full listing: `perspectives/` (P0001–P0177). The library grows — when DCIK discovers a missing lens, it creates one.
 
 ---
 
-## The Perspective Library
+## Example
 
-177 lenses drawn from law, finance, engineering, psychology, military strategy, cognitive science, and Charlie Munger's mental models. Each is a self-contained analytical protocol. DCIK loads only those relevant to your topic.
+A founder assessed whether to raise venture capital. DCIK found:
 
-| # | Lens | Asks |
-|---|------|------|
-| P0001 | Legal & Regulatory | What laws apply? Where's the liability? |
-| P0008 | Counterparty & Adversary | Who's on the other side? What's their best move? |
-| P0013 | Challenge the Premise | Is the question itself wrong? |
-| P0015 | Cognitive Bias | What is the analyst missing about their own thinking? |
-| P0017 | Inversion | What would make this fail? |
-| P0018 | Incentive Analysis | Who benefits? What are they incentivized to do? |
-| P0072 | Multiplying by Zero | What single failure collapses everything? |
-| P0091 | Premortem | Assume it failed. What went wrong? |
-| … | 169 more | Full list: `perspectives/` |
+- **Incentive misalignment**: The VC's need for a billion-dollar exit diverged from the founder's goal of independence after Series A
+- **Wrong base rates**: 70% of VC-backed SaaS companies in this vertical fail to reach Series B — the assessment used industry-wide averages
+- **Hidden term sheet trap**: A liquidation preference would leave the founder with nothing in a moderate exit — the assessment had focused on valuation, not structure
 
-The library grows. When DCIK discovers a missing lens, it creates one.
-
----
-
-## Case Study — Bootstrap or Raise Venture Capital?
-
-A founder wrote a 3-page assessment arguing for raising VC. They ran `/DCIK max`.
-
-**What the founder's own analysis missed:**
-
-- **Incentive misalignment**: The VC's need for a billion-dollar exit diverges from the founder's goal of independence after Series A. The assessment assumed shared interests.
-- **Inverted premise**: Instead of "why raise?", DCIK asked "what would make bootstrapping impossible?" Customer acquisition cost exceeding revenue hadn't been modelled.
-- **Wrong base rates**: 70% of VC-backed SaaS companies in this vertical fail to reach Series B. The assessment used industry-wide numbers inflated by outliers.
-- **Hidden term sheet trap**: A liquidation preference would leave the founder with nothing in a moderate exit. The assessment had focused on valuation, not structure.
-- **Survivorship bias**: The founder's peer group was all VC-backed successes. The dead companies weren't visible.
-
-The founder raised anyway — with a cleaner term sheet, a bootstrapping scenario model, and a clear understanding of the tradeoffs they were making.
-
----
-
-## What DCIK Doesn't Do
-
-- It doesn't make decisions for you. It makes your decisions harder to be wrong about.
-- It doesn't replace domain expertise. It stress-tests whatever expertise you bring.
-- It doesn't produce a "validated" answer. It produces a battle-tested one, with residual uncertainty made explicit.
+The founder raised anyway — with a cleaner term sheet and full understanding of the tradeoffs.
 
 ---
 
 ## Security
 
-DCIK is distributed via GitHub Releases (SKILL.zip) and git clone. Every release includes a MANIFEST.json with SHA-256 hashes of all files. The repository has branch protection requiring signed commits and PR review. CI validates perspective content for format compliance and prompt injection patterns on every push.
+Distributed via GitHub Releases with SHA-256 manifest verification. Repository requires signed commits and PR review. CI validates every perspective for format compliance and prompt injection patterns, including behavioral LLM red-team analysis on changed files.
 
-You're installing a skill that can execute code on your machine. Verify before trusting: check the commit signatures, compare the MANIFEST.json hashes against your download, or clone directly from the canonical repo.
+[Review the source](https://github.com/oxygn-cloud-ai/dcik) before installing. This skill executes code on your machine.
 
 ---
 
 ## Disclaimer
 
-DCIK output is AI-generated. It may contain errors or omissions. It does not constitute professional advice — legal, financial, medical, or otherwise. You bear sole responsibility for decisions based on its output. The DLPFC reference in the name is metaphorical — DCIK is an analytical framework, not a scientific instrument.
+Output is AI-generated. Not professional advice. You bear responsibility for decisions based on it. DLPFC reference is metaphorical — DCIK is an analytical framework, not a scientific instrument.
 
----
-
-## Repository
-
-[github.com/oxygn-cloud-ai/dcik](https://github.com/oxygn-cloud-ai/dcik) — MIT licensed. Single maintainer. v1.0.5.
+<br>
+<p align="center">MIT · <a href="https://github.com/oxygn-cloud-ai/dcik">github.com/oxygn-cloud-ai/dcik</a> · v1.0.5 · single maintainer</p>
