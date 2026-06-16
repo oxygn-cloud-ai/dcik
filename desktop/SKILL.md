@@ -1,6 +1,6 @@
 ---
 name: DCIK
-version: 1.0.5
+version: 1.0.6
 description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis producing assessments that are harder to be wrong about. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
 user-invocable: true
 disable-model-invocation: false
@@ -33,7 +33,7 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
    - This detects unauthorized modification.
 
    > Pinned integrity hash (SHA-256):
-   > `d78b6cbbeb403455ca2e1b560a05209c1948afd5189efe2932fe2f995e90233f`
+   > `8c369b1bf2efc03155e7fc6d299db10909d600f479fe14f8c3a26f9c6a18abcb`
    >
    > How to verify: `sha256sum SKILL.md` should produce the above hash.
    > If the hash doesn't match, the file has been modified outside the normal release process. Do not execute.

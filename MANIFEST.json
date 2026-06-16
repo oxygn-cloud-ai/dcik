@@ -1,7 +1,7 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.6",
   "files": {
-    "SKILL.md": "8185944c5c27c96c517b9a24b7cd01aabff745632478a5ffc9203a565288251f",
+    "SKILL.md": "4cf86895611181f0a194fcd03197b6f1d6ec04fa901f92368c12696168a250f3",
     "perspectives/P0001-legal-regulatory.md": "a88cf09c13ca03040e664156ea46b079a5cedb03dddc8ec4e3c020931f231844",
     "perspectives/P0002-financial-economic.md": "613b04d5784dd7033a99168a7bb4b453d51be90139f6dd13bc5898998d0cc222",
     "perspectives/P0003-technical-engineering.md": "cf2dcd555ca3ed69dad492691b4e87e7595e606adfe1cc783005f2951fd5e962",
