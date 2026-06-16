@@ -1,6 +1,6 @@
 # Perspective: Entropy, Decay & Maintenance
 
-**ID:** P46
+**ID:** P0046
 **Domain:** Physics, systems, maintenance, organisational health
 **Source:** Thermodynamics, Farnam Street, Munger
 **Invoke when:** The assessment assumes things will continue working, assets will maintain value, or systems will remain functional without intervention.

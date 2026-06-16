@@ -1,6 +1,6 @@
 # Perspective: Local & Global Maxima
 
-**ID:** P44
+**ID:** P0044
 **Domain:** Optimisation, strategy, decision theory, mathematics
 **Source:** Mathematics, Farnam Street, Munger, strategy literature
 **Invoke when:** The assessment recommends optimisation, improvement, or "better" versions of the current approach. Any claim that the current path is optimal.

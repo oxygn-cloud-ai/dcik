@@ -1,6 +1,6 @@
 # Perspective: Surfing Long Waves
 
-**ID:** P136
+**ID:** P0136
 **Domain:** competitive strategy, business analysis
 **Source:** Munger
 **Invoke when:** Assessing whether success is driven by secular trends rather than company-specific factors.

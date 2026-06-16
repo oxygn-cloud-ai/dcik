@@ -1,6 +1,6 @@
 # Perspective: Occam's Razor
 
-**ID:** P151
+**ID:** P0151
 **Domain:** epistemology, philosophy of science
 **Source:** William of Occam, Munger
 **Invoke when:** The assessment presents complex explanations where simpler ones may suffice.

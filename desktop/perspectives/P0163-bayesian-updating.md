@@ -1,6 +1,6 @@
 # Perspective: Bayesian Updating
 
-**ID:** P163
+**ID:** P0163
 **Domain:** Decision theory, probability, statistics
 **Source:** Bayes, Munger
 **Invoke when:** The assessment holds beliefs that should update as new evidence arrives.

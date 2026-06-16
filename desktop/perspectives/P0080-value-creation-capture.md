@@ -1,6 +1,6 @@
 # Perspective: Value Creation vs. Capture
 
-**ID:** P80
+**ID:** P0080
 **Domain:** Strategy, economics, competition, innovation
 **Source:** Munger, strategy literature, economics
 **Invoke when:** The assessment involves business models, competitive positioning, or claims about value generation.

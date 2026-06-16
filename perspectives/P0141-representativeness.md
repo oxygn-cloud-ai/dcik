@@ -1,6 +1,6 @@
 # Perspective: Representativeness Bias
 
-**ID:** P141
+**ID:** P0141
 **Domain:** cognitive psychology
 **Source:** Kahneman & Tversky, Munger
 **Invoke when:** The assessment judges probability by similarity to a stereotype rather than by base rates.

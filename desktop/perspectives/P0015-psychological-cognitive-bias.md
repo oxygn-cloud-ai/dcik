@@ -1,6 +1,6 @@
 # Perspective: Psychological & Cognitive Bias
 
-**ID:** P15
+**ID:** P0015
 **Domain:** Cognitive biases, decision psychology, behavioural economics
 **Invoke when:** Always. Human cognition is fallible. Every analysis is subject to bias. This perspective must be applied to the analysts themselves, not just the topic.
 

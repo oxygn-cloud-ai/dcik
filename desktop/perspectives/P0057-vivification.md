@@ -1,6 +1,6 @@
 # Perspective: Vivification
 
-**ID:** P57
+**ID:** P0057
 **Domain:** Communication, persuasion, memory, decision psychology
 **Source:** Munger (Vivification)
 **Invoke when:** The assessment uses abstract language, statistics, or generalities where concrete, vivid examples would clarify — or where the abstract framing may be concealing weak evidence.

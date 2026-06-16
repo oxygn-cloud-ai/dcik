@@ -1,6 +1,6 @@
 # Perspective: Stress-Influence Tendency
 
-**ID:** P117
+**ID:** P0117
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, stress psychology
 **Invoke when:** The assessment was produced under pressure — deadlines, stakes, fatigue, crisis. Almost always.

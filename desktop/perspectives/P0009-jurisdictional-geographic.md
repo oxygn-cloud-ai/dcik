@@ -1,6 +1,6 @@
 # Perspective: Jurisdictional & Geographic
 
-**ID:** P09
+**ID:** P0009
 **Domain:** Geography, jurisdiction, cross-border dynamics, local context
 **Invoke when:** The topic spans multiple jurisdictions, involves cross-border elements, or where local context materially changes the analysis.
 

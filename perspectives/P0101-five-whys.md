@@ -1,6 +1,6 @@
 # Perspective: Root Cause Analysis (Five Whys)
 
-**ID:** P101
+**ID:** P0101
 **Domain:** Problem-solving, quality, methodology
 **Source:** Toyota Production System (Taiichi Ohno), cc-thinking-skills
 **Invoke when:** The assessment identifies problems but may have stopped at symptoms rather than drilling to root causes.

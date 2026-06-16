@@ -1,6 +1,6 @@
 # Perspective: Rational vs. Cutthroat Competition
 
-**ID:** P134
+**ID:** P0134
 **Domain:** competitive strategy, business analysis
 **Source:** Munger
 **Invoke when:** Assessing competitive intensity and pricing behaviour.

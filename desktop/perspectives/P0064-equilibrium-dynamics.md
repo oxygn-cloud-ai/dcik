@@ -1,6 +1,6 @@
 # Perspective: Equilibrium Dynamics
 
-**ID:** P64
+**ID:** P0064
 **Domain:** Economics, systems, physics, strategy
 **Source:** Farnam Street, economics, systems theory
 **Invoke when:** The assessment assumes stability, steady-state, or that current conditions will persist. When it doesn't account for the forces that push systems toward or away from equilibrium.

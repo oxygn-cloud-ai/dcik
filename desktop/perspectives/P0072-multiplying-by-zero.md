@@ -1,6 +1,6 @@
 # Perspective: Multiplying by Zero
 
-**ID:** P72
+**ID:** P0072
 **Domain:** Mathematics, risk, decision theory
 **Source:** Farnam Street, mathematics, risk management
 **Invoke when:** The assessment accumulates positive factors while ignoring a single factor that, if zero, negates everything.

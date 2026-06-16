@@ -1,6 +1,6 @@
 # Perspective: Operational & Execution
 
-**ID:** P14
+**ID:** P0014
 **Domain:** Implementation, operations, execution risk, practical delivery
 **Invoke when:** The topic requires practical implementation, has operational dimensions, or depends on execution quality.
 

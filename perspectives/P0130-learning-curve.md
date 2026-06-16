@@ -1,6 +1,6 @@
 # Perspective: Learning/Experience Curve
 
-**ID:** P130
+**ID:** P0130
 **Domain:** competitive strategy, business analysis
 **Source:** BCG, Munger
 **Invoke when:** Assessing claims that costs will fall or quality will improve with cumulative volume.

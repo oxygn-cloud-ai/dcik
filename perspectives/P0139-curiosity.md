@@ -1,6 +1,6 @@
 # Perspective: Curiosity Tendency
 
-**ID:** P139
+**ID:** P0139
 **Domain:** philosophy, ethics
 **Source:** Munger
 **Invoke when:** The assessment shows signs of intellectual complacency — or when curiosity could uncover what the analysis missed.

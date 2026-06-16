@@ -1,6 +1,6 @@
 # Perspective: Key Assumptions Check
 
-**ID:** P98
+**ID:** P0098
 **Domain:** Intelligence analysis, methodology, epistemology
 **Source:** Heuer & Pherson (Structured Analytic Techniques)
 **Invoke when:** The assessment rests on assumptions — stated or unstated — that have not been explicitly identified and tested. Almost always.

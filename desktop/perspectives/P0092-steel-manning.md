@@ -1,6 +1,6 @@
 # Perspective: Steel Manning
 
-**ID:** P92
+**ID:** P0092
 **Domain:** Argumentation, critical thinking, adversarial collaboration
 **Source:** Rhetoric, philosophy, Kahneman (adversarial collaboration)
 **Invoke when:** The assessment critiques, dismisses, or argues against an opposing view. Any situation where understanding the strongest version of the opposition is essential.

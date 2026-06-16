@@ -1,6 +1,6 @@
 # Perspective: Cognitive Biases Extended
 
-**ID:** P27
+**ID:** P0027
 **Domain:** Psychology, behavioural economics, cognitive science
 **Source:** Munger (25 tendencies), Kahneman, Cialdini, Farnam Street
 **Compendium:** true

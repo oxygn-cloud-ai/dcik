@@ -1,6 +1,6 @@
 # Perspective: Doubt-Avoidance Tendency
 
-**ID:** P111
+**ID:** P0111
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Doubt-Avoidance Tendency)
 **Invoke when:** The assessment reaches firm conclusions without acknowledging uncertainty. When ambiguity is resolved by fiat rather than investigation.

@@ -1,6 +1,6 @@
 # Perspective: Hanlon's Razor
 
-**ID:** P152
+**ID:** P0152
 **Domain:** epistemology, philosophy of science
 **Source:** Robert Hanlon, Munger
 **Invoke when:** The assessment attributes outcomes to malice, conspiracy, or intentional deception.

@@ -1,6 +1,6 @@
 # Perspective: Probabilistic & Bayesian Thinking
 
-**ID:** P26
+**ID:** P0026
 **Domain:** Probability, uncertainty, decision under ambiguity
 **Source:** Kahneman & Tversky, Tetlock (superforecasting), Munger, Bayesian inference
 **Invoke when:** The assessment makes claims about likelihood, risk, or expected outcomes. Any statement that says "this will happen" or "the chance is X."

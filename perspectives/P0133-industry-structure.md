@@ -1,6 +1,6 @@
 # Perspective: Industry Structure
 
-**ID:** P133
+**ID:** P0133
 **Domain:** competitive strategy, business analysis
 **Source:** Munger, Porter
 **Invoke when:** Assessing market structure and its implications for profitability.

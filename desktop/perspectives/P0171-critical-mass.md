@@ -1,6 +1,6 @@
 # Perspective: Critical Mass
 
-**ID:** P171
+**ID:** P0171
 **Domain:** Resilience engineering, network theory
 **Source:** Physics, Munger, Farnam Street
 **Invoke when:** The assessment involves growth, adoption, or systems that may have tipping points.

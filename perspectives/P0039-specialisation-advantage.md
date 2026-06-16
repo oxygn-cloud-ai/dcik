@@ -1,6 +1,6 @@
 # Perspective: Specialisation & Comparative Advantage
 
-**ID:** P39
+**ID:** P0039
 **Domain:** Economics, strategy, organisational design, trade
 **Source:** Ricardo (comparative advantage), Smith (division of labour), Munger, Farnam Street
 **Invoke when:** The assessment involves organisational design, strategic focus, make-vs-buy decisions, or competitive positioning.

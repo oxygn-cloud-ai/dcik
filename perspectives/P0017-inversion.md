@@ -1,6 +1,6 @@
 # Perspective: Inversion
 
-**ID:** P17
+**ID:** P0017
 **Domain:** Problem-solving, failure analysis, negative reasoning
 **Source:** Charlie Munger ("Invert, always invert"), Carl Jacobi ("man muss immer umkehren")
 **Invoke when:** The topic involves decisions, strategies, or plans where failure modes must be exhaustively identified.

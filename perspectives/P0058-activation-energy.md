@@ -1,6 +1,6 @@
 # Perspective: Activation Energy & Catalysts
 
-**ID:** P58
+**ID:** P0058
 **Domain:** Chemistry metaphor, strategy, change management, psychology
 **Source:** Farnam Street (Chemistry section)
 **Invoke when:** The assessment assumes change will happen, progress will be made, or goals will be achieved — without examining the energy required to start and the catalysts that might reduce that energy.

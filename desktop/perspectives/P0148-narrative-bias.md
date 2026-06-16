@@ -1,6 +1,6 @@
 # Perspective: Narrative Bias
 
-**ID:** P148
+**ID:** P0148
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Munger, Kahneman, Taleb
 **Invoke when:** The assessment tells a coherent story. All assessments tell stories. The question is whether the story shaped the evidence or the evidence shaped the story.

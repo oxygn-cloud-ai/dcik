@@ -1,6 +1,6 @@
 # Perspective: Liking/Loving Tendency
 
-**ID:** P118
+**ID:** P0118
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger, Cialdini
 **Invoke when:** The assessment evaluates people, teams, or entities the analyst likes, admires, or identifies with.

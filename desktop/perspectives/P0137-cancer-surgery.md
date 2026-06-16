@@ -1,6 +1,6 @@
 # Perspective: Cancer-Surgery Formula
 
-**ID:** P137
+**ID:** P0137
 **Domain:** corporate strategy, organizational design
 **Source:** Munger
 **Invoke when:** The assessment avoids painful but necessary excision — cutting a division, firing a leader, abandoning a strategy.

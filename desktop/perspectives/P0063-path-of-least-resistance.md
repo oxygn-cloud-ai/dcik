@@ -1,6 +1,6 @@
 # Perspective: Path of Least Resistance
 
-**ID:** P63
+**ID:** P0063
 **Domain:** Physics, psychology, organisational behaviour, design
 **Source:** Farnam Street (Physics), behavioural economics, UX design
 **Invoke when:** The assessment assumes people will do the right thing, follow processes, or make optimal choices — rather than taking the easiest available path.

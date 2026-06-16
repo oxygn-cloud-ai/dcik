@@ -1,6 +1,6 @@
 # Perspective: Irreducibility
 
-**ID:** P74
+**ID:** P0074
 **Domain:** Complexity, systems, epistemology
 **Source:** Farnam Street, complexity theory
 **Invoke when:** The assessment simplifies or decomposes complex phenomena — when the whole may not equal the sum of parts.

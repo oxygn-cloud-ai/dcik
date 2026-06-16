@@ -1,6 +1,6 @@
 # Perspective: Twaddle Tendency
 
-**ID:** P140
+**ID:** P0140
 **Domain:** epistemology, critical thinking
 **Source:** Munger
 **Invoke when:** The assessment uses more words than necessary, substitutes length for rigour, or buries weak analysis in volume.

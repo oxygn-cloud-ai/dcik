@@ -1,6 +1,6 @@
 # Perspective: Scale Economies
 
-**ID:** P129
+**ID:** P0129
 **Domain:** competitive strategy, business analysis
 **Source:** Munger, economics
 **Invoke when:** Assessing claims that bigger is better — in cost, pricing, or competitive advantage.

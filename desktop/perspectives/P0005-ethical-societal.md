@@ -1,6 +1,6 @@
 # Perspective: Ethical & Societal
 
-**ID:** P05
+**ID:** P0005
 **Domain:** Ethics, social impact, externalities, fairness, public good
 **Invoke when:** The topic has societal implications, ethical dimensions, or affects non-parties.
 

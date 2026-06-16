@@ -1,6 +1,6 @@
 # Perspective: Effectuation
 
-**ID:** P103
+**ID:** P0103
 **Domain:** Entrepreneurship, strategy, decision under uncertainty
 **Source:** Saras Sarasvathy (Effectuation)
 **Invoke when:** The assessment evaluates entrepreneurial ventures, innovation, or situations of genuine Knightian uncertainty where the future is not predictable.

@@ -1,6 +1,6 @@
 # Perspective: Network Effects & Platform Economics
 
-**ID:** P40
+**ID:** P0040
 **Domain:** Network economics, platform strategy, technology, market structure
 **Source:** Metcalfe, Munger, platform economics literature, Farnam Street
 **Invoke when:** The assessment involves platforms, marketplaces, social networks, or any business where user growth increases value for other users.

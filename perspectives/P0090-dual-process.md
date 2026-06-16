@@ -1,6 +1,6 @@
 # Perspective: Dual Process Theory
 
-**ID:** P90
+**ID:** P0090
 **Domain:** Cognitive psychology, decision science, behavioural economics
 **Source:** Kahneman (Thinking, Fast and Slow), Stanovich & West
 **Invoke when:** The assessment involves human judgment, decision-making, or any situation where intuitive vs. analytical thinking produces different outcomes.

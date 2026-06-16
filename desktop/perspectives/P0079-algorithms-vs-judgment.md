@@ -1,6 +1,6 @@
 # Perspective: Algorithms vs. Judgment
 
-**ID:** P79
+**ID:** P0079
 **Domain:** Decision science, AI, methodology, organisational design
 **Source:** Farnam Street (Algorithms), Kahneman, Meehl (clinical vs. statistical prediction)
 **Invoke when:** The assessment relies on human judgment where algorithmic or systematic approaches might outperform, or vice versa.

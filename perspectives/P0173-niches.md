@@ -1,6 +1,6 @@
 # Perspective: Niches
 
-**ID:** P173
+**ID:** P0173
 **Domain:** Evolutionary biology, ecology, complexity economics
 **Source:** Ecology, Munger, Farnam Street
 **Invoke when:** Assessing market positioning, specialisation, or competitive strategy.

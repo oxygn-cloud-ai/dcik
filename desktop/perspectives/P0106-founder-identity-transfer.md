@@ -1,6 +1,6 @@
 # Perspective: Founder Identity Transfer
 
-**ID:** P106
+**ID:** P0106
 **Domain:** Organisational psychology, succession, brand, identity
 **Source:** Discovered by DCIK during founder succession analysis (14 June 2026)
 **Invoke when:** The assessment involves founder-led organisations, succession planning, or any situation where an individual's identity is fused with an organisation's identity, brand, or client relationships.

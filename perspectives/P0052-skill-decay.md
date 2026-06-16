@@ -1,6 +1,6 @@
 # Perspective: Skill Decay & Maintenance of Competence
 
-**ID:** P52
+**ID:** P0052
 **Domain:** Psychology, learning, organisational capability, knowledge management
 **Source:** Munger (Use-It-or-Lose-It Tendency, Senescence-Misinfluence Tendency)
 **Invoke when:** The assessment depends on skills, knowledge, or capabilities that may have decayed since last demonstrated.

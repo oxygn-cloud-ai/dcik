@@ -1,6 +1,6 @@
 # Perspective: Expected Value
 
-**ID:** P162
+**ID:** P0162
 **Domain:** Decision theory, probability, statistics
 **Source:** Probability theory, Munger
 **Invoke when:** The assessment makes decisions under uncertainty without explicit probability-weighted calculation.

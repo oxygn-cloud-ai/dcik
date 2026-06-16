@@ -1,6 +1,6 @@
 # Perspective: Simple Pain-Avoiding Psychological Denial
 
-**ID:** P122
+**ID:** P0122
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger
 **Invoke when:** The assessment confronts uncomfortable truths — and may be avoiding them.

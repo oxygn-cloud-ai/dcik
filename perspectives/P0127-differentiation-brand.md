@@ -1,6 +1,6 @@
 # Perspective: Differentiation & Brand Power
 
-**ID:** P127
+**ID:** P0127
 **Domain:** competitive strategy, business analysis
 **Source:** Munger, Porter, Aaker
 **Invoke when:** Assessing claims of differentiation or brand value.

@@ -1,6 +1,6 @@
 # Perspective: Confirmation Bias
 
-**ID:** P144
+**ID:** P0144
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Munger, Wason, Kahneman
 **Invoke when:** The assessment seeks evidence that supports its conclusions rather than evidence that challenges them. Always.

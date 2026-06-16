@@ -1,6 +1,6 @@
 # Perspective: Narrative & Framing
 
-**ID:** P33
+**ID:** P0033
 **Domain:** Communication, psychology, rhetoric, storytelling
 **Source:** Farnam Street (Art/Narrative section), Kahneman (framing effects), Cialdini, narrative economics
 **Invoke when:** The assessment tells a story — about a company, an investment, a strategy, a market. Always. Every assessment has a narrative.

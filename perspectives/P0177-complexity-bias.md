@@ -1,6 +1,6 @@
 # Perspective: Complexity Bias
 
-**ID:** P177
+**ID:** P0177
 **Domain:** Evolutionary biology, ecology, complexity economics
 **Source:** Munger, cognitive science
 **Invoke when:** The assessment favours complex explanations or solutions where simpler ones would suffice.

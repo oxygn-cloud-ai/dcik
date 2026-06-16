@@ -1,6 +1,6 @@
 # Perspective: Kantian Fairness Tendency
 
-**ID:** P138
+**ID:** P0138
 **Domain:** philosophy, ethics
 **Source:** Munger
 **Invoke when:** The assessment involves fairness judgments, distribution of benefits/burdens, or moral intuitions about what parties "deserve."

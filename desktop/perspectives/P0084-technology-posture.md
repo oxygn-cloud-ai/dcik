@@ -1,6 +1,6 @@
 # Perspective: Technology as Friend vs. Killer
 
-**ID:** P84
+**ID:** P0084
 **Domain:** Technology, strategy, competitive dynamics
 **Source:** Munger (Technology as Friend vs. Killer)
 **Invoke when:** The assessment involves technology adoption, disruption, or claims about technological advantage.

@@ -1,6 +1,6 @@
 # Perspective: Resilience
 
-**ID:** P167
+**ID:** P0167
 **Domain:** Resilience engineering, network theory
 **Source:** Systems theory, ecology, Taleb, Munger
 **Invoke when:** The assessment assumes systems will continue functioning under stress.

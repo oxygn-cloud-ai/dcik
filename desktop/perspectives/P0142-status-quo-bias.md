@@ -1,6 +1,6 @@
 # Perspective: Status Quo Bias
 
-**ID:** P142
+**ID:** P0142
 **Domain:** cognitive psychology
 **Source:** Munger, Kahneman, Samuelson
 **Invoke when:** The assessment defaults to the current state, resists change, or treats the existing arrangement as the natural baseline.

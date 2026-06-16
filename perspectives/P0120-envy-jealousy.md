@@ -1,6 +1,6 @@
 # Perspective: Envy/Jealousy Tendency
 
-**ID:** P120
+**ID:** P0120
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger
 **Invoke when:** The assessment involves comparisons between parties, relative outcomes, or competitive dynamics.

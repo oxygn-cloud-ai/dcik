@@ -1,6 +1,6 @@
 # Perspective: Equivalence
 
-**ID:** P87
+**ID:** P0087
 **Domain:** Mathematics, strategy, economics, problem-solving
 **Source:** Farnam Street (Equivalence)
 **Invoke when:** The assessment treats problems as unique when structurally equivalent solutions exist, or treats different things as equivalent when they're not.

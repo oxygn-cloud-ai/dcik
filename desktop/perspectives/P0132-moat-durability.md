@@ -1,6 +1,6 @@
 # Perspective: Moat Durability
 
-**ID:** P132
+**ID:** P0132
 **Domain:** competitive strategy, business analysis
 **Source:** Munger, Morningstar
 **Invoke when:** Assessing how long competitive advantages will last.

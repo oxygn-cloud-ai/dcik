@@ -1,6 +1,6 @@
 # Perspective: Fat Tails
 
-**ID:** P164
+**ID:** P0164
 **Domain:** Systems theory, complexity science
 **Source:** Taleb, Munger, Mandelbrot
 **Invoke when:** The assessment uses normal distributions or assumes extreme events are rare.

@@ -1,6 +1,6 @@
 # Perspective: Social-Proof Tendency
 
-**ID:** P108
+**ID:** P0108
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Social-Proof Tendency), Cialdini
 **Invoke when:** The assessment references consensus, market trends, or what others are doing as evidence.

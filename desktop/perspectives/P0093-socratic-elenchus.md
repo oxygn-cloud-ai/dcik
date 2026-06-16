@@ -1,6 +1,6 @@
 # Perspective: Socratic Elenchus
 
-**ID:** P93
+**ID:** P0093
 **Domain:** Philosophy, epistemology, critical reasoning
 **Source:** Socrates/Plato, analytic philosophy
 **Invoke when:** The assessment makes claims to knowledge or relies on definitions that may not survive cross-examination.

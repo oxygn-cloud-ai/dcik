@@ -1,6 +1,6 @@
 # Perspective: Inconsistency-Avoidance Tendency
 
-**ID:** P110
+**ID:** P0110
 **Domain:** Cognitive psychology / Behavioral economics
 **Source:** Munger (Inconsistency-Avoidance Tendency), Festinger (cognitive dissonance)
 **Invoke when:** The assessment defends prior commitments, resists updating beliefs, or treats consistency as a virtue rather than a potential trap.

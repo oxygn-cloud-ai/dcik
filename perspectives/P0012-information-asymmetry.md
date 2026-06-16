@@ -1,6 +1,6 @@
 # Perspective: Information Asymmetry
 
-**ID:** P12
+**ID:** P0012
 **Domain:** Knowledge gaps, hidden information, disclosure, due diligence
 **Invoke when:** The topic involves information disparities between parties or incomplete information.
 

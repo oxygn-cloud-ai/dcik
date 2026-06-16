@@ -1,6 +1,6 @@
 # Perspective: Leverage & Force Multipliers
 
-**ID:** P49
+**ID:** P0049
 **Domain:** Strategy, finance, operations, physics metaphor
 **Source:** Munger, Farnam Street, Archimedes
 **Invoke when:** The assessment involves capital structure, operational efficiency, strategic advantage, or any situation where small inputs claim to produce large outputs.

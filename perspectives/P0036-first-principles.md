@@ -1,6 +1,6 @@
 # Perspective: First Principles Decomposition
 
-**ID:** P36
+**ID:** P0036
 **Domain:** Reasoning, problem-solving, epistemology, innovation
 **Source:** Aristotle, Munger, Musk, Farnam Street
 **Invoke when:** The assessment relies on conventional wisdom, analogies, or "how things are done." When the analysis needs to be rebuilt from the ground up.

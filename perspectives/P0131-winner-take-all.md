@@ -1,6 +1,6 @@
 # Perspective: Winner-Take-All Markets
 
-**ID:** P131
+**ID:** P0131
 **Domain:** competitive strategy, business analysis
 **Source:** Munger, economics
 **Invoke when:** Assessing market structure where #1 captures disproportionate value.

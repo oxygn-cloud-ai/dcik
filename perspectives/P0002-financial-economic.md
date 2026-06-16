@@ -1,6 +1,6 @@
 # Perspective: Financial & Economic
 
-**ID:** P02
+**ID:** P0002
 **Domain:** Capital, value, markets, incentives, cost structures
 **Invoke when:** The topic involves money, investment, valuation, returns, costs, or economic incentives.
 

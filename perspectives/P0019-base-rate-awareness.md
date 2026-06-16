@@ -1,6 +1,6 @@
 # Perspective: Base Rate Awareness
 
-**ID:** P19
+**ID:** P0019
 **Domain:** Statistics, probability, decision science
 **Source:** Kahneman & Tversky, Munger ("base rates"), Tetlock (superforecasting)
 **Invoke when:** The topic makes claims about likelihood, probability, or expected outcomes. Any assessment that says "this will succeed."

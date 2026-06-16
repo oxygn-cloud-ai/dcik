@@ -1,6 +1,6 @@
 # Perspective: Corporate Governance
 
-**ID:** P154
+**ID:** P0154
 **Domain:** organizational behavior, management theory
 **Source:** Munger, corporate governance theory
 **Invoke when:** Assessing board oversight, management accountability, or governance structures.

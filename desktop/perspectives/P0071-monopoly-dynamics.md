@@ -1,6 +1,6 @@
 # Perspective: Monopoly Dynamics
 
-**ID:** P71
+**ID:** P0071
 **Domain:** Economics, competition, regulation, strategy
 **Source:** Economics, Munger, Farnam Street, antitrust theory
 **Invoke when:** The assessment involves market structure, competitive dynamics, or any entity with significant market power.

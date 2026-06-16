@@ -1,6 +1,6 @@
 # Perspective: Velocity & Direction
 
-**ID:** P42
+**ID:** P0042
 **Domain:** Strategy, physics metaphor, decision-making, measurement
 **Source:** Farnam Street (Physics section), business strategy
 **Invoke when:** The assessment measures progress, growth, or performance. Any claim about "moving forward" or "growing."

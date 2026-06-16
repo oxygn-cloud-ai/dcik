@@ -1,6 +1,6 @@
 # Perspective: Boom-Bust Cycles
 
-**ID:** P176
+**ID:** P0176
 **Domain:** Evolutionary biology, ecology, complexity economics
 **Source:** Munger, Minsky, population dynamics
 **Invoke when:** Assessing cyclical industries, growth dynamics, or markets prone to overexpansion and collapse.

@@ -1,6 +1,6 @@
 # Perspective: Competition & Moat Dynamics
 
-**ID:** P29
+**ID:** P0029
 **Domain:** Competitive strategy, industry analysis, market structure
 **Source:** Porter, Buffett/Munger (moats), Schumpeter (creative destruction), Christensen (disruption)
 **Invoke when:** The assessment involves business strategy, competitive positioning, market entry, or durability of advantages.

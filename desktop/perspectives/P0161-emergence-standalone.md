@@ -1,6 +1,6 @@
 # Perspective: Emergence
 
-**ID:** P161
+**ID:** P0161
 **Domain:** Systems theory, complexity science
 **Source:** Complexity theory, Farnam Street
 **Invoke when:** The assessment analyses components individually and may miss system-level behaviour.

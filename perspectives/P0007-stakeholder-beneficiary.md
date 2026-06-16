@@ -1,6 +1,6 @@
 # Perspective: Stakeholder & Beneficiary
 
-**ID:** P07
+**ID:** P0007
 **Domain:** Stakeholder analysis, beneficiary interests, principal-agent dynamics
 **Invoke when:** The topic serves or affects specific stakeholders, or involves fiduciary or agency relationships.
 

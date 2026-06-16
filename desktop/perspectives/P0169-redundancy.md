@@ -1,6 +1,6 @@
 # Perspective: Redundancy
 
-**ID:** P169
+**ID:** P0169
 **Domain:** Resilience engineering, network theory
 **Source:** Engineering, Munger, systems theory
 **Invoke when:** The assessment evaluates system reliability, backup systems, or single points of failure.

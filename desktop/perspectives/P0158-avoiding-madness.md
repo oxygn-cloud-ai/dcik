@@ -1,6 +1,6 @@
 # Perspective: Avoiding Madness in Crowds
 
-**ID:** P158
+**ID:** P0158
 **Domain:** cognitive psychology, behavioral economics, decision science
 **Source:** Munger, Mackay, Kindleberger
 **Invoke when:** The assessment reflects consensus views, market sentiment, or widely-held beliefs that may be collectively wrong.

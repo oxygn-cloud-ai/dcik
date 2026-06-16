@@ -1,6 +1,6 @@
 # Perspective: Bounded Rationality
 
-**ID:** P88
+**ID:** P0088
 **Domain:** Decision science, cognitive science, economics
 **Source:** Herbert Simon, Kahneman
 **Invoke when:** The assessment assumes rational decision-making, optimal choices, or that actors have complete information and unlimited processing capacity.

@@ -1,6 +1,6 @@
 # Perspective: Competitive & Market
 
-**ID:** P04
+**ID:** P0004
 **Domain:** Competition, market dynamics, industry structure, positioning
 **Invoke when:** The topic involves market positioning, competitive dynamics, industry analysis, or strategic choices.
 

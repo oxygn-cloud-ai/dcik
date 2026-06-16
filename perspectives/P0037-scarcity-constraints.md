@@ -1,6 +1,6 @@
 # Perspective: Scarcity & Resource Constraints
 
-**ID:** P37
+**ID:** P0037
 **Domain:** Economics, strategy, resource allocation, constraints
 **Source:** Economics (fundamental), Munger, Farnam Street
 **Invoke when:** The assessment makes assumptions about resource availability, growth rates, or market capacity. Any plan that requires resources to execute.

@@ -1,6 +1,6 @@
 # Perspective: Leverage Points
 
-**ID:** P100
+**ID:** P0100
 **Domain:** Systems thinking, intervention design, strategy
 **Source:** Donella Meadows (Leverage Points: Places to Intervene in a System)
 **Invoke when:** The assessment proposes interventions, changes, or solutions — and may be aiming at the wrong leverage points.

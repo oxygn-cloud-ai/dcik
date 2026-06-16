@@ -1,6 +1,6 @@
 # Perspective: Survivorship Detection
 
-**ID:** P23
+**ID:** P0023
 **Domain:** Statistical reasoning, sample bias, evidence quality
 **Source:** Munger ("autopsy learning"), Taleb (silent evidence), Kahneman (WYSIATI — What You See Is All There Is)
 **Invoke when:** The topic relies on examples, case studies, success stories, or competitive benchmarking. Any analysis that says "look at these successful cases."

@@ -1,6 +1,6 @@
 # Perspective: Compounding & Exponential Effects
 
-**ID:** P28
+**ID:** P0028
 **Domain:** Mathematics, growth dynamics, network effects, scale
 **Source:** Munger, Buffett, systems theory, network economics
 **Invoke when:** The assessment involves growth projections, market dynamics, competitive positioning, or any claim about "scaling."
