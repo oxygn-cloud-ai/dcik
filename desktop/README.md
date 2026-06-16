@@ -3,8 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/oxygn-cloud-ai/dcik/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" /></a>
+  <a href="https://scorecard.dev/viewer/?uri=github.com/oxygn-cloud-ai/dcik"><img src="https://api.scorecard.dev/projects/github.com/oxygn-cloud-ai/dcik/badge" /></a>
   <a href="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml"><img src="https://github.com/oxygn-cloud-ai/dcik/actions/workflows/validate.yml/badge.svg?branch=main" /></a>
+  <a href="https://github.com/oxygn-cloud-ai/dcik/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" /></a>
 </p>
 
 # DCIK — Dorsolateral Contrary Inference Katabasis
@@ -178,9 +179,7 @@ The full library is in `perspectives/` (files P0001 through P0177). The library 
 
 ## Security
 
-DCIK is distributed via GitHub Releases with SHA-256 manifest verification. The repository enforces signed commits, PR review, and linear history on the main branch. CI validates every perspective file for format compliance and prompt injection patterns on every push. Changed perspective files undergo behavioral LLM red-team analysis.
-
-This skill executes code on your machine. Review the [source](https://github.com/oxygn-cloud-ai/dcik) and verify the [manifest](https://github.com/oxygn-cloud-ai/dcik/blob/main/MANIFEST.json) before installing.
+DCIK is continuously checked with OpenSSF Scorecard, Semgrep (SAST), and gitleaks (secret scanning). To report a vulnerability, see [SECURITY.md](SECURITY.md).
 
 ---
 
