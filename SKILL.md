@@ -33,7 +33,7 @@ When $ARGUMENTS contains a topic (not "perspectives" or "help"):
    - This detects unauthorized modification.
 
    > Pinned integrity hash (SHA-256):
-   > `30564de555bd94c991a1b317b6686e24ce0f03dd604650b722d810ed8892d115`
+   > `f62ba2c377c0af4325723ecf46e758e3971afdad8aa6d1df787a35dd5b2467d9`
    >
    > How to verify: `sha256sum SKILL.md` should produce the above hash.
    > If the hash doesn't match, the file has been modified outside the normal release process. Do not execute.

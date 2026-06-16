@@ -72,9 +72,8 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── SKILL.md                          Orchestrator — the skill Claude Code executes
 ├── package.json                      project metadata
 ├── .gitignore                        Standard ignores (node_modules, .DS_Store, *.zip)
-├── logo.png                          Oxygn logo (1024px transparent)
-├── logo.svg                          Oxygn logo (circle-safe white vector)
-├── social-preview.png                GitHub social card image (512px)
+├── assets/
+│   └── logo.png                      Oxygn logo
 ├── perspectives/                     Analytical library (177 lenses, P0001-P0177)
 │   ├── P0001-legal-regulatory.md
 │   ├── P0002-financial-economic.md
@@ -106,7 +105,8 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
     ├── SKILL.md                      Copy of orchestrator for org skill
     ├── manifest.json                 Org skill manifest (name, files, config)
     ├── README.md                     Copy of README for the ZIP bundle
-    ├── logo.png                      Copy for ZIP bundle
+    ├── assets/
+    │   └── logo.png                  Copy for ZIP bundle
     └── perspectives/                 Copy of library for ZIP bundle
         └── (177 .md files)
 ```
@@ -297,7 +297,7 @@ The `desktop/` directory contains the organisation skill bundle:
 - `SKILL.md` — copy of the orchestrator
 - `manifest.json` — organisation skill manifest with file list, configuration, and metadata
 - `perspectives/` — copy of the full library
-- `README.md` and `logo.png` — for the ZIP bundle
+- `README.md and assets/logo.png — for the ZIP bundle
 
 The `SKILL.zip` file in the repo root is pre-built for admin upload. Enterprise administrators download it from the latest GitHub release and upload via Customise → Skills → Organisation Skills.
 

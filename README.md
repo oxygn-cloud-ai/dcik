@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" alt="Oxygn" width="100" />
+  <img src="assets/logo.png" alt="Oxygn" width="100" />
 </p>
 
 <p align="center">
