@@ -1,7 +1,7 @@
 ---
 name: DCIK
 version: 1.0.6
-description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis producing assessments that are harder to be wrong about. Alternating model rounds with structured perspective application, mandatory web research, and autonomous self-improvement. Use for any assessment, analysis, decision, or deliverable requiring maximum depth, rigour, and adversarial testing.
+description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis: structured perspective application across 177 lenses, web research, and adversarial iteration. Use for any assessment, analysis, or decision requiring depth and rigour.
 user-invocable: true
 disable-model-invocation: false
 allowed-tools: Bash(git log:*), Bash(git diff:*), Bash(git show:*), Bash(git branch:*), Bash(git config:*), Bash(gh issue create:*), Bash(gh issue list:*), Bash(shasum:*), Bash(sha256sum:*), Bash(mkdir:*), Bash(cp:*), Bash(rm:*), Bash(zip:*), Bash(unzip:*), Bash(find:*), Bash(ls:*), Bash(cat:*), Bash(head:*), Bash(grep:*), Bash(wc:*), Bash(sort:*), Bash(echo:*), Bash(date:*), Bash(sed:*), Bash(tr:*), Bash(cut:*), TaskCreate, TaskUpdate, TaskList, WebSearch, WebFetch, Read, Write, Edit, Agent, AskUserQuestion

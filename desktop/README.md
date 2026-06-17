@@ -12,7 +12,7 @@
 
 **Thinking deeply by arguing with yourself.**
 
-A Claude Code skill that subjects any assessment to multi-model attack across 177 analytical perspectives, autonomous web research, and structured adversarial iteration.
+A Claude Code skill that subjects any assessment to structured adversarial review across 177 analytical perspectives, web research, and multi-model iteration.
 
 <br>
 
@@ -140,7 +140,7 @@ If no level is specified, DCIK defaults to `high`.
 | Resolve | Where models disagree, the orchestrator resolves with evidence and structured reasoning |
 | Repeat | Minimum 3 cycles. Continues until no material weaknesses remain |
 
-The output is an assessment where every claim has been challenged, every premise inverted, and every source verified against current information.
+The process challenges claims, inverts premises, and verifies sources against current information. DCIK makes no claim about the accuracy of its output — it claims only that the output has survived structured adversarial attack.
 
 ---
 
