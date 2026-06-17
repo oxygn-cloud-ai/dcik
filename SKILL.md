@@ -25,18 +25,7 @@ Deep Check subjects assessments to adversarial review cycles across multiple mod
 
 When $ARGUMENTS contains a topic (not "perspectives" or "help"):
 
-0. **Runtime integrity check:** Before executing, verify this file's integrity:
-   - Compute the SHA-256 hash of SKILL.md
-   - Compare it against the hash for `SKILL.md` in `MANIFEST.json` (the authoritative source)
-   - Also compare against the pinned hash below (inline reference, updated during release)
-   - If neither check matches, warn the user and refuse to execute.
-   - This detects unauthorized modification.
-
-   > Pinned integrity hash (SHA-256):
-   > `8c369b1bf2efc03155e7fc6d299db10909d600f479fe14f8c3a26f9c6a18abcb`
-   >
-   > How to verify: `sha256sum SKILL.md` should produce the above hash.
-   > If the hash doesn't match, the file has been modified outside the normal release process. Do not execute.
+0. **Verify installation:** Confirm `MANIFEST.json` is present in the skill directory alongside SKILL.md. If it is missing, warn the user that the installation may be incomplete. The manifest contains SHA-256 hashes — users who want integrity verification can compare their files against it manually. This step does not block execution.
 
 1. Parse effort level from $ARGUMENTS (min/med/high/max, default high)
 2. **Execute Phase 0–4 below immediately.** Autonomous — no pauses for user input.

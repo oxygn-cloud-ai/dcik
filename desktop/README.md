@@ -160,7 +160,7 @@ The founder raised anyway with a cleaner term sheet, a bootstrapping scenario mo
 
 ## The Library
 
-177 analytical lenses from law, finance, engineering, psychology, strategy, and cognitive science. Each perspective is a self-contained protocol. DCIK loads only the ones relevant to your topic.
+177 analytical lenses from law, finance, engineering, psychology, strategy, and cognitive science. Each perspective is a self-contained protocol loaded only when relevant. The count includes granular unbundled lenses (individual cognitive biases alongside the broader bias perspective, for example). This is a depth/distinctness tradeoff: granular lenses prompt more sharply, broad lenses cover more ground.
 
 | Lens | Asks |
 |------|------|
