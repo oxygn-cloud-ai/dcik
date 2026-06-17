@@ -67,7 +67,6 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── README.md                         User-facing index, install guide, methodology
 ├── PHILOSOPHY.md                     Vision, mission, non-negotiables (human-owned)
 ├── ARCHITECTURE.md                   This file
-├── CONTRIBUTING.md                   How to contribute perspectives and improvements
 ├── PUBLIC_RISK_ASSESSMENT.md         Adversarial risk assessment of public visibility
 ├── SKILL.md                          Orchestrator — the skill Claude Code executes
 ├── package.json                      project metadata

@@ -1,7 +1,7 @@
 {
   "name": "dcik",
   "version": "1.0.6",
-  "description": "DCIK — Dorsolateral Cognitive Inference Kinetics. Deep Check: multi-model adversarial analysis for Claude Code.",
+  "description": "DCIK — Dorsolateral Contrary Inference Katabasis. Deep Check: multi-model adversarial analysis for Claude Code.",
   "repository": {
     "type": "git",
     "url": "https://github.com/oxygn-cloud-ai/dcik.git"
