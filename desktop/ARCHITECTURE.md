@@ -374,7 +374,7 @@ Issue logging uses the `gh` CLI, which requires the user to be authenticated to 
 
 ## 11. Versioning
 
-DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.5`). The version increments when:
+DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.7`). The version increments when:
 - New perspectives are added to the library (minor bump)
 - The orchestrator process changes (minor bump)
 - The file format or distribution architecture changes (major bump)
