@@ -9,7 +9,7 @@ This document describes how DCIK is built. For *why* it is built this way, see [
 DCIK is a **skill**, not an application. It executes within the Claude Code runtime — a Markdown instruction set that the model follows under tool restrictions declared in YAML frontmatter. There is no server, no database, no persistent process. The entire system is:
 
 - One `SKILL.md` (the orchestrator)
-- 177 perspective files in `perspectives/` (the analytical library)
+- 178 perspective files in `perspectives/` (the analytical library)
 - One `SKILL.zip` (bundled distribution for Claude Desktop / claude.ai upload)
 - One `desktop/` directory with `manifest.json` (the Claude Desktop / claude.ai mirror)
 
@@ -34,7 +34,7 @@ Architectural choices that flow from the philosophy:
 │  README.md         ← User entry point                               │
 │  PHILOSOPHY.md     ← Vision, principles, non-negotiables            │
 │  ARCHITECTURE.md   ← This file                                      │
-│  perspectives/     ← 177 analytical lenses (P0001-P0177)                  │
+│  perspectives/     ← 178 analytical lenses (P0001-P0178)                  │
 │  desktop/          ← Claude Desktop / claude.ai mirror              │
 │    SKILL.md        ←   Copy of orchestrator                         │
 │    manifest.json   ←   Org skill manifest                           │
@@ -49,14 +49,14 @@ Architectural choices that flow from the philosophy:
           │                         │
           ▼                         ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│              INSTALL TARGET (~/.claude/skills/DCIK/)                │
+│              INSTALL TARGET (${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/)                │
 │                                                                     │
 │  SKILL.md          ← The orchestrator Claude Code executes          │
 │  perspectives/     ← The analytical library (perspective files)     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when the user types `/DCIK` and follows its instructions, restricted to the tools declared in `allowed-tools` (which is unrestricted for DCIK — it needs Read, Write, Bash, WebSearch, WebFetch, and Agent).
+DCIK installs into `${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/`. Claude Code reads `SKILL.md` when the user types `/DCIK` and follows its instructions, restricted to the tools declared in `allowed-tools` (which is unrestricted for DCIK — it needs Read, Write, Bash, WebSearch, WebFetch, and Agent).
 
 ---
 
@@ -73,7 +73,7 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 ├── .gitignore                        Standard ignores (node_modules, .DS_Store, *.zip)
 ├── assets/
 │   └── logo.png                      Oxygn logo
-├── perspectives/                     Analytical library (177 lenses, P0001-P0177)
+├── perspectives/                     Analytical library (178 lenses, P0001-P0178)
 │   ├── P0001-legal-regulatory.md
 │   ├── P0002-financial-economic.md
 │   ├── P0003-technical-engineering.md
@@ -98,8 +98,8 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
 │   ├── P0022-agency-analysis.md
 │   ├── P0023-survivorship-detection.md
 │   ├── P0024-circle-of-competence.md
-│   ├── ...                               (P0025-P0177 — 153 more perspectives)
-│   └── P0177-complexity-bias.md
+│   ├── ...                               (P0025-P0178 — 154 more perspectives)
+│   └── P0178-operational-reality-vs-headline-metric.md
 └── desktop/
     ├── SKILL.md                      Copy of orchestrator for org skill
     ├── manifest.json                 Org skill manifest (name, files, config)
@@ -107,7 +107,7 @@ DCIK installs into `~/.claude/skills/DCIK/`. Claude Code reads `SKILL.md` when t
     ├── assets/
     │   └── logo.png                  Copy for ZIP bundle
     └── perspectives/                 Copy of library for ZIP bundle
-        └── (177 .md files)
+        └── (178 .md files)
 ```
 
 ---
@@ -139,7 +139,7 @@ Files are kept under 2KB to minimise context consumption when loaded. The lens q
 
 ### 4.2 Loading Strategy
 
-DCIK does not load all 177 perspectives at once. Instead:
+DCIK does not load all 178 perspectives at once. Instead:
 
 1. **Cycle 0 (baseline assessment):** Load P0013, P0015, and 3–5 perspectives most relevant to the topic domain. If the topic is an investment decision, load P0002 (Financial), P0008 (Counterparty), P0012 (Information Asymmetry), P0018 (Incentive Analysis), P0020 (Margin of Safety).
 2. **Cycle 1+ (adversarial):** Load the same set plus escalation perspectives based on what the previous cycle found. If financial weaknesses were found, add P0019 (Base Rates), P0023 (Survivorship Detection), P0024 (Circle of Competence).
@@ -285,7 +285,7 @@ For each source cited:
 
 ### 8.1 SKILL.zip Distribution (Primary)
 
-The `SKILL.zip` file bundles SKILL.md and all 177 perspective files for one-click upload:
+The `SKILL.zip` file bundles SKILL.md and all 178 perspective files for one-click upload:
 - Built from source: `zip -r SKILL.zip SKILL.md perspectives/`
 - Uploaded via Claude Desktop / claude.ai Settings → Skills → Add Skill
 - Verified against MANIFEST.json for integrity (SHA-256 hashes of every file)
@@ -308,12 +308,12 @@ User downloads SKILL.zip from latest release
         └──► Done. User types /DCIK <topic>.
 
 User clones repo: git clone https://github.com/oxygn-cloud-ai/dcik.git
-  └──► mkdir -p ~/.claude/skills/DCIK
-        └──► cp SKILL.md perspectives/ ~/.claude/skills/DCIK/
+  └──► mkdir -p ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK
+        └──► cp SKILL.md perspectives/ ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/
               └──► Done. User types /DCIK <topic>.
 ```
 
-Both distribution paths converge on the same installed state: `~/.claude/skills/DCIK/SKILL.md` + `perspectives/`.
+Both distribution paths converge on the same installed state: `${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/SKILL.md` + `perspectives/`.
 
 ---
 
@@ -350,7 +350,7 @@ The perspective library is designed to compound:
 
 DCIK operates entirely within the Claude Code runtime. It has:
 - Read/write access to the current working directory (for run outputs)
-- Read access to `~/.claude/skills/DCIK/` (the installed skill)
+- Read access to `${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/` (the installed skill)
 - Network access via WebSearch and WebFetch (for research)
 - Shell access via Bash (for git operations, file management, and GitHub issue logging)
 - Agent spawning capability (for secondary model adversarial passes)
@@ -374,7 +374,7 @@ Issue logging uses the `gh` CLI, which requires the user to be authenticated to 
 
 ## 11. Versioning
 
-DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.5`). The version increments when:
+DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.7`). The version increments when:
 - New perspectives are added to the library (minor bump)
 - The orchestrator process changes (minor bump)
 - The file format or distribution architecture changes (major bump)
@@ -388,7 +388,7 @@ The version in `package.json` and `desktop/manifest.json` follows the same numbe
 
 ### 12.1 Perspective Library at Scale
 
-As the library grows beyond 177 perspectives, the current flat directory structure may need organisation — categories, tags, or a registry file mapping perspectives to domains. For now, the 177-perspective flat structure is sufficient.
+As the library grows beyond 178 perspectives, the current flat directory structure may need organisation — categories, tags, or a registry file mapping perspectives to domains. For now, the 178-perspective flat structure is sufficient.
 
 ### 12.2 MCP Server
 

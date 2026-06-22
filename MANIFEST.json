@@ -1,7 +1,7 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.7",
   "files": {
-    "SKILL.md": "392aa17ed40e0bdba819fc2edf409a15098778a43f53b2f568c0c25290b61db1",
+    "SKILL.md": "8bfbc821509739b15881ea2274d605fa4ce6883124626f43cf29435415813c74",
     "perspectives/P0001-legal-regulatory.md": "a88cf09c13ca03040e664156ea46b079a5cedb03dddc8ec4e3c020931f231844",
     "perspectives/P0002-financial-economic.md": "613b04d5784dd7033a99168a7bb4b453d51be90139f6dd13bc5898998d0cc222",
     "perspectives/P0003-technical-engineering.md": "cf2dcd555ca3ed69dad492691b4e87e7595e606adfe1cc783005f2951fd5e962",
@@ -178,6 +178,7 @@
     "perspectives/P0174-extinction.md": "feea7b9308a8e00426532513c23de021597257d9938edca143484ed9769bbe57",
     "perspectives/P0175-fitness-landscapes.md": "e3df36a68b5a32ae414387a5a13d92518db3086bd49b5aa5004151defe3eaa15",
     "perspectives/P0176-boom-bust.md": "e6058967738b01e4a6b8690aa5b7b143c9e85b3b6613bed741664c1557bbf570",
-    "perspectives/P0177-complexity-bias.md": "c34ee5e30e5cc5d58ac28592cdfd595510e793b6d6e3fc83590394949c359ab0"
+    "perspectives/P0177-complexity-bias.md": "c34ee5e30e5cc5d58ac28592cdfd595510e793b6d6e3fc83590394949c359ab0",
+    "perspectives/P0178-operational-reality-vs-headline-metric.md": "300c93f3f96dfcff0de1b00d0dd897ffbed0f95ec09a97be3a83931e78f15759"
   }
 }
