@@ -25,18 +25,20 @@ for f in SKILL.md README.md PHILOSOPHY.md ARCHITECTURE.md; do
   cp "$f" "desktop/$f"
 done
 cp -r perspectives/ desktop/perspectives/
-echo "       Desktop mirror synced."
+cp -r .claude-plugin/. desktop/.claude-plugin/ 2>/dev/null || true
+echo "       Desktop mirror + plugin config synced."
 
 # 2. Sync version into README files
 echo "[2/6] Syncing version into README files..."
-sed -i '' "s/v[0-9]\+\.[0-9]\+\.[0-9]\+/v$VERSION/g" README.md
-sed -i '' "s/v[0-9]\+\.[0-9]\+\.[0-9]\+/v$VERSION/g" desktop/README.md
+sed -i '' -E "s/v[0-9]+\.[0-9]+\.[0-9]+/v$VERSION/g" README.md
+sed -i '' -E "s/v[0-9]+\.[0-9]+\.[0-9]+/v$VERSION/g" desktop/README.md
 echo "       README version → v$VERSION"
 
 # 3. Regenerate MANIFEST.json (after hash update since it changes SKILL.md)
 echo "[3/6] Regenerating MANIFEST.json..."
 bash .github/scripts/generate-manifest.sh > MANIFEST.json
-echo "       MANIFEST.json regenerated."
+cp MANIFEST.json desktop/manifest.json
+echo "       MANIFEST.json regenerated (+ desktop/manifest.json)."
 
 # 4. Rebuild SKILL.zip
 echo "[4/6] Rebuilding SKILL.zip..."
@@ -47,9 +49,10 @@ echo "       SKILL.zip rebuilt ($ZIP_COUNT .md files)."
 
 # 5. Sync installed skill
 echo "[5/6] Syncing installed skill..."
-SKILL_DIR="$HOME/.claude/skills/DCIK"
+SKILL_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/DCIK"
 if [ -d "$SKILL_DIR" ]; then
   cp SKILL.md "$SKILL_DIR/"
+  cp MANIFEST.json "$SKILL_DIR/"
   rm -rf "$SKILL_DIR/perspectives"
   cp -r perspectives/ "$SKILL_DIR/perspectives/"
   echo "       Installed skill synced to $SKILL_DIR."

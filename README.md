@@ -12,7 +12,7 @@
 
 **Thinking deeply by arguing with yourself.**
 
-A Claude Code skill that subjects any assessment to structured adversarial review across 177 analytical perspectives, web research, and multi-model iteration.
+A Claude Code skill that subjects any assessment to structured adversarial review across 178 analytical perspectives, web research, and multi-model iteration.
 
 <br>
 
@@ -34,18 +34,19 @@ Open a terminal and run:
 
 ```bash
 git clone https://github.com/oxygn-cloud-ai/dcik.git
-mkdir -p ~/.claude/skills/DCIK
-cp dcik/SKILL.md ~/.claude/skills/DCIK/
-cp -r dcik/perspectives ~/.claude/skills/DCIK/perspectives/
+mkdir -p ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK
+cp dcik/SKILL.md ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/
+cp -r dcik/perspectives ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/perspectives/
+cp dcik/MANIFEST.json ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/
 ```
 
 Verify the install worked:
 
 ```bash
-ls ~/.claude/skills/DCIK/
+ls ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/
 # You should see: SKILL.md   perspectives/
-ls ~/.claude/skills/DCIK/perspectives/ | wc -l
-# Should print: 177
+ls ${CLAUDE_CONFIG_DIR:-~/.claude}/skills/DCIK/perspectives/ | wc -l
+# Should print: 178
 ```
 
 Then start Claude Code and invoke `/DCIK <topic>`.
@@ -91,7 +92,7 @@ cd dcik
 zip -r SKILL.zip SKILL.md perspectives/ LICENSE
 ```
 
-The resulting `SKILL.zip` contains SKILL.md, all 177 perspective files in a `perspectives/` directory, and the MIT license. Verify the build:
+The resulting `SKILL.zip` contains SKILL.md, all 178 perspective files in a `perspectives/` directory, and the MIT license. Verify the build:
 
 ```bash
 unzip -l SKILL.zip | grep '\.md$' | wc -l
@@ -105,7 +106,7 @@ The ZIP is also verifiable against `MANIFEST.json` in the repository, which cont
 ## Usage
 
 ```
-/DCIK max path/to/assessment.md          # All 177 perspectives, runs until convergence
+/DCIK max path/to/assessment.md          # All 178 perspectives, runs until convergence
 /DCIK high "Is this deal well-structured?"   # 10 perspectives, minimum 3 cycles
 /DCIK med "Should we hire this candidate?"    # 8 perspectives, 2 cycles
 /DCIK min "Quick check on this assumption"    # 5 perspectives, single pass
@@ -123,7 +124,7 @@ If no level is specified, DCIK defaults to `high`.
 | `min` | P0013, P0015, plus 3 topic-relevant | 1 | No escalation |
 | `med` | min + P0008 + 2 domain-matched | 2 | Escalates to 10 if issues found |
 | `high` | 10 high-signal matches | 3+ | Escalates to 16+ if issues persist |
-| `max` | All 177 perspectives + P0016 audit | Until convergence | Full escalation |
+| `max` | All 178 perspectives + P0016 audit | Until convergence | Full escalation |
 
 </details>
 
@@ -133,7 +134,7 @@ If no level is specified, DCIK defaults to `high`.
 
 | Stage | What happens |
 |-------|-------------|
-| Load | DCIK reads your assessment and selects relevant perspectives from the 177-lens library |
+| Load | DCIK reads your assessment and selects relevant perspectives from the 178-lens library |
 | Attack | The primary model applies each lens systematically, finding weaknesses and unstated assumptions |
 | Research | Live web searches surface contradicting sources beyond the model's training cutoff |
 | Oppose | A secondary model independently attacks the revised assessment using a different architecture |
@@ -160,7 +161,7 @@ The founder raised anyway with a cleaner term sheet, a bootstrapping scenario mo
 
 ## The Library
 
-177 analytical lenses from law, finance, engineering, psychology, strategy, and cognitive science. Each perspective is a self-contained protocol loaded only when relevant. The count includes granular unbundled lenses (individual cognitive biases alongside the broader bias perspective, for example). This is a depth/distinctness tradeoff: granular lenses prompt more sharply, broad lenses cover more ground.
+178 analytical lenses from law, finance, engineering, psychology, strategy, and cognitive science. Each perspective is a self-contained protocol loaded only when relevant. The count includes granular unbundled lenses (individual cognitive biases alongside the broader bias perspective, for example). This is a depth/distinctness tradeoff: granular lenses prompt more sharply, broad lenses cover more ground.
 
 | Lens | Asks |
 |------|------|
@@ -173,7 +174,7 @@ The founder raised anyway with a cleaner term sheet, a bootstrapping scenario mo
 | Multiplying by Zero | What single failure collapses everything? |
 | Base Rate Awareness | What actually happened in comparable situations? |
 
-The full library is in `perspectives/` (files P0001 through P0177). The library grows with use. When DCIK discovers a missing lens during a run, it creates a new perspective file.
+The full library is in `perspectives/` (files P0001 through P0178). The library grows with use. When DCIK discovers a missing lens during a run, it creates a new perspective file.
 
 ---
 
@@ -188,4 +189,4 @@ DCIK is continuously checked with OpenSSF Scorecard, Semgrep (SAST), and gitleak
 DCIK output is AI-generated. It may contain errors or omissions. It does not constitute professional advice of any kind — legal, financial, medical, or otherwise. You bear sole responsibility for decisions based on its output. The DLPFC reference in the name is metaphorical: DCIK is an analytical framework.
 
 <br>
-<p align="center">MIT · <a href="https://github.com/oxygn-cloud-ai/dcik">github.com/oxygn-cloud-ai/dcik</a> · v1.0.6</p>
+<p align="center">MIT · <a href="https://github.com/oxygn-cloud-ai/dcik">github.com/oxygn-cloud-ai/dcik</a> · v1.0.7</p>
