@@ -32,7 +32,7 @@ You need Claude Desktop, or Claude.ai or Claude Code CLI, with model access (no 
 
 Open a terminal and run:
 
-```bash
+```
 git clone https://github.com/oxygn-cloud-ai/dcik.git
 mkdir -p ${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/DCIK
 cp dcik/SKILL.md ${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/DCIK/
@@ -42,7 +42,7 @@ cp dcik/MANIFEST.json ${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/DCIK/
 
 Verify the install worked:
 
-```bash
+```
 ls ${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/DCIK/
 # You should see: MANIFEST.json   SKILL.md   perspectives/
 ls ${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/DCIK/perspectives/ | wc -l
@@ -67,7 +67,7 @@ See Usage section for optional run settings.
 
 To verify the ZIP contents before uploading:
 
-```bash
+```
 unzip -l SKILL.zip | grep -c 'perspectives/.*\.md$'
 # Should print: 178
 ```
@@ -90,7 +90,7 @@ Organisation skills override personal skills with the same name. Users see DCIK 
 
 If you prefer to build the ZIP yourself rather than downloading a pre-built release:
 
-```bash
+```
 git clone https://github.com/oxygn-cloud-ai/dcik.git
 cd dcik
 zip -r SKILL.zip SKILL.md perspectives/ LICENSE
@@ -98,7 +98,7 @@ zip -r SKILL.zip SKILL.md perspectives/ LICENSE
 
 The resulting `SKILL.zip` contains SKILL.md, all 178 perspective files in a `perspectives/` directory, and the MIT license. Verify the build:
 
-```bash
+```
 unzip -l SKILL.zip | grep -c 'perspectives/.*\.md$'
 # Should print: 178
 ```
