@@ -57,7 +57,7 @@ When DCIK identifies an analytical lens not covered by the existing library:
 1. Create the new perspective as a `.md` file in `perspectives/`
 2. **Use AskUserQuestion to obtain user consent: "DCIK discovered a new perspective [name]. Create a GitHub issue?"**
 3. Only if the user confirms, log a GitHub issue with title: `NEW PERSPECTIVE FROM DCIK: [perspective name]`
-4. Label it `new-perspective`
+4. Apply the `new-perspective` label **only if you have triage/write access** (collaborators/maintainers). Public / non-collaborator users have read-only access and cannot set labels — if labelling fails, create the issue **without** `--label`; the `NEW PERSPECTIVE FROM DCIK:` title prefix identifies it and a maintainer applies the label on triage.
 5. Body: the perspective content, what gap it fills, and when it was discovered
 6. If the user has NOT authorised local file updates, only log the issue (after consent) — do not modify the local library
 
@@ -66,13 +66,13 @@ When DCIK identifies an analytical lens not covered by the existing library:
 When DCIK encounters an error, limitation, or opportunity for improvement in its own process:
 1. **Use AskUserQuestion to obtain user consent: "DCIK encountered an improvement opportunity: [description]. Create a GitHub issue?"**
 2. Only if the user confirms, log a GitHub issue with title: `IMPROVEMENT FROM DCIK: [brief description]`
-3. Label it `improvement`
+3. Apply the `improvement` label **only if you have triage/write access**. Public / non-collaborator users cannot set labels — if labelling fails, create the issue **without** `--label`; the `IMPROVEMENT FROM DCIK:` title prefix identifies it.
 4. Body: what happened, what the limitation is, and the proposed improvement
 5. Do NOT log spurious or trivial issues. Only log issues that represent genuine improvement opportunities.
 
 ### Issue Logging Rules
 
-- Use `gh issue create --repo oxygn-cloud-ai/dcik` to create issues (only after user consent per above)
+- Create issues with `gh issue create --repo oxygn-cloud-ai/dcik --title "..." --body "..."` (only after user consent per above). Add `--label <label>` only if you can — **if the command fails because you lack permission to label (public / non-collaborator users have read-only access), retry without `--label`.** A labelling failure must never block the issue from being logged; the title prefix already identifies the type.
 - Never fabricate or hallucinate issues to appear productive
 - One issue per distinct perspective or improvement
 - Include the run slug and date in the issue body for traceability
