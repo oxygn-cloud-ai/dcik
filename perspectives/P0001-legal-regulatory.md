@@ -16,3 +16,4 @@
 ## Default adversarial stance
 
 Regulators interpret ambiguity against the principal. Courts enforce literal text, not commercial intent. Adversaries exploit every jurisdictional gap.
+
