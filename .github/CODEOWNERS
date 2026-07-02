@@ -1,0 +1,8 @@
+# Code owners for DCIK.
+# Changes to CI/automation and governance paths should be reviewed by the
+# repository owner. Enforcement requires branch protection with
+# "Require review from Code Owners" enabled for the protected branch.
+
+# CI workflows, scripts, and governance files (security-sensitive)
+/.github/                @A0DLPFC
+/MANIFEST.json           @A0DLPFC
