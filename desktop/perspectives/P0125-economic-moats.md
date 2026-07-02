@@ -19,3 +19,15 @@ A moat is a structural characteristic that protects a business from competition,
 ## Default adversarial stance
 
 Assume moats are narrower and eroding faster than claimed. Most claimed moats are temporary advantages dressed in durable language.
+
+## Required output
+
+Applying this lens yields a concrete artifact, not just consideration:
+
+1. **The single strongest claimed advantage** in the assessment, classified as a durable moat *or* a temporary advantage — as a call, not a hedge.
+2. **The disconfirming test:** what a competitor could do within ~24 months to neutralise it, and whether evidence shows this is already happening.
+3. **Severity to the thesis** and **confidence**.
+
+## Falsifier
+
+This lens's finding is wrong if the advantage withstands the named competitor action, or if a structural barrier not cited in the assessment actually protects it. Report which.

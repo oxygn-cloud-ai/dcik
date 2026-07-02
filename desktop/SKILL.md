@@ -1,6 +1,6 @@
 ---
 name: DCIK
-version: 1.0.9
+version: 1.1.0
 description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis: structured perspective application across 178 lenses, web research, and adversarial iteration. Use for any assessment, analysis, or decision requiring depth and rigour.
 user-invocable: true
 disable-model-invocation: false
@@ -216,8 +216,9 @@ Minimum 3 complete cycles. After Cycle 3:
    - Never list "bugs found" or "issues fixed." Never use before/after tables. Never claim DCIK "validated" or "approved" anything. The tone: the original was competent but incomplete — DCIK made it harder to be wrong.
 2. **Full assessment:** `DCIK_<slug>/FINAL_ASSESSMENT.md` — the complete revised assessment incorporating all cycle findings.
 3. **Process documentation:** `DCIK_<slug>/PROCESS_SUMMARY.md` — cycles run, perspectives applied, key findings, resolved disagreements, research sources, confidence levels, remaining uncertainties.
-4. **P0016 end-of-run audit:** Identify at least one candidate improvement to the perspective library. Write new perspectives. Log GitHub issues with user consent.
-5. **Report to user:** Display the WHAT_CHANGED.md summary, the FINAL_ASSESSMENT.md path, and any new perspectives discovered.
+4. **Run manifest & self-eval:** Write `DCIK_<slug>/RUN_MANIFEST.json` per `eval/run-manifest.schema.json` — every cycle's perspectives, searches (query + URL), contradicting sources (URL + the **exact quoted passage** + why it contradicts), and findings (severity, perspective, the exact assessment text targeted, resolution, and the assessment version that incorporated it). This makes the run auditable offline via `eval/audit-run.sh`. Then self-score the run against `eval/rubric.md` and record it under `self_eval` — **flagged explicitly as a self-score, not the blind evaluation.** A run scoring itself is not evidence; only the blind `eval/` harness (BASELINE vs LITE vs FULL, scored against frozen gold references) produces evidence of value.
+5. **P0016 end-of-run audit:** Identify at least one candidate improvement to the perspective library. Write new perspectives. Log GitHub issues with user consent.
+6. **Report to user:** Display the WHAT_CHANGED.md summary, the FINAL_ASSESSMENT.md path, and any new perspectives discovered.
 
 ## P0013 Structured Protocol
 
@@ -235,6 +236,8 @@ Per cycle, minimum:
 - **5 web searches** using WebSearch
 - **3 distinct sources that contradict or challenge** the current assessment
 - All sources cited with URLs
+
+**Auditability (anti-fabrication control):** Record every search and every contradicting source — with its **exact quoted passage** — in `RUN_MANIFEST.json` (see Phase 4). A bare URL is not enough: the quoted passage is what lets `eval/audit-run.sh` and a human reviewer verify the source actually says what the finding claims. Requiring the passage is what makes invented or misrepresented sources detectable on audit — it does not make fabrication impossible, but it makes it expensive and catchable.
 
 **Hallucination guardrails:** As cycles increase, finding new contradicting sources becomes harder. Strict rules:
 - Never fabricate sources or findings to meet minimums

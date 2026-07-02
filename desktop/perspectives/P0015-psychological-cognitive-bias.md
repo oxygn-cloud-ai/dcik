@@ -20,3 +20,17 @@
 ## Default adversarial stance
 
 Assume we are biased. Actively seek disconfirming evidence. State confidence levels explicitly. Distinguish between facts, inferences, and guesses. The most dangerous bias is the one we don't know we have.
+
+## Required output
+
+Applying this lens yields a concrete artifact, not just consideration:
+
+1. **The single bias most likely distorting THIS assessment** (named), with the specific passage or claim where it operates.
+2. **The debiasing test:** the concrete evidence or reframing that would show whether the bias is actually changing the conclusion, versus a false alarm.
+3. **Severity** and **confidence** in the finding.
+
+"No material bias detected" is valid only when the checks that were run are named.
+
+## Falsifier
+
+This lens's finding is wrong if the flagged claim is supported by evidence independent of the alleged bias, or if the reframing yields the same conclusion. Report which.
