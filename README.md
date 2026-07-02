@@ -182,6 +182,12 @@ The full library is in `perspectives/` (files P0001 through P0178). The library 
 
 ---
 
+## Changelog
+
+Release history is recorded in [CHANGELOG.md](https://github.com/oxygn-cloud-ai/dcik/blob/main/CHANGELOG.md). For the packaged downloads, see the [latest release](https://github.com/oxygn-cloud-ai/dcik/releases/latest).
+
+---
+
 ## Security
 
 DCIK is continuously checked with OpenSSF Scorecard, Semgrep (SAST), and gitleaks (secret scanning). To report a vulnerability, see [SECURITY.md](SECURITY.md).

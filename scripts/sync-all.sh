@@ -28,17 +28,20 @@ read_version() {
 }
 
 # HARD version-consistency gate — every X.Y.Z semver in tracked *.json / *.md
-# (outside perspectives/) must equal the canonical version. This is the guard
-# that makes a partial bump impossible. Returns non-zero on any disagreement.
+# (outside perspectives/ and the changelog) must equal the canonical version.
+# This is the guard that makes a partial bump impossible. CHANGELOG.md is
+# excluded because it legitimately records every historical version.
+# Returns non-zero on any disagreement.
 enforce_consistency() {
   local version="$1" stray
-  stray=$(git grep -hoE '[0-9]+\.[0-9]+\.[0-9]+' -- '*.json' '*.md' ':!perspectives/**' ':!desktop/perspectives/**' \
+  local scope=(-- '*.json' '*.md' ':!perspectives/**' ':!desktop/perspectives/**' ':!CHANGELOG.md')
+  stray=$(git grep -hoE '[0-9]+\.[0-9]+\.[0-9]+' "${scope[@]}" \
     | sort -u | grep -vxE "$(printf '%s' "$version" | sed 's/\./\\./g')" || true)
   if [ -n "$stray" ]; then
     echo "ERROR: version(s) other than $version found in tracked files:" >&2
     printf '%s\n' "$stray" | sed 's/^/  - /' >&2
     echo "Offending files:" >&2
-    git grep -nE "($(printf '%s' "$stray" | paste -sd'|' -))" -- '*.json' '*.md' ':!perspectives/**' ':!desktop/perspectives/**' \
+    git grep -nE "($(printf '%s' "$stray" | paste -sd'|' -))" "${scope[@]}" \
       | sed 's/^/  /' >&2
     echo "Fix by re-running: bash scripts/sync-all.sh $version" >&2
     return 1
