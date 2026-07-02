@@ -163,8 +163,13 @@ echo ""
 
 # Find changed or new perspective files
 if [ -n "${GITHUB_EVENT_NAME:-}" ] && [ "${GITHUB_EVENT_NAME:-}" = "pull_request" ]; then
-  echo "Mode: PR validation (changed files only)"
-  CHANGED=$(git diff --name-only "origin/${GITHUB_BASE_REF:-main}..HEAD" 2>/dev/null | grep '^perspectives/' 2>/dev/null) || CHANGED=""
+  # Honour PERSPECTIVES_DIR so the desktop step (PERSPECTIVES_DIR=desktop/perspectives)
+  # actually inspects desktop/perspectives/ changes. Previously this was hardcoded to
+  # '^perspectives/', so the desktop validate step did identical work to the root step
+  # and never validated desktop perspectives on PRs.
+  PREFIX="${PERSPECTIVES_DIR%/}/"
+  echo "Mode: PR validation (changed files under ${PREFIX})"
+  CHANGED=$(git diff --name-only "origin/${GITHUB_BASE_REF:-main}..HEAD" 2>/dev/null | grep "^${PREFIX}" 2>/dev/null) || CHANGED=""
 else
   echo "Mode: full scan (all perspective files)"
   CHANGED=$(find "$PERSPECTIVES_DIR" -name '*.md' -type f 2>/dev/null | sort) || CHANGED=""
