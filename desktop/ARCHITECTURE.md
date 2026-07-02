@@ -374,13 +374,19 @@ Issue logging uses the `gh` CLI, which requires the user to be authenticated to 
 
 ## 11. Versioning
 
-DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.8`). The version increments when:
+DCIK uses a single version number in `SKILL.md` frontmatter (`version: 1.0.9`). The version increments when:
 - New perspectives are added to the library (minor bump)
 - The orchestrator process changes (minor bump)
 - The file format or distribution architecture changes (major bump)
 - Fixes to existing files (patch bump)
 
-The version in `package.json` and `desktop/manifest.json` follows the same number. All 9 version locations are kept in sync.
+The same version is declared in many files — `package.json`, `SKILL.md`, both `.claude-plugin/` manifests, the READMEs, `MANIFEST.json`, and the entire `desktop/` mirror. **Never edit these by hand.** Bump the version with a single command that rewrites every location atomically and hard-fails if any disagree:
+
+```bash
+bash scripts/sync-all.sh X.Y.Z
+```
+
+If the script exits `0`, every version declaration is consistent by construction. See `CONTRIBUTING.md` for the full workflow.
 
 ---
 

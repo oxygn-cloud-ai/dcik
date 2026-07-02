@@ -15,6 +15,14 @@ on:
       - '.github/scripts/validate-perspectives.sh'
       - '.github/workflows/validate.yml'
       - 'package.json'
+      - '.claude-plugin/**'
+      - 'desktop/.claude-plugin/**'
+      - 'README.md'
+      - 'desktop/README.md'
+      - 'ARCHITECTURE.md'
+      - 'MANIFEST.json'
+      - 'desktop/manifest.json'
+      - 'scripts/**'
   push:
     branches: [main]
     paths:
@@ -25,6 +33,14 @@ on:
       - '.github/scripts/validate-perspectives.sh'
       - '.github/workflows/validate.yml'
       - 'package.json'
+      - '.claude-plugin/**'
+      - 'desktop/.claude-plugin/**'
+      - 'README.md'
+      - 'desktop/README.md'
+      - 'ARCHITECTURE.md'
+      - 'MANIFEST.json'
+      - 'desktop/manifest.json'
+      - 'scripts/**'
 
 permissions:
   contents: read
@@ -50,6 +66,9 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
+
+      - name: Verify version consistency across all files
+        run: bash scripts/sync-all.sh --check
 
       - name: Validate perspective files
         run: bash .github/scripts/validate-perspectives.sh
