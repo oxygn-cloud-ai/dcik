@@ -18,3 +18,17 @@
 ## Default adversarial stance
 
 Assume the premise is wrong until proven right. Assume the framing benefits someone at the expense of someone else. Assume the most important question hasn't been asked yet. Never accept the premise as given.
+
+## Required output
+
+Applying this lens yields a concrete artifact, not just consideration:
+
+1. **The single load-bearing premise** the assessment most depends on, in one sentence.
+2. **The inverted world:** what the assessment concludes if that premise is false, plus the specific evidence that would decide which world we are actually in.
+3. **Severity** (CRITICAL if the conclusion flips · HIGH · MEDIUM · LOW) and **confidence** (HIGH · MEDIUM · LOW).
+
+"The premise holds under inversion" is a valid, reportable output — but only with the reasoning that establishes it.
+
+## Falsifier
+
+This lens's finding is wrong if the identified premise is not actually load-bearing (the conclusion survives without it), or if the inverted world is unreachable given available evidence. State which, if either, applies.

@@ -18,3 +18,15 @@ A moat's value is not its current width but its durability. A wide moat that las
 ## Default adversarial stance
 
 Assume moats erode faster than projected. The moat that has lasted 20 years may not last 20 more.
+
+## Required output
+
+Applying this lens yields a concrete artifact, not just consideration:
+
+1. **A specific half-life estimate** for the primary advantage (e.g. "~3 years", "~15 years") — a number, not a qualitative label.
+2. **The dominant erosion driver** and the leading indicator that would confirm erosion is accelerating.
+3. **Severity** and **confidence**, plus how much the conclusion changes if the true half-life is half the estimate.
+
+## Falsifier
+
+This lens's finding is wrong if the erosion driver is already priced into the assessment's timeline, or if a countervailing force (reinvestment, network effects, switching costs) extends the half-life beyond the estimate. Report which.

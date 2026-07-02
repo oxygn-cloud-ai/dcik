@@ -29,3 +29,15 @@ At the end of each DCIK run:
 1. Review which perspectives were applied and their impact.
 2. Identify at least one candidate improvement to the library (new perspective, refinement, or deprecation).
 3. Write the candidate to a new `.md` file or flag it for the user.
+
+## Required output
+
+Applying this lens yields a concrete artifact, not just consideration:
+
+1. **The single most material analytical domain the current library does NOT cover** for this topic — or "coverage adequate", justified against the applied lenses.
+2. **A one-line candidate perspective** that would fill the gap, and the specific finding it would have surfaced that the applied lenses missed.
+3. **Severity of the gap** and **confidence**.
+
+## Falsifier
+
+This lens's finding is wrong if the "missing" domain is already covered by an existing lens (name it), or if the candidate perspective would not have changed any finding in this run.

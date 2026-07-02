@@ -7,6 +7,8 @@ set -uo pipefail
 
 VIOLATIONS=0
 PERSPECTIVES_DIR="${PERSPECTIVES_DIR:-perspectives}"
+CONTRACT_OK=0        # perspectives migrated to Contract v2 (have '## Required output')
+CONTRACT_MISSING=0   # not yet migrated — WARN only, does not fail CI (migration ratchet)
 
 # ── Format validation ──────────────────────────────────────────────
 
@@ -156,6 +158,23 @@ check_skill_changes() {
   fi
 }
 
+# ── Contract v2 (WARN-only migration ratchet) ─────────────────────
+# Checks presence of the '## Required output' section that forces each lens to yield a
+# falsifiable deliverable. This is a STRUCTURAL gate only — it cannot judge whether the
+# output is good (perspective quality is validated by eval/, not here). It WARNS rather
+# than FAILS so the library can migrate incrementally without breaking CI. Flip to a hard
+# failure once CONTRACT_MISSING reaches 0 across the library.
+check_contract() {
+  local file="$1"
+  if grep -q '^## Required output$' "$file"; then
+    CONTRACT_OK=$((CONTRACT_OK + 1))
+  else
+    CONTRACT_MISSING=$((CONTRACT_MISSING + 1))
+    echo "  CONTRACT: not yet migrated to v2 (missing '## Required output') — WARN only"
+    echo "::warning::${file}: perspective not migrated to Contract v2 (missing '## Required output')."
+  fi
+}
+
 # ── Main ───────────────────────────────────────────────────────────
 
 echo "=== DCIK Content Validation ==="
@@ -192,6 +211,9 @@ else
     check_injection "$file"
     local_issues=$((local_issues + $?))
 
+    # Contract check is WARN-only: intentionally NOT added to local_issues/VIOLATIONS.
+    check_contract "$file"
+
     if [ "$local_issues" -eq 0 ]; then
       echo "  PASS"
     else
@@ -205,6 +227,9 @@ fi
 echo ""
 echo "=== SKILL.md change check ==="
 check_skill_changes || true
+
+echo ""
+echo "=== Contract v2 migration: $CONTRACT_OK migrated, $CONTRACT_MISSING pending (WARN only, non-blocking) ==="
 
 echo ""
 echo "=== Result: $VIOLATIONS violation(s) ==="
