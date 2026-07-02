@@ -32,12 +32,14 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+case "$SAMPLE" in ''|*[!0-9]*) echo "ERROR: --sample must be a non-negative integer (got '$SAMPLE')"; exit 2;; esac
 [ -z "$MANIFEST" ] && { echo "Usage: bash eval/audit-run.sh RUN_MANIFEST.json [--sample N] [--no-fetch]"; exit 2; }
 [ ! -f "$MANIFEST" ] && { echo "ERROR: $MANIFEST not found"; exit 2; }
 command -v jq >/dev/null || { echo "ERROR: jq required"; exit 2; }
 jq empty "$MANIFEST" 2>/dev/null || { echo "ERROR: $MANIFEST is not valid JSON"; exit 2; }
 
-VIOL=0
+VIOL=0        # structural violations
+ENT_FAIL=0    # entailment failures: sampled quoted passage NOT found on a page that fetched OK
 MIN_SEARCH=$(jq -r '.min_searches_per_cycle // 5' "$MANIFEST")
 MIN_SRC=$(jq -r '.min_contradicting_sources_per_cycle // 3' "$MANIFEST")
 echo "=== DCIK Run Audit: $MANIFEST ==="
@@ -95,8 +97,19 @@ if [ "$TOTAL" -eq 0 ]; then
   echo "  no contradicting sources to sample"
 else
   K=$SAMPLE; [ "$K" -gt "$TOTAL" ] && K=$TOTAL
-  # deterministic-ish sample: first K (override by pre-shuffling if desired)
-  for j in $(seq 0 $((K - 1))); do
+  # RANDOM sample (not first-K): a faker must not be able to hide fabricated sources at the
+  # end of the list to dodge the check. Set AUDIT_SEED for reproducible sampling.
+  if command -v shuf >/dev/null 2>&1; then
+    if [ -n "${AUDIT_SEED:-}" ]; then
+      IDXS=$(seq 0 $((TOTAL - 1)) | shuf --random-source=<(yes "$AUDIT_SEED") | head -n "$K")
+    else
+      IDXS=$(seq 0 $((TOTAL - 1)) | shuf | head -n "$K")
+    fi
+  else
+    echo "  (shuf unavailable — falling back to first $K; install coreutils for random sampling)"
+    IDXS=$(seq 0 $((K - 1)))
+  fi
+  for j in $IDXS; do
     URL=$(jq -r ".[$j].url" <<<"$ALLSRC")
     PASSAGE=$(jq -r ".[$j].quoted_passage" <<<"$ALLSRC")
     SNIPPET=$(printf '%s' "$PASSAGE" | cut -c1-60)
@@ -110,6 +123,7 @@ else
       else
         echo "  [$j] PASSAGE-ABSENT $URL — quoted passage not found on page (possible fabrication)"
         echo "        quoted: \"${SNIPPET}...\""
+        ENT_FAIL=$((ENT_FAIL + 1))
       fi
     else
       echo "  [$j] MANUAL $URL — fetch disabled; verify passage presence + entailment by hand"
@@ -119,6 +133,12 @@ else
 fi
 
 echo ""
-echo "=== Structural result: $VIOL violation(s) ==="
-[ "$VIOL" -gt 0 ] && exit 1
+echo "=== Result: $VIOL structural violation(s), $ENT_FAIL entailment failure(s) ==="
+if [ "$ENT_FAIL" -gt 0 ]; then
+  echo "::error::$ENT_FAIL sampled source(s) had a quoted passage absent from the fetched page — possible fabrication. Audit FAILS."
+fi
+# Fail on structural violations OR entailment failures. Note: --no-fetch and FETCH-FAIL cases
+# cannot auto-verify entailment (reported MANUAL / FETCH-FAIL) and do not set ENT_FAIL — those
+# require human follow-up; a passage that fetched successfully but is ABSENT is a real signal.
+if [ "$VIOL" -gt 0 ] || [ "$ENT_FAIL" -gt 0 ]; then exit 1; fi
 exit 0

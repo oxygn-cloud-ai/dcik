@@ -166,12 +166,22 @@ check_skill_changes() {
 # failure once CONTRACT_MISSING reaches 0 across the library.
 check_contract() {
   local file="$1"
-  if grep -q '^## Required output$' "$file"; then
+  local has_req has_fals body_lines why
+  has_req=$(grep -c '^## Required output$' "$file" 2>/dev/null) || has_req=0
+  has_fals=$(grep -c '^## Falsifier$' "$file" 2>/dev/null) || has_fals=0
+  # non-empty, non-stub content lines inside the '## Required output' section
+  body_lines=$(awk '/^## Required output$/{f=1;next} /^## /{f=0} f && NF' "$file" 2>/dev/null \
+                 | grep -ivE '^[[:space:]]*(TBD|TODO|XXX|N/?A|\.\.\.)\.?[[:space:]]*$' \
+                 | grep -c .) || body_lines=0
+  if [ "$has_req" -ge 1 ] && [ "$has_fals" -ge 1 ] && [ "$body_lines" -ge 3 ]; then
     CONTRACT_OK=$((CONTRACT_OK + 1))
   else
     CONTRACT_MISSING=$((CONTRACT_MISSING + 1))
-    echo "  CONTRACT: not yet migrated to v2 (missing '## Required output') — WARN only"
-    echo "::warning::${file}: perspective not migrated to Contract v2 (missing '## Required output')."
+    if [ "$has_req" -lt 1 ]; then why="missing '## Required output'"
+    elif [ "$has_fals" -lt 1 ]; then why="missing '## Falsifier'"
+    else why="'## Required output' is vacuous (<3 non-stub content lines)"; fi
+    echo "  CONTRACT: not migrated to v2 ($why) — WARN only"
+    echo "::warning::${file}: Contract v2 not satisfied ($why)."
   fi
 }
 
@@ -201,6 +211,9 @@ else
   # Process each file
   while IFS= read -r file; do
     [ -z "$file" ] && continue
+    # In PR mode `git diff` lists DELETED/renamed files too. Skip paths that no longer exist,
+    # otherwise check_format greps a missing file and false-fails a legitimate deletion.
+    [ -f "$file" ] || { echo "--- $file (deleted/renamed — skipped) ---"; continue; }
 
     echo "--- $file ---"
     local_issues=0

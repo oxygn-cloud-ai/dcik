@@ -43,16 +43,28 @@ ARMS = ("baseline", "lite", "full")
 
 
 def composite(score: dict, gold_items: list) -> float:
-    """One scorer's composite quality (0..1) for one arm on one topic."""
+    """One scorer's composite quality (0..1) for one arm on one topic.
+
+    Validates inputs (bad data corrupts evidence, so fail loud) and clamps the result to
+    [0,1]. decision_useful/calibration must be 0..4; error/fabrication counts must be >= 0.
+    """
+    fe, fab = score.get("factual_errors", 0), score.get("fabrications", 0)
+    du, cal = score.get("decision_useful", 0), score.get("calibration", 0)
+    for name, val, lo, hi in (("factual_errors", fe, 0, None), ("fabrications", fab, 0, None),
+                              ("decision_useful", du, 0, 4), ("calibration", cal, 0, 4)):
+        if not isinstance(val, (int, float)) or isinstance(val, bool) or val < lo \
+                or (hi is not None and val > hi):
+            raise ValueError(f"invalid {name}={val!r} for scorer "
+                             f"{score.get('scorer','?')!r}: expected "
+                             f"[{lo}, {hi if hi is not None else 'inf'}]")
     n = len(gold_items)
     hits = [g for g in score.get("gold_hits", []) if g in gold_items]
     recall = (len(set(hits)) / n) if n else 0.0
-    correctness = max(0.0, 1 - ERROR_PENALTY * score.get("factual_errors", 0))
-    precision = max(0.0, 1 - FAB_PENALTY * score.get("fabrications", 0))
-    decision = score.get("decision_useful", 0) / 4
-    calibration = score.get("calibration", 0) / 4
-    return (W_RECALL * recall + W_CORRECT * correctness + W_PRECISION * precision
-            + W_DECISION * decision + W_CALIB * calibration)
+    correctness = max(0.0, 1 - ERROR_PENALTY * fe)
+    precision = max(0.0, 1 - FAB_PENALTY * fab)
+    q = (W_RECALL * recall + W_CORRECT * correctness + W_PRECISION * precision
+         + W_DECISION * (du / 4) + W_CALIB * (cal / 4))
+    return max(0.0, min(1.0, q))
 
 
 def cohen_kappa(vec_a: list, vec_b: list) -> float | None:
@@ -63,8 +75,11 @@ def cohen_kappa(vec_a: list, vec_b: list) -> float | None:
     po = sum(1 for a, b in zip(vec_a, vec_b) if a == b) / n
     pa1, pb1 = sum(vec_a) / n, sum(vec_b) / n
     pe = pa1 * pb1 + (1 - pa1) * (1 - pb1)
-    if pe == 1.0:                      # both raters constant & identical distribution
-        return 1.0 if po == 1.0 else 0.0
+    if pe == 1.0:
+        # At least one rater has no variance (e.g. both mark everything a hit). Kappa is
+        # UNDEFINED here (0/0) — returning 1.0 would falsely claim perfect reliability from
+        # what is actually non-discrimination. Report undefined; callers drop it.
+        return None
     return (po - pe) / (1 - pe)
 
 
@@ -140,19 +155,36 @@ def analyse(data: dict) -> dict:
     fvl = pair_delta(topics, "full", "lite")
     lvb = pair_delta(topics, "lite", "baseline")
     kappas = [k for k in (topic_kappa(t) for t in topics) if k is not None]
-    n_scorers = max((len(t.get("arms", {}).get(a, {}).get("scores", []))
-                     for t in topics for a in ARMS), default=0)
+    counts = [len(t.get("arms", {}).get(a, {}).get("scores", []))
+              for t in topics for a in ARMS
+              if t.get("arms", {}).get(a, {}).get("scores")]
+    min_scorers = min(counts) if counts else 0
+    max_scorers = max(counts) if counts else 0
+    # within-arm scorer disagreement: stdev of composites, max across arms/topics.
+    # Averaging scorers then differencing arms can hide polarised disagreement; surface it.
+    disagreements = []
+    for t in topics:
+        for a in ARMS:
+            ss = t.get("arms", {}).get(a, {}).get("scores", [])
+            if len(ss) >= 2:
+                disagreements.append(pstdev(composite(s, t["gold_items"]) for s in ss))
+    max_disagreement = max(disagreements) if disagreements else 0.0
+    missing_prov = [t.get("topic_id") for t in topics if not t.get("gold_provenance")]
+    k_mean = mean(kappas) if kappas else None
     return {
         "run_id": data.get("run_id"),
         "n_topics": len(topics),
-        "max_scorers_per_arm": n_scorers,
-        "mean_kappa": mean(kappas) if kappas else None,
+        "min_scorers_per_arm": min_scorers,
+        "max_scorers_per_arm": max_scorers,
+        "mean_kappa": k_mean,
+        "max_scorer_disagreement": max_disagreement,
+        "topics_missing_gold_provenance": missing_prov,
         "arm_means": {a: _arm_mean(topics, a) for a in ARMS},
         "full_vs_baseline": fvb,
         "full_vs_lite": fvl,
         "lite_vs_baseline": lvb,
         "verdict": verdict(fvb, fvl, thr),
-        "confidence": _confidence(len(topics), n_scorers, mean(kappas) if kappas else None),
+        "confidence": _confidence(len(topics), min_scorers, k_mean, max_disagreement, missing_prov),
     }
 
 
@@ -161,19 +193,29 @@ def _arm_mean(topics: list, arm: str) -> float | None:
     return mean(qs) if qs else None
 
 
-def _confidence(n_topics: int, n_scorers: int, kappa: float | None) -> str:
-    if n_topics < 8 or n_scorers < 2:
-        return ("EXPLORATORY — small N and/or single scorer. Treat as a directional signal, "
-                "not a confirmatory result. Confirmatory claim needs N≥8 topics and ≥2 blind scorers.")
+def _confidence(n_topics: int, min_scorers: int, kappa: float | None,
+                max_disagreement: float = 0.0, missing_prov=None) -> str:
+    flag = ""
+    if missing_prov:
+        flag = (f"  FLAG: {len(missing_prov)} topic(s) lack gold_provenance — gold-set "
+                f"independence unverified (circularity risk).")
+    if n_topics < 8 or min_scorers < 2:
+        return ("EXPLORATORY — small N and/or a single scorer on at least one arm. Directional "
+                "only, not confirmatory. Confirmatory needs N≥8 topics and ≥2 blind scorers on "
+                "EVERY arm." + flag)
     if kappa is not None and kappa < 0.4:
-        return f"LOW — inter-rater agreement weak (kappa={kappa:.2f}); scoring is noisy."
-    return "REASONABLE for a first study; still report effect sizes and variance, not just the verdict."
+        return f"LOW — inter-rater agreement weak (kappa={kappa:.2f}); scoring is noisy." + flag
+    if max_disagreement > 0.15:
+        return (f"MODERATE — scorers diverge within arms (max sd={max_disagreement:.2f}); report "
+                f"the spread, not just the mean." + flag)
+    return ("REASONABLE for a first study; still report effect sizes and variance, not just the "
+            "verdict." + flag)
 
 
 def format_report(r: dict) -> str:
     L = []
     L.append(f"DCIK EVAL — run '{r['run_id']}'  ({r['n_topics']} topics, "
-             f"up to {r['max_scorers_per_arm']} scorers/arm)")
+             f"{r['min_scorers_per_arm']}–{r['max_scorers_per_arm']} scorers/arm)")
     L.append("=" * 72)
     am = r["arm_means"]
     for a in ARMS:
@@ -181,7 +223,11 @@ def format_report(r: dict) -> str:
         L.append(f"  {a:<9} mean quality: {v:.3f}" if v is not None else f"  {a:<9} mean quality: n/a")
     k = r["mean_kappa"]
     L.append(f"  inter-rater kappa (gold recall): {k:.2f}" if k is not None else
-             "  inter-rater kappa: n/a (need ≥2 scorers)")
+             "  inter-rater kappa: n/a (need ≥2 scorers, non-degenerate)")
+    L.append(f"  max within-arm scorer disagreement (sd): {r['max_scorer_disagreement']:.3f}")
+    if r["topics_missing_gold_provenance"]:
+        L.append(f"  ⚠ gold provenance MISSING for: {', '.join(r['topics_missing_gold_provenance'])}"
+                 f"  (circularity risk — gold must be frozen before outputs)")
     L.append("")
     for label, key in (("FULL vs BASELINE", "full_vs_baseline"),
                        ("FULL vs LITE", "full_vs_lite"),

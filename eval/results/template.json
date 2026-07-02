@@ -5,6 +5,7 @@
   "topics": [
     {
       "topic_id": "sqlite-vs-postgres",
+      "gold_provenance": "REPLACE — who/what derived the gold set, and confirmation it was frozen BEFORE any arm output was seen (omit and score.py flags a circularity risk)",
       "gold_items": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"],
       "arms": {
         "baseline": {"scores": [

@@ -23,7 +23,7 @@ Assume the premise is wrong until proven right. Assume the framing benefits some
 
 Applying this lens yields a concrete artifact, not just consideration:
 
-1. **The single load-bearing premise** the assessment most depends on, in one sentence.
+1. **The load-bearing premise(s)** the assessment most depends on — at minimum the single most critical one, and any others whose failure would independently break the conclusion (consistent with the SKILL-level protocol, which extracts *every* premise and stress-tests the top three). Do not force the analysis down to one if several are fatal.
 2. **The inverted world:** what the assessment concludes if that premise is false, plus the specific evidence that would decide which world we are actually in.
 3. **Severity** (CRITICAL if the conclusion flips · HIGH · MEDIUM · LOW) and **confidence** (HIGH · MEDIUM · LOW).
 

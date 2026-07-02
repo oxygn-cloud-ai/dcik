@@ -23,7 +23,7 @@ Assume moats erode faster than projected. The moat that has lasted 20 years may 
 
 Applying this lens yields a concrete artifact, not just consideration:
 
-1. **A specific half-life estimate** for the primary advantage (e.g. "~3 years", "~15 years") — a number, not a qualitative label.
+1. **A half-life estimate** for the primary advantage with an explicit uncertainty band (e.g. "~3 years, low confidence") — or, where durability data genuinely does not exist, say so and name the evidence that would resolve it. Push for specificity; never invent false precision.
 2. **The dominant erosion driver** and the leading indicator that would confirm erosion is accelerating.
 3. **Severity** and **confidence**, plus how much the conclusion changes if the true half-life is half the estimate.
 

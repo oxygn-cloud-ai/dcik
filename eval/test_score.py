@@ -56,8 +56,34 @@ def test_penalties_floor_at_zero():
 def test_cohen_kappa():
     # scorer1 [1,1,1,0], scorer2 [1,1,0,0]; po=0.75, pe=0.5 -> kappa=0.5
     assert approx(score.cohen_kappa([1, 1, 1, 0], [1, 1, 0, 0]), 0.5)
-    # perfect agreement
+    # perfect agreement, non-degenerate (raters have variance) -> 1.0
     assert approx(score.cohen_kappa([1, 0, 1], [1, 0, 1]), 1.0)
+
+
+def test_cohen_kappa_degenerate_is_undefined():
+    # both raters mark everything a hit -> no variance -> kappa undefined -> None (not 1.0)
+    assert score.cohen_kappa([1, 1, 1], [1, 1, 1]) is None
+    assert score.cohen_kappa([0, 0], [0, 0]) is None
+
+
+def test_composite_rejects_out_of_range():
+    gold = ["g1"]
+    for bad in ({"decision_useful": 8}, {"calibration": 5}, {"factual_errors": -1},
+                {"fabrications": -2}, {"decision_useful": True}):
+        try:
+            score.composite({**bad, "gold_hits": []}, gold)
+            assert False, f"expected ValueError for {bad}"
+        except ValueError:
+            pass
+
+
+def test_composite_clamps_and_maxes_at_one():
+    gold = ["g1"]
+    s = {"gold_hits": ["g1"], "factual_errors": 0, "fabrications": 0,
+         "decision_useful": 4, "calibration": 4}
+    # all perfect -> exactly 1.0, never above
+    q = score.composite(s, gold)
+    assert q <= 1.0 and approx(q, 1.0), q
 
 
 def test_verdict_apparatus_justified():

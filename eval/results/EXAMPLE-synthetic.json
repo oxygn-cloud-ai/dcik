@@ -5,6 +5,7 @@
   "topics": [
     {
       "topic_id": "sqlite-vs-postgres",
+      "gold_provenance": "SYNTHETIC — illustrative only",
       "gold_items": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"],
       "arms": {
         "baseline": {"scores": [
@@ -23,6 +24,7 @@
     },
     {
       "topic_id": "synthetic-topic-2",
+      "gold_provenance": "SYNTHETIC — illustrative only",
       "gold_items": ["a", "b", "c", "d", "e"],
       "arms": {
         "baseline": {"scores": [
