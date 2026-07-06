@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "DCIK — Dorsolateral Contrary Inference Katabasis. 178-perspective multi-model adversarial analysis skill for Claude Code. Produces assessments that exceed any single-AI-prompted output.",
-    "version": "1.1.0"
+    "version": "1.1.1"
   },
   "plugins": [
     {
       "name": "dcik",
       "source": "./",
       "description": "Deep Check: 178 analytical perspectives (Munger, Farnam Street, Heuer & Pherson, Army Red Team, Kahneman, Taleb, Boyd, Snowden, Meadows) in a multi-model adversarial review engine. Install with /plugin marketplace add oxygn-cloud-ai/dcik then /plugin install dcik@dcik-marketplace",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "license": "MIT",
       "category": "productivity",
       "tags": [

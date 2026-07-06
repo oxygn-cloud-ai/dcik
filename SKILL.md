@@ -1,6 +1,6 @@
 ---
 name: DCIK
-version: 1.1.0
+version: 1.1.1
 description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis: structured perspective application across 178 lenses, web research, and adversarial iteration. Use for any assessment, analysis, or decision requiring depth and rigour.
 user-invocable: true
 disable-model-invocation: false
@@ -126,8 +126,8 @@ At the start of each run, also check for a project-local `perspectives/` directo
 
 1. **Load the current assessment** (Phase 0 baseline or previous cycle output).
 2. **Load selected perspectives.** Apply each lens systematically.
-3. **Research beyond cutoff.** Minimum 5 web searches and 3 sources that contradict or challenge the current assessment per cycle. Strict guardrails: never fabricate sources. If genuine contradicting sources cannot be found after extensive search, state this explicitly — do not invent. "No further material improvements found" is acceptable if genuinely true.
-4. **Adversarial review.** Attack the assessment from every selected perspective. Find every weakness, unstated assumption, gap, overstatement, missed angle. The assessment is wrong until proven right.
+3. **Research beyond cutoff.** Minimum 5 web searches and 3 sources that contradict or challenge the current assessment per cycle. Strict guardrails: never fabricate sources. If genuine contradicting sources cannot be found after extensive search, state this explicitly — do not invent. "No further material improvements found" is acceptable if genuinely true. **Quantitative-claim discipline:** every hard number in the assessment (rates, percentages, benchmarks, dollar figures, timelines) must be either tied to a cited source in RUN_MANIFEST **or** explicitly marked as an order-of-magnitude estimate with its reasoning. An unsourced hard number is a fabrication — the single most common way a deeper analysis makes itself *worse* than a shallow one, so more perspectives must come with *more* sourcing discipline, not less.
+4. **Adversarial review.** Attack the assessment from every selected perspective. Find every weakness, unstated assumption, gap, overstatement, missed angle. The assessment is wrong until proven right. **Decision-linkage:** for each applied perspective, state *how its finding changes the recommendation* — or mark it "no change to the decision." Breadth that does not move the decision is flagged non-load-bearing and must not pad the final assessment. Depth is measured by decision impact, not word count.
 5. **Write Cycle N Review:** `DCIK_<slug>/cycle<N>_review.md`. Structure: findings by perspective, critical weaknesses (must-fix), important gaps (should-fix), minor improvements (could-fix), research findings with source URLs, recommended revisions.
 6. **Revise the assessment.** Apply all must-fix and should-fix findings. Output `DCIK_<slug>/assessment_v<N+1>.md` with a change log at the top.
 
@@ -206,6 +206,8 @@ Minimum 3 complete cycles. After Cycle 3:
 - If yes, continue up to 10 cycles
 - If the last two cycles found only minor/cosmetic issues, the process is complete
 - "No further material improvements" is a valid outcome if genuinely true after exhaustive search and new perspective application
+
+**Coverage ratchet (no regression).** Escalating perspectives must ADD, never subtract. Before finalising, enumerate every material consideration present in the Cycle-0 baseline and confirm each is still addressed in the final assessment — or explicitly retired with a stated reason. A deeper cycle that silently *drops* a consideration the baseline caught is a regression: the full run must strictly dominate the simpler pass on coverage, never trade a basic for a new angle. This is what makes the apparatus reliably *better than*, not merely *different from*, a single adversarial pass.
 
 ### Phase 4: Finalisation
 

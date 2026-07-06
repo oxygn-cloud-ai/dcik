@@ -4,6 +4,16 @@ All notable changes to DCIK are recorded here. Versions refer to the DCIK skill
 version declared in `SKILL.md`. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.1.1] — 2026-07-06
+
+**Theme: make the full run *earn its cost* — fixes for the failure modes the first eval exposed.**
+
+- **Quantitative-claim discipline** — every hard number (rate, %, benchmark, $ figure, timeline) must be sourced in the run manifest or explicitly marked an estimate. An unsourced number is a fabrication; the first eval showed a deep run can hallucinate a figure and score *worse* than a shallow one.
+- **Decision-linkage** — each applied perspective must state how its finding changes the recommendation, or be marked non-load-bearing. Breadth that doesn't move the decision no longer pads the output.
+- **Coverage ratchet** — escalating perspectives must strictly ADD, never drop a consideration the baseline caught. The full run must dominate the simpler pass on coverage, not merely differ from it.
+- **Eval suite + held-out methodology** (`eval/SUITE.md`) — adds a high-stakes/adversarial topic class (`acquisition-offer`), where a deep adversarial method should out-perform the simple lever, with anti-Goodhart rules (held-out topics, independent arm generation, ≥2 blind scorers, gold never reverse-engineered from DCIK).
+- First eval data point published (`eval/results/poc-2026-07-06/`): on a technical lookup, the simple lever matched the full apparatus — motivating both these fixes and testing on the class where depth bites.
+
 ## [1.1.0] — 2026-07-03
 
 **Theme: making DCIK's value provable, its rigour auditable, and its CI gates real.**
@@ -33,6 +43,7 @@ _Versions 1.0.7 and 1.0.8 were internal version-sync milestones folded into the 
 
 - Initial public release: the DCIK skill, perspective library, and distribution artifacts. See the [GitHub release](https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.0.5).
 
+[1.1.1]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.1.1
 [1.1.0]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.1.0
 [1.0.9]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.0.9
 [1.0.6]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.0.6
