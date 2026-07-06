@@ -1,0 +1,19 @@
+# LITE — SQLite vs Postgres for a multi-tenant B2B SaaS (500 tenants)
+
+*Method: single draft + ONE second-model (Codex) adversarial pass + disconfirming web research (Turso/libSQL, Cloudflare D1, LiteFS, SQLite WAL docs). No 178-perspective library, no multi-cycle escalation.*
+
+**Recommendation: Postgres is the right default — but the decision hinges on your tenancy architecture and write-workload shape, and "SQLite" is not automatically the naïve choice it first appears.**
+
+**Reframe the question first.** "SQLite vs Postgres" implicitly assumes *one shared database*. That framing is where most of SQLite's disadvantages come from. SQLite's single-writer lock is **per database file** — so a **database-per-tenant** design (viable today via Turso/libSQL, Cloudflare D1, or LiteFS) lets ~500 mostly-independent tenants write in parallel, each to their own file. Before choosing an engine, choose a tenancy model: shared-table-with-`tenant_id`, schema-per-tenant, or database/file-per-tenant. The engine recommendation changes with that choice.
+
+**Write concurrency (nuanced).** Under a *single shared* SQLite database, the single-writer constraint is a real bottleneck for concurrent multi-tenant writes (WAL improves throughput and allows reads during writes, but still serialises writers). Under *database-per-tenant* SQLite, that objection largely dissolves for tenant-local writes — though each individual database still processes writes one at a time, so a few high-write "hot tenants" can still bottleneck. The real question is **writes/sec per tenant, burstiness, and transaction duration**, which the brief doesn't specify.
+
+**Deployment.** Naïve "many app servers sharing one SQLite file over a network filesystem" is genuinely fragile (WAL requires writers on the same host). But that's not the only architecture — primary/replica routing (LiteFS) and serverless SQLite (D1) avoid it. Postgres remains simpler for a conventional multi-app-server topology.
+
+**Operational maturity.** Managed Postgres (RDS, Cloud SQL, Neon, Supabase) is broader and more battle-tested. But managed SQLite now exists (D1 offers Time-Travel PITR and read replication; Turso offers replication), so "managed ops" is no longer exclusively a Postgres advantage — just a more mature one. Note a real per-tenant angle: **file-per-tenant makes per-tenant export/restore trivial**, whereas shared-Postgres PITR restores the whole cluster unless you build logical per-tenant recovery — which matters for B2B support/compliance.
+
+**Migration cost, both directions.** Postgres-first locks you into centralised relational assumptions. SQLite-per-tenant-first locks you into orchestrating schema migrations across ~500 files (version skew, partial failures, retries) — which can erase the small-team simplicity. Neither is free.
+
+**The strongest pro-Postgres argument (which the naïve framing buries): cross-tenant analytics and admin.** Shared-schema Postgres makes global reporting, search, and admin queries straightforward; per-tenant SQLite requires fan-out or ETL. For a B2B SaaS that will want cross-tenant dashboards, this is often decisive. Postgres RLS also helps *shared-schema* tenant isolation (at the cost of policy complexity and test burden); per-tenant designs get isolation physically instead.
+
+**Recommendation.** For a **small team** that wants one operational surface, cross-tenant analytics, and a conventional topology, **start on Postgres (managed), shared-schema with `tenant_id` or schema-per-tenant.** Choose SQLite/libSQL per-tenant *only if* tenant workloads are write-light and independent, isolation/edge-latency is a first-order requirement, and you're prepared to build the many-databases migration/monitoring story from day one. Decide from your actual write rates and whether cross-tenant queries are core — not from "SQLite bad, Postgres good."

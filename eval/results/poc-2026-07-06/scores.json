@@ -1,0 +1,23 @@
+{
+  "_note": "First real DCIK eval PoC. EXPLORATORY: single topic, single blind scorer (Codex), and the three arms were author-generated in one session (self-authorship confound). Directional only — not confirmatory. Scorer was blind to arm (anonymized A/B/C, shuffled); mapping A=LITE B=FULL C=BASELINE was withheld from the scorer.",
+  "run_id": "poc-sqlite-vs-postgres-2026-07-06",
+  "thresholds": {"full_vs_baseline": 0.15, "full_vs_lite": 0.08},
+  "topics": [
+    {
+      "topic_id": "sqlite-vs-postgres",
+      "gold_provenance": "Gold set g1-g8 frozen in eval/topics/sqlite-vs-postgres.md before any arm was generated; derived from database-engineering fundamentals, not from any DCIK run.",
+      "gold_items": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"],
+      "arms": {
+        "baseline": {"scores": [
+          {"scorer": "codex-blind", "gold_hits": ["g1", "g2", "g4", "g5", "g7"], "factual_errors": 0, "fabrications": 0, "decision_useful": 3, "calibration": 2}
+        ]},
+        "lite": {"scores": [
+          {"scorer": "codex-blind", "gold_hits": ["g1", "g2", "g3", "g4", "g5", "g6", "g7"], "factual_errors": 0, "fabrications": 0, "decision_useful": 4, "calibration": 4}
+        ]},
+        "full": {"scores": [
+          {"scorer": "codex-blind", "gold_hits": ["g1", "g3", "g4", "g5", "g6", "g7", "g8"], "factual_errors": 0, "fabrications": 1, "decision_useful": 4, "calibration": 4}
+        ]}
+      }
+    }
+  ]
+}
