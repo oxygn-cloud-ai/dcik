@@ -1,6 +1,6 @@
 ---
 name: decide
-version: 1.2.0
+version: 1.2.1
 description: Katabasis Decision Interview — a structured human+LLM decision process whose engine is cross-model adversarial dissent aimed at YOUR reasoning. For high-stakes, hard-to-reverse decisions. Interactive: it interviews you, then a different model attacks your reasoning and a third adjudicates.
 user-invocable: true
 disable-model-invocation: false
@@ -61,7 +61,25 @@ framing serve? What are you assuming that, if false, flips this?" Require the hu
 
 ### Phase 3 — Extract the private context the models cannot have
 Systematically pull the load-bearing facts only the human knows (the room, the terms, the people) and
-write them down. This is where human+model beats model-alone.
+write them down. This is where human+model beats model-alone — **and it is the make-or-break phase.**
+A live test showed a scripted interview surfaces the medium-pain facts but MISSES the decisive ones
+(people hold back what's most damaging). So extraction must be **adaptive, not scripted**:
+
+- **Never accept a non-answer.** "Cultural fit", "it's complicated", "they said it wasn't a big deal" —
+  chase it: "what was the specific reason, and how do you know?" Do not move on until it's concrete.
+- **Probe every number.** For any figure the human states (revenue, growth, price, headcount), ask the
+  question behind it — concentration, trend, source, what's excluded. ($3M ARR → "from how many
+  customers? what's the biggest one's share and renewal date?")
+- **Follow every emotional tell.** Hesitation, a changed subject, "honestly", "I've been avoiding" —
+  stop and dig there; that is where the buried fact is.
+- **Always ask, explicitly:** (a) *Who else is materially affected, and have they actually, informedly
+  agreed?* (b) *What is your best alternative to this — the thing you'd do if this offer vanished?*
+  (the dominant alternative is the most-often-hidden fact). (c) *What is the one fact you'd least like
+  me to know? What would a hostile diligence process uncover?*
+- **Pull each thread to exhaustion** before the next. When the human reveals a fact, ask "what else is
+  true about that?" until they have nothing left.
+- Keep a running list of what surfaced; near the end, name the gaps out loud ("we still don't know X,
+  Y") and ask directly. Un-probed corners hide the decisive facts.
 
 ### Phase 4 — Cross-model dissent + adjudication (the engine)
 1. Assemble the **case file**: the decision, the human's lean + reasoning, the Phase-2 artifacts, the

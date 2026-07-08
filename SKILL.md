@@ -1,6 +1,6 @@
 ---
 name: DCIK
-version: 1.2.0
+version: 1.2.1
 description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis: structured perspective application across 178 lenses, web research, and adversarial iteration. Use for any assessment, analysis, or decision requiring depth and rigour.
 user-invocable: true
 disable-model-invocation: false

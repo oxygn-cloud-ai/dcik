@@ -4,6 +4,16 @@ All notable changes to DCIK are recorded here. Versions refer to the DCIK skill
 version declared in `SKILL.md`. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.2.1] — 2026-07-08
+
+- **`/decide` interviewer is now adaptive.** A two-model end-to-end test (a model played the human)
+  showed extraction is the make-or-break phase: a *scripted* interview surfaced ~1–2 of 6 sealed facts
+  and missed the decisive ones. Phase 3 now requires adaptive digging — chase non-answers, probe every
+  stated number, follow emotional tells, always ask for the best alternative + who else must consent +
+  the least-want-known fact, and gap-sweep. Re-tested on a fresh persona: extraction climbed to **6/6**
+  (incl. the hardest-hidden facts), and the biased decider's lean "cracked" under the resulting
+  cross-model challenge. Transcripts + honest caveats in `eval/flavor1/retest/`.
+
 ## [1.2.0] — 2026-07-08
 
 **Adds `/decide` — the evidence-derived second tool — and corrects overclaims.**
@@ -62,6 +72,7 @@ _Versions 1.0.7 and 1.0.8 were internal version-sync milestones folded into the 
 
 - Initial public release: the DCIK skill, perspective library, and distribution artifacts. See the [GitHub release](https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.0.5).
 
+[1.2.1]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.2.1
 [1.2.0]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.2.0
 [1.1.1]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.1.1
 [1.1.0]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.1.0

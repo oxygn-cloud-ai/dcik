@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "DCIK — Dorsolateral Contrary Inference Katabasis. Adversarial analysis for Claude Code: a 178-perspective review skill, plus /decide, a cross-model Decision Interview aimed at the human's reasoning for high-stakes decisions.",
-    "version": "1.2.0"
+    "version": "1.2.1"
   },
   "plugins": [
     {
       "name": "dcik",
       "source": "./",
       "description": "DCIK adversarial analysis + /decide cross-model Decision Interview. Install with /plugin marketplace add oxygn-cloud-ai/dcik then /plugin install dcik@dcik-marketplace",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "license": "MIT",
       "category": "productivity",
       "tags": [
