@@ -4,6 +4,25 @@ All notable changes to DCIK are recorded here. Versions refer to the DCIK skill
 version declared in `SKILL.md`. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/).
 
+## [1.2.0] — 2026-07-08
+
+**Adds `/decide` — the evidence-derived second tool — and corrects overclaims.**
+
+- **New skill `/decide` (`skills/decide/`)** — the Katabasis Decision Interview. After seven honest
+  evals showed the 178-perspective apparatus does not improve a frontier LLM's *answer* (the model
+  already has the latticework), the demonstrable value was traced to one mechanism a single model
+  cannot provide: **genuine dissent from a different mind, aimed at the human's reasoning.** `/decide`
+  runs a structured human interview, then a *different* model attacks the human's reasoning and a
+  *third* adjudicates whether each objection was actually answered — with anti-coercion safeguards
+  (unresolved objections cap confidence; bare capitulation is flagged, not counted; endorsement is
+  withheld while material objections stand). Mechanism proven live across Claude+Codex+DeepSeek
+  (`skills/decide/examples/DEMO-RECORD.md`); human value pending a study (`eval/flavor1/HUMAN-STUDY.md`).
+- **Honesty correction:** dropped the plugin/marketplace claim that DCIK "exceeds any single-AI-prompted
+  output" — the eval evidence (`eval/`) does not support it. Descriptions now state what each tool does
+  and doesn't do.
+- **Measurement harness + findings** (`eval/`) — the process-agnostic eval, the seven ablation studies,
+  and the mental-models research that produced this repositioning are all committed and traceable.
+
 ## [1.1.1] — 2026-07-06
 
 **Theme: make the full run *earn its cost* — fixes for the failure modes the first eval exposed.**
@@ -43,6 +62,7 @@ _Versions 1.0.7 and 1.0.8 were internal version-sync milestones folded into the 
 
 - Initial public release: the DCIK skill, perspective library, and distribution artifacts. See the [GitHub release](https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.0.5).
 
+[1.2.0]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.2.0
 [1.1.1]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.1.1
 [1.1.0]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.1.0
 [1.0.9]: https://github.com/oxygn-cloud-ai/dcik/releases/tag/v1.0.9

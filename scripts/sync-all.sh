@@ -34,7 +34,9 @@ read_version() {
 # Returns non-zero on any disagreement.
 enforce_consistency() {
   local version="$1" stray
-  local scope=(-- '*.json' '*.md' ':!perspectives/**' ':!desktop/perspectives/**' ':!CHANGELOG.md')
+  # eval/ is a research log: its result files legitimately reference the historical version that
+  # produced each experiment (like CHANGELOG), so it is excluded from the single-version gate.
+  local scope=(-- '*.json' '*.md' ':!perspectives/**' ':!desktop/perspectives/**' ':!CHANGELOG.md' ':!eval/**')
   stray=$(git grep -hoE '[0-9]+\.[0-9]+\.[0-9]+' "${scope[@]}" \
     | sort -u | grep -vxE "$(printf '%s' "$version" | sed 's/\./\\./g')" || true)
   if [ -n "$stray" ]; then
@@ -83,6 +85,10 @@ if [ -n "$NEW_VERSION" ]; then
   done
   # SKILL.md frontmatter:  version: X.Y.Z
   sed -i '' -E "s/^version: [0-9]+\.[0-9]+\.[0-9]+/version: $NEW_VERSION/" SKILL.md
+  # Additional skills under skills/*/SKILL.md carry the same plugin version (consistency gate).
+  for s in skills/*/SKILL.md; do
+    [ -f "$s" ] && sed -i '' -E "s/^version: [0-9]+\.[0-9]+\.[0-9]+/version: $NEW_VERSION/" "$s"
+  done
   # ARCHITECTURE.md inline example:  `version: X.Y.Z`
   sed -i '' -E "s/version: [0-9]+\.[0-9]+\.[0-9]+/version: $NEW_VERSION/g" ARCHITECTURE.md
 else

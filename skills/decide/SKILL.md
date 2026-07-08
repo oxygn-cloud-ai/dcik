@@ -1,6 +1,6 @@
 ---
 name: decide
-version: 0.1.0
+version: 1.2.0
 description: Katabasis Decision Interview — a structured human+LLM decision process whose engine is cross-model adversarial dissent aimed at YOUR reasoning. For high-stakes, hard-to-reverse decisions. Interactive: it interviews you, then a different model attacks your reasoning and a third adjudicates.
 user-invocable: true
 disable-model-invocation: false
@@ -17,7 +17,7 @@ answers held. The value is not a better memo (a frontier model already writes th
 
 > Evidence basis: 7 prior evals showed a single LLM does not out-reason itself with more perspectives —
 > it already has them. The one mechanism a single model cannot provide is *genuine dissent from a
-> different mind*. That is this tool's entire engine. See `../../MENTAL-MODELS-AND-WHAT-WE-MEASURE.md`.
+> different mind*. That is this tool's entire engine. See `../../eval/MENTAL-MODELS-AND-WHAT-WE-MEASURE.md`.
 
 **Use it only for** consequential, hard-to-reverse decisions where being wrong is expensive. It costs
 you 30–60 minutes of real engagement. It is the wrong tool for quick or low-stakes calls.
@@ -86,6 +86,6 @@ write them down. This is where human+model beats model-alone.
 
 ## Honest limits (state these to the user at the end)
 - This is validated in mechanism only; whether it beats a strong adversarial chat *for real humans* is
-  an open human-subjects question (`../HUMAN-STUDY.md`).
+  an open human-subjects question (`../../eval/flavor1/HUMAN-STUDY.md`).
 - Its value is largest for the decision-maker who would otherwise get agreement from a plain chat; a
   disciplined adversarial self-prompter gets less from it.
