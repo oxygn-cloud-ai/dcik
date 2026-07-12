@@ -1,0 +1,45 @@
+{
+  "_WARNING": "SYNTHETIC ILLUSTRATION ONLY — these numbers are invented to demonstrate score.py output. This is NOT evidence about DCIK. Real runs replace this with blind-scored data per README.md.",
+  "run_id": "synthetic-demo",
+  "thresholds": {"full_vs_baseline": 0.15, "full_vs_lite": 0.08},
+  "topics": [
+    {
+      "topic_id": "sqlite-vs-postgres",
+      "gold_provenance": "SYNTHETIC — illustrative only",
+      "gold_items": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"],
+      "arms": {
+        "baseline": {"scores": [
+          {"scorer": "modelA", "gold_hits": ["g1", "g4", "g5"], "factual_errors": 1, "fabrications": 0, "decision_useful": 2, "calibration": 2},
+          {"scorer": "human1", "gold_hits": ["g1", "g4", "g5", "g8"], "factual_errors": 1, "fabrications": 0, "decision_useful": 2, "calibration": 2}
+        ]},
+        "lite": {"scores": [
+          {"scorer": "modelA", "gold_hits": ["g1", "g2", "g4", "g5", "g6", "g8"], "factual_errors": 0, "fabrications": 1, "decision_useful": 3, "calibration": 3},
+          {"scorer": "human1", "gold_hits": ["g1", "g2", "g4", "g5", "g6"], "factual_errors": 0, "fabrications": 0, "decision_useful": 3, "calibration": 3}
+        ]},
+        "full": {"scores": [
+          {"scorer": "modelA", "gold_hits": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"], "factual_errors": 0, "fabrications": 0, "decision_useful": 4, "calibration": 3},
+          {"scorer": "human1", "gold_hits": ["g1", "g2", "g3", "g4", "g5", "g6", "g8"], "factual_errors": 0, "fabrications": 0, "decision_useful": 3, "calibration": 3}
+        ]}
+      }
+    },
+    {
+      "topic_id": "synthetic-topic-2",
+      "gold_provenance": "SYNTHETIC — illustrative only",
+      "gold_items": ["a", "b", "c", "d", "e"],
+      "arms": {
+        "baseline": {"scores": [
+          {"scorer": "modelA", "gold_hits": ["a", "b"], "factual_errors": 0, "fabrications": 0, "decision_useful": 2, "calibration": 2},
+          {"scorer": "human1", "gold_hits": ["a", "b", "c"], "factual_errors": 0, "fabrications": 0, "decision_useful": 2, "calibration": 2}
+        ]},
+        "lite": {"scores": [
+          {"scorer": "modelA", "gold_hits": ["a", "b", "c", "d"], "factual_errors": 0, "fabrications": 0, "decision_useful": 3, "calibration": 3},
+          {"scorer": "human1", "gold_hits": ["a", "b", "c", "d"], "factual_errors": 0, "fabrications": 0, "decision_useful": 3, "calibration": 3}
+        ]},
+        "full": {"scores": [
+          {"scorer": "modelA", "gold_hits": ["a", "b", "c", "d", "e"], "factual_errors": 0, "fabrications": 0, "decision_useful": 4, "calibration": 4},
+          {"scorer": "human1", "gold_hits": ["a", "b", "c", "d"], "factual_errors": 0, "fabrications": 0, "decision_useful": 3, "calibration": 3}
+        ]}
+      }
+    }
+  ]
+}

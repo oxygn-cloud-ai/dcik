@@ -1,0 +1,35 @@
+{
+  "run_slug": "example-topic-2026-07-03",
+  "date": "2026-07-03",
+  "topic": "Example assessment topic",
+  "effort": "high",
+  "min_searches_per_cycle": 5,
+  "min_contradicting_sources_per_cycle": 3,
+  "models": {"primary": "claude-opus-4-8", "secondary": "codex"},
+  "cycles": [
+    {
+      "n": 1,
+      "model": "primary",
+      "perspectives": ["P0013", "P0015", "P0016"],
+      "searches": [
+        {"query": "example query 1", "url": "https://example.com/1"},
+        {"query": "example query 2", "url": "https://example.com/2"},
+        {"query": "example query 3", "url": "https://example.com/3"},
+        {"query": "example query 4", "url": "https://example.com/4"},
+        {"query": "example query 5", "url": "https://example.com/5"}
+      ],
+      "contradicting_sources": [
+        {"url": "https://example.com/a", "quoted_passage": "the projected adoption rate is not supported by comparable rollouts", "why_it_contradicts": "assessment assumes 40% adoption; source shows comparable products reached 12%"},
+        {"url": "https://example.com/b", "quoted_passage": "regulatory approval timelines average 18 months in this jurisdiction", "why_it_contradicts": "assessment assumes 6-month approval"},
+        {"url": "https://example.com/c", "quoted_passage": "switching costs in this segment are low", "why_it_contradicts": "assessment claims a durable moat from switching costs"}
+      ],
+      "findings": [
+        {"id": "F1", "severity": "HIGH", "perspective": "P0013", "targets": "the assumption of 40% adoption in year one", "resolution": "revised projection to 12-18% with sensitivity band", "incorporated_in_version": "v1"},
+        {"id": "F2", "severity": "MEDIUM", "perspective": "P0015", "targets": "optimism in the timeline", "resolution": "noted overconfidence; added downside case"}
+      ]
+    }
+  ],
+  "assessment_versions": ["v0", "v1"],
+  "self_eval": {"rubric": "eval/rubric.md", "note": "SELF-score, not the blind eval — not evidence", "scores": {"recall": 0.7}},
+  "outcome": "Conclusion held but adoption assumption materially weakened; confidence lowered."
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DCIK RUN_MANIFEST",
+  "description": "Auditable record a DCIK run emits so enactment is checkable, not assumed. Zero-runtime: this is plain JSON the calling session writes; audit-run.sh verifies it offline. The 'quoted_passage' on every contradicting source is what makes entailment (not just URL presence) checkable.",
+  "type": "object",
+  "required": ["run_slug", "date", "topic", "effort", "models", "cycles", "assessment_versions"],
+  "properties": {
+    "run_slug": {"type": "string"},
+    "date": {"type": "string"},
+    "topic": {"type": "string"},
+    "effort": {"enum": ["min", "med", "high", "max"]},
+    "min_searches_per_cycle": {"type": "integer", "default": 5},
+    "min_contradicting_sources_per_cycle": {"type": "integer", "default": 3},
+    "models": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {"primary": {"type": "string"}, "secondary": {"type": "string"}}
+    },
+    "cycles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["n", "model", "perspectives", "searches", "contradicting_sources", "findings"],
+        "properties": {
+          "n": {"type": "integer"},
+          "model": {"type": "string"},
+          "perspectives": {"type": "array", "items": {"type": "string"}},
+          "searches": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["query", "url"],
+              "properties": {"query": {"type": "string"}, "url": {"type": "string"}}
+            }
+          },
+          "contradicting_sources": {
+            "type": "array",
+            "description": "Each MUST include the exact quoted passage that contradicts, so entailment is auditable — a bare URL is not enough.",
+            "items": {
+              "type": "object",
+              "required": ["url", "quoted_passage", "why_it_contradicts"],
+              "properties": {
+                "url": {"type": "string"},
+                "quoted_passage": {"type": "string"},
+                "why_it_contradicts": {"type": "string"}
+              }
+            }
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "severity", "perspective", "targets", "resolution"],
+              "properties": {
+                "id": {"type": "string"},
+                "severity": {"enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]},
+                "perspective": {"type": "string"},
+                "targets": {"type": "string", "description": "the exact assessment text this finding targets"},
+                "resolution": {"type": "string"},
+                "incorporated_in_version": {"type": "string", "description": "required for CRITICAL/HIGH unless resolution starts with 'REJECTED'"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "assessment_versions": {"type": "array", "items": {"type": "string"}},
+    "self_eval": {
+      "type": "object",
+      "description": "DCIK scoring its OWN run against eval/rubric.md. NOT the blind eval — self-score is not evidence.",
+      "properties": {"rubric": {"type": "string"}, "note": {"type": "string"}, "scores": {"type": "object"}}
+    },
+    "outcome": {"type": "string"}
+  }
+}

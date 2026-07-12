@@ -18,6 +18,7 @@ API_KEY="${DEEPSEEK_API_KEY:-}"
 FILES=("$@")
 VIOLATIONS=0
 PASSED=0
+PARSE_ERR=0
 
 if [ ${#FILES[@]} -eq 0 ]; then
   echo "Usage: bash .github/scripts/redteam-perspective.sh <file> [file...]"
@@ -117,15 +118,30 @@ for file in "${FILES[@]}"; do
   else
     echo "  WARN: Could not parse response (API error or unexpected format)"
     echo "  Raw: $(echo "$VERDICT" | head -2)"
+    PARSE_ERR=$((PARSE_ERR + 1))
   fi
 
   echo ""
 done
 
-echo "=== Result: $PASSED safe, $VIOLATIONS suspicious ==="
+echo "=== Result: $PASSED safe, $VIOLATIONS suspicious, $PARSE_ERR unparseable ==="
 
-if [ "$VIOLATIONS" -gt 0 ]; then
-  echo "::warning::Behavioral red team found $VIOLATIONS suspicious perspective(s). Review before merging."
+echo "::notice::Behavioral red team: $PASSED safe, $VIOLATIONS flagged, $PARSE_ERR unparseable."
+
+# Fail closed on any security signal: a SUSPICIOUS verdict means DeepSeek flagged
+# content that could modify model behaviour if the perspective were loaded as
+# context. A gate that only warns is decorative — it must block the merge so a
+# human reviews before the perspective ships. Unparseable responses are treated
+# as transient infrastructure failures (API/network), not security signals, so
+# they warn but do not block; failing closed on them would make the check flaky
+# and pressure maintainers to disable it, which is a worse security outcome.
+if [ "$PARSE_ERR" -gt 0 ]; then
+  echo "::warning::Behavioral red team could not parse $PARSE_ERR response(s) (likely API/network error). These files were NOT verified."
 fi
 
-echo "::notice::Behavioral red team: $PASSED files checked, $VIOLATIONS flagged."
+if [ "$VIOLATIONS" -gt 0 ]; then
+  echo "::error::Behavioral red team found $VIOLATIONS suspicious perspective(s). Blocking merge — a maintainer must review the flagged content before it ships."
+  exit 1
+fi
+
+exit 0

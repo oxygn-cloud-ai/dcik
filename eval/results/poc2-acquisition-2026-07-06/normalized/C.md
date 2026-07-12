@@ -1,0 +1,14 @@
+# Assessment C — Accept the $24M acquisition offer, or stay independent?
+
+## Recommendation
+Do not treat this as a binary accept/decline. Decline this offer as structured, but open a negotiation — and only after diligencing the acquirer's motive and the real deal terms. Whether to ultimately sell depends on facts not yet in hand.
+
+## Key considerations
+- The headline is not the deal. "All-cash 6× ($24M)" hides structure: middle-market deals commonly place 20–30% in escrow/earnout/retention, and earnouts realize only ~50–70% of maximum. Founder handcuffs, escrow, working-capital adjustments, option-exercise costs, and reps-and-warranties exposure can turn "$24M cash" into materially less, some contingent on staying. Get a sources-and-uses schedule and a cap-table waterfall at $24M — "$13M to founders" assumes 55% converts cleanly, which liquidation preferences, unvested equity, and option treatment may break.
+- Why does the strategic acquirer want this now? A 6× bid on 80% growth may be an opening bid below strategic value if this is a defensive block, roadmap gap, acqui-hire, or customer/data grab. Alternatively they may be pricing in something they see that you don't (churn, customer concentration, a coming competitor). Diligence their roadmap, account overlap, and build-vs-buy pressure — the information asymmetry (why now?) is central.
+- Who does $24M actually serve? After Series-A preference and option-pool cleanup, employees with options may net little; existing investors may prefer downside protection or a swing-for-the-fences Series B; founders get liquidity but maybe with retention strings. Name the split explicitly.
+- The independent path is not free of one-way doors. "Raise a Series B in ~6 months" ≠ raise on good terms — only ~9–25% of recent Series-A cohorts reached Series B within two years, and waiting leaves ~12 months runway and weaker leverage. A down-round with heavy preferences and lost board control can destroy founder optionality more brutally than a clean exit. An active sale process can also read as wavering commitment and chill the raise.
+- Founder psychology: separate company expected-value from founder personal utility; if fatigue, family liquidity needs, or fear of the next raise is driving the framing, name it.
+
+## Confidence & what would change the answer
+Concretely: don't accept as-is, don't flatly decline. Diligence the acquirer's motive and demand full deal terms plus a cap-table waterfall; run a quiet market check and press for a higher/cleaner price, founder secondary, reduced escrow; in parallel pressure-test Series-B fundability honestly (NRR, CAC payback, burn multiple — 80% growth alone won't clear the bar); then decide from those facts and an explicit read of what the founders want for the next 5–7 years. Mind tax (QSBS, ordinary-income treatment of retention/earnout).

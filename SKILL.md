@@ -1,6 +1,6 @@
 ---
 name: DCIK
-version: 1.0.9
+version: 1.2.1
 description: Deep Check — Dorsolateral Contrary Inference Katabasis. Multi-model adversarial analysis: structured perspective application across 178 lenses, web research, and adversarial iteration. Use for any assessment, analysis, or decision requiring depth and rigour.
 user-invocable: true
 disable-model-invocation: false
@@ -126,8 +126,8 @@ At the start of each run, also check for a project-local `perspectives/` directo
 
 1. **Load the current assessment** (Phase 0 baseline or previous cycle output).
 2. **Load selected perspectives.** Apply each lens systematically.
-3. **Research beyond cutoff.** Minimum 5 web searches and 3 sources that contradict or challenge the current assessment per cycle. Strict guardrails: never fabricate sources. If genuine contradicting sources cannot be found after extensive search, state this explicitly — do not invent. "No further material improvements found" is acceptable if genuinely true.
-4. **Adversarial review.** Attack the assessment from every selected perspective. Find every weakness, unstated assumption, gap, overstatement, missed angle. The assessment is wrong until proven right.
+3. **Research beyond cutoff.** Minimum 5 web searches and 3 sources that contradict or challenge the current assessment per cycle. Strict guardrails: never fabricate sources. If genuine contradicting sources cannot be found after extensive search, state this explicitly — do not invent. "No further material improvements found" is acceptable if genuinely true. **Quantitative-claim discipline:** every hard number in the assessment (rates, percentages, benchmarks, dollar figures, timelines) must be either tied to a cited source in RUN_MANIFEST **or** explicitly marked as an order-of-magnitude estimate with its reasoning. An unsourced hard number is a fabrication — the single most common way a deeper analysis makes itself *worse* than a shallow one, so more perspectives must come with *more* sourcing discipline, not less.
+4. **Adversarial review.** Attack the assessment from every selected perspective. Find every weakness, unstated assumption, gap, overstatement, missed angle. The assessment is wrong until proven right. **Decision-linkage:** for each applied perspective, state *how its finding changes the recommendation* — or mark it "no change to the decision." Breadth that does not move the decision is flagged non-load-bearing and must not pad the final assessment. Depth is measured by decision impact, not word count.
 5. **Write Cycle N Review:** `DCIK_<slug>/cycle<N>_review.md`. Structure: findings by perspective, critical weaknesses (must-fix), important gaps (should-fix), minor improvements (could-fix), research findings with source URLs, recommended revisions.
 6. **Revise the assessment.** Apply all must-fix and should-fix findings. Output `DCIK_<slug>/assessment_v<N+1>.md` with a change log at the top.
 
@@ -207,6 +207,8 @@ Minimum 3 complete cycles. After Cycle 3:
 - If the last two cycles found only minor/cosmetic issues, the process is complete
 - "No further material improvements" is a valid outcome if genuinely true after exhaustive search and new perspective application
 
+**Coverage ratchet (no regression).** Escalating perspectives must ADD, never subtract. Before finalising, enumerate every material consideration present in the Cycle-0 baseline and confirm each is still addressed in the final assessment — or explicitly retired with a stated reason. A deeper cycle that silently *drops* a consideration the baseline caught is a regression: the full run must strictly dominate the simpler pass on coverage, never trade a basic for a new angle. This is what makes the apparatus reliably *better than*, not merely *different from*, a single adversarial pass.
+
 ### Phase 4: Finalisation
 
 1. **What changed (user summary):** `DCIK_<slug>/WHAT_CHANGED.md`. Default 3 paragraphs, more if asked. Focus on *deepening*, not fixing. DCIK doesn't fix broken things — it deepens assessments that were already competent. Structure:
@@ -216,8 +218,9 @@ Minimum 3 complete cycles. After Cycle 3:
    - Never list "bugs found" or "issues fixed." Never use before/after tables. Never claim DCIK "validated" or "approved" anything. The tone: the original was competent but incomplete — DCIK made it harder to be wrong.
 2. **Full assessment:** `DCIK_<slug>/FINAL_ASSESSMENT.md` — the complete revised assessment incorporating all cycle findings.
 3. **Process documentation:** `DCIK_<slug>/PROCESS_SUMMARY.md` — cycles run, perspectives applied, key findings, resolved disagreements, research sources, confidence levels, remaining uncertainties.
-4. **P0016 end-of-run audit:** Identify at least one candidate improvement to the perspective library. Write new perspectives. Log GitHub issues with user consent.
-5. **Report to user:** Display the WHAT_CHANGED.md summary, the FINAL_ASSESSMENT.md path, and any new perspectives discovered.
+4. **Run manifest & self-eval:** Write `DCIK_<slug>/RUN_MANIFEST.json` per `eval/run-manifest.schema.json` — every cycle's perspectives, searches (query + URL), contradicting sources (URL + the **exact quoted passage** + why it contradicts), and findings (severity, perspective, the exact assessment text targeted, resolution, and the assessment version that incorporated it). This makes the run auditable offline via `eval/audit-run.sh`. Then self-score the run against `eval/rubric.md` and record it under `self_eval` — **flagged explicitly as a self-score, not the blind evaluation.** A run scoring itself is not evidence; only the blind `eval/` harness (BASELINE vs LITE vs FULL, scored against frozen gold references) produces evidence of value.
+5. **P0016 end-of-run audit:** Identify at least one candidate improvement to the perspective library. Write new perspectives. Log GitHub issues with user consent.
+6. **Report to user:** Display the WHAT_CHANGED.md summary, the FINAL_ASSESSMENT.md path, and any new perspectives discovered.
 
 ## P0013 Structured Protocol
 
@@ -235,6 +238,8 @@ Per cycle, minimum:
 - **5 web searches** using WebSearch
 - **3 distinct sources that contradict or challenge** the current assessment
 - All sources cited with URLs
+
+**Auditability (anti-fabrication control):** Record every search and every contradicting source — with its **exact quoted passage** — in `RUN_MANIFEST.json` (see Phase 4). A bare URL is not enough: the quoted passage is what lets `eval/audit-run.sh` and a human reviewer verify the source actually says what the finding claims. Requiring the passage is what makes invented or misrepresented sources detectable on audit — it does not make fabrication impossible, but it makes it expensive and catchable.
 
 **Hallucination guardrails:** As cycles increase, finding new contradicting sources becomes harder. Strict rules:
 - Never fabricate sources or findings to meet minimums

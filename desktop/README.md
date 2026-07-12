@@ -199,4 +199,4 @@ DCIK is continuously checked with OpenSSF Scorecard, Semgrep (SAST), and gitleak
 DCIK output is AI-generated. It may contain errors or omissions. It does not constitute professional advice of any kind — legal, financial, medical, or otherwise. You bear sole responsibility for decisions based on its output. DCIK is an analytical framework, not an advisor and it's output is specifically and expressly repudiated as advice of any type whatsoever.
 
 <br>
-<p align="center">MIT · <a href="https://github.com/oxygn-cloud-ai/dcik">github.com/oxygn-cloud-ai/dcik</a> · v1.0.9</p>
+<p align="center">MIT · <a href="https://github.com/oxygn-cloud-ai/dcik">github.com/oxygn-cloud-ai/dcik</a> · v1.2.1</p>

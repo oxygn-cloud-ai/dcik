@@ -7,6 +7,8 @@ set -uo pipefail
 
 VIOLATIONS=0
 PERSPECTIVES_DIR="${PERSPECTIVES_DIR:-perspectives}"
+CONTRACT_OK=0        # perspectives migrated to Contract v2 (have '## Required output')
+CONTRACT_MISSING=0   # not yet migrated — WARN only, does not fail CI (migration ratchet)
 
 # ── Format validation ──────────────────────────────────────────────
 
@@ -156,6 +158,33 @@ check_skill_changes() {
   fi
 }
 
+# ── Contract v2 (WARN-only migration ratchet) ─────────────────────
+# Checks presence of the '## Required output' section that forces each lens to yield a
+# falsifiable deliverable. This is a STRUCTURAL gate only — it cannot judge whether the
+# output is good (perspective quality is validated by eval/, not here). It WARNS rather
+# than FAILS so the library can migrate incrementally without breaking CI. Flip to a hard
+# failure once CONTRACT_MISSING reaches 0 across the library.
+check_contract() {
+  local file="$1"
+  local has_req has_fals body_lines why
+  has_req=$(grep -c '^## Required output$' "$file" 2>/dev/null) || has_req=0
+  has_fals=$(grep -c '^## Falsifier$' "$file" 2>/dev/null) || has_fals=0
+  # non-empty, non-stub content lines inside the '## Required output' section
+  body_lines=$(awk '/^## Required output$/{f=1;next} /^## /{f=0} f && NF' "$file" 2>/dev/null \
+                 | grep -ivE '^[[:space:]]*(TBD|TODO|XXX|N/?A|\.\.\.)\.?[[:space:]]*$' \
+                 | grep -c .) || body_lines=0
+  if [ "$has_req" -ge 1 ] && [ "$has_fals" -ge 1 ] && [ "$body_lines" -ge 3 ]; then
+    CONTRACT_OK=$((CONTRACT_OK + 1))
+  else
+    CONTRACT_MISSING=$((CONTRACT_MISSING + 1))
+    if [ "$has_req" -lt 1 ]; then why="missing '## Required output'"
+    elif [ "$has_fals" -lt 1 ]; then why="missing '## Falsifier'"
+    else why="'## Required output' is vacuous (<3 non-stub content lines)"; fi
+    echo "  CONTRACT: not migrated to v2 ($why) — WARN only"
+    echo "::warning::${file}: Contract v2 not satisfied ($why)."
+  fi
+}
+
 # ── Main ───────────────────────────────────────────────────────────
 
 echo "=== DCIK Content Validation ==="
@@ -163,8 +192,13 @@ echo ""
 
 # Find changed or new perspective files
 if [ -n "${GITHUB_EVENT_NAME:-}" ] && [ "${GITHUB_EVENT_NAME:-}" = "pull_request" ]; then
-  echo "Mode: PR validation (changed files only)"
-  CHANGED=$(git diff --name-only "origin/${GITHUB_BASE_REF:-main}..HEAD" 2>/dev/null | grep '^perspectives/' 2>/dev/null) || CHANGED=""
+  # Honour PERSPECTIVES_DIR so the desktop step (PERSPECTIVES_DIR=desktop/perspectives)
+  # actually inspects desktop/perspectives/ changes. Previously this was hardcoded to
+  # '^perspectives/', so the desktop validate step did identical work to the root step
+  # and never validated desktop perspectives on PRs.
+  PREFIX="${PERSPECTIVES_DIR%/}/"
+  echo "Mode: PR validation (changed files under ${PREFIX})"
+  CHANGED=$(git diff --name-only "origin/${GITHUB_BASE_REF:-main}..HEAD" 2>/dev/null | grep "^${PREFIX}" 2>/dev/null) || CHANGED=""
 else
   echo "Mode: full scan (all perspective files)"
   CHANGED=$(find "$PERSPECTIVES_DIR" -name '*.md' -type f 2>/dev/null | sort) || CHANGED=""
@@ -177,6 +211,9 @@ else
   # Process each file
   while IFS= read -r file; do
     [ -z "$file" ] && continue
+    # In PR mode `git diff` lists DELETED/renamed files too. Skip paths that no longer exist,
+    # otherwise check_format greps a missing file and false-fails a legitimate deletion.
+    [ -f "$file" ] || { echo "--- $file (deleted/renamed — skipped) ---"; continue; }
 
     echo "--- $file ---"
     local_issues=0
@@ -186,6 +223,9 @@ else
 
     check_injection "$file"
     local_issues=$((local_issues + $?))
+
+    # Contract check is WARN-only: intentionally NOT added to local_issues/VIOLATIONS.
+    check_contract "$file"
 
     if [ "$local_issues" -eq 0 ]; then
       echo "  PASS"
@@ -200,6 +240,9 @@ fi
 echo ""
 echo "=== SKILL.md change check ==="
 check_skill_changes || true
+
+echo ""
+echo "=== Contract v2 migration: $CONTRACT_OK migrated, $CONTRACT_MISSING pending (WARN only, non-blocking) ==="
 
 echo ""
 echo "=== Result: $VIOLATIONS violation(s) ==="

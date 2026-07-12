@@ -1,0 +1,23 @@
+{
+  "_note": "Second DCIK eval PoC — high-stakes/adversarial topic class, HARDENED skill (v1.1.1). EXPLORATORY: single topic, single blind scorer (Codex), author-generated arms. Blind: scorer saw shuffled A/B/C; mapping A=FULL B=BASELINE C=LITE withheld. Controlled vs poc-1: same generator + same scorer; changed variables = topic class (high-stakes) + hardening.",
+  "run_id": "poc2-acquisition-2026-07-06",
+  "thresholds": {"full_vs_baseline": 0.15, "full_vs_lite": 0.08},
+  "topics": [
+    {
+      "topic_id": "acquisition-offer",
+      "gold_provenance": "Gold set g1-g10 frozen in eval/topics/acquisition-offer.md before any arm was generated; derived from M&A/venture fundamentals (what an independent M&A advisor would demand), not from any DCIK run.",
+      "gold_items": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10"],
+      "arms": {
+        "baseline": {"scores": [
+          {"scorer": "codex-blind", "gold_hits": ["g1", "g8", "g9"], "factual_errors": 1, "fabrications": 1, "decision_useful": 2, "calibration": 1}
+        ]},
+        "lite": {"scores": [
+          {"scorer": "codex-blind", "gold_hits": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10"], "factual_errors": 0, "fabrications": 0, "decision_useful": 4, "calibration": 4}
+        ]},
+        "full": {"scores": [
+          {"scorer": "codex-blind", "gold_hits": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10"], "factual_errors": 0, "fabrications": 0, "decision_useful": 4, "calibration": 4}
+        ]}
+      }
+    }
+  ]
+}

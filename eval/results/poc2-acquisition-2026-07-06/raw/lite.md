@@ -1,0 +1,17 @@
+# LITE — Accept the $24M acquisition offer, or stay independent?
+
+*Method: single draft + ONE second-model (Codex) adversarial pass + disconfirming web research (Series A→B graduation base rates ~9–25% within 2 yrs; earnouts typically 20–30% of deal value, realizing ~50–70%). No 178-perspective library, no multi-cycle escalation.*
+
+**Recommendation: do not treat this as a binary accept/decline. Decline *this offer as structured*, but open a negotiation — and only after diligencing the acquirer's motive and the real deal terms. Whether to ultimately sell depends on facts you don't yet have.**
+
+**The headline is not the deal.** "All-cash 6× ($24M)" hides structure. Middle-market deals commonly place 20–30% in escrow/earnout/retention, and earnouts realize only ~50–70% of max. Founder handcuffs, escrow, working-capital adjustments, option-exercise costs, and reps-and-warranties exposure can turn "$24M cash" into materially less, some of it contingent on staying. Get a sources-and-uses schedule and a **cap-table waterfall at $24M** before believing any per-founder number — "$13M to founders" assumes 55% ownership converts cleanly, which liquidation preferences, unvested equity, and option treatment may break.
+
+**Why does the strategic acquirer want this now?** This is the pivotal unknown. A 6× bid on 80% growth may be an *opening* bid below strategic value — if this is a defensive block, roadmap gap, acqui-hire, or customer/data grab, the price signals their urgency, not fair value, and there's room to push. Alternatively they may be pricing in something they see that you don't: churn, customer concentration, a coming competitor, or category consolidation (**information asymmetry** — why *now*?). Diligence their roadmap, account overlap, and build-vs-buy pressure.
+
+**Who does $24M actually serve?** Interests diverge. After Series-A preference and option-pool cleanup, employees with options may net little; existing investors may prefer either downside protection or a swing-for-the-fences Series B; founders get liquidity but maybe with retention strings. The "right" answer differs by seat — name the split explicitly rather than optimizing for one.
+
+**The independent path is not free of one-way doors either.** "Raise a Series B in ~6 months" ≠ "raise on good terms." Base rates are sobering — only ~9–25% of recent Series-A cohorts reached Series B within two years — and waiting 6 months leaves ~12 months runway and weaker leverage. A down-round with heavy preferences and lost board control can destroy founder optionality more brutally than a clean exit. Investors may also read an active sale process as wavering commitment, which can chill the raise.
+
+**Founder psychology.** Separate company expected-value from founder personal utility. If fatigue, family liquidity needs, or fear of the next raise is driving the framing, that's legitimate — but name it, don't smuggle it in as "the company should sell."
+
+**Recommendation, concretely:** Don't accept as-is; don't flatly decline either. (1) Diligence the acquirer's motive and demand full deal terms + a cap-table waterfall. (2) Run a quiet market check and press for a higher/cleaner price, founder secondary, reduced escrow. (3) In parallel, pressure-test Series-B fundability honestly (NRR, CAC payback, burn multiple — 80% growth alone won't clear the bar). (4) Decide from those facts and an explicit read of what the founders actually want for the next 5–7 years. Mind tax (QSBS, ordinary-income treatment of retention/earnout).

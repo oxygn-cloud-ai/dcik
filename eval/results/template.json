@@ -1,0 +1,23 @@
+{
+  "_note": "TEMPLATE — copy to results/<run>/scores.json and fill. One entry per blind scorer in each arm's `scores` array. gold_hits = subset of the topic's gold_items the scorer judged genuinely addressed. See ../rubric.md and ../README.md.",
+  "run_id": "REPLACE-ME",
+  "thresholds": {"full_vs_baseline": 0.15, "full_vs_lite": 0.08},
+  "topics": [
+    {
+      "topic_id": "sqlite-vs-postgres",
+      "gold_provenance": "REPLACE — who/what derived the gold set, and confirmation it was frozen BEFORE any arm output was seen (omit and score.py flags a circularity risk)",
+      "gold_items": ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"],
+      "arms": {
+        "baseline": {"scores": [
+          {"scorer": "", "gold_hits": [], "factual_errors": 0, "fabrications": 0, "decision_useful": 0, "calibration": 0}
+        ]},
+        "lite": {"scores": [
+          {"scorer": "", "gold_hits": [], "factual_errors": 0, "fabrications": 0, "decision_useful": 0, "calibration": 0}
+        ]},
+        "full": {"scores": [
+          {"scorer": "", "gold_hits": [], "factual_errors": 0, "fabrications": 0, "decision_useful": 0, "calibration": 0}
+        ]}
+      }
+    }
+  ]
+}

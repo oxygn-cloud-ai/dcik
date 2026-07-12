@@ -1,7 +1,7 @@
 {
   "name": "dcik",
-  "description": "DCIK — Dorsolateral Contrary Inference Katabasis. Deep Check: 178-perspective multi-model adversarial analysis for Claude Code. Exceeds any single-AI-prompted assessment quality.",
-  "version": "1.0.9",
+  "description": "DCIK — Dorsolateral Contrary Inference Katabasis. Two tools: a 178-perspective adversarial analysis skill, and /decide — a cross-model Decision Interview that turns a genuinely different model loose on YOUR reasoning for high-stakes calls. See eval/ for the honest evidence on what each does and doesn't do.",
+  "version": "1.2.1",
   "author": {
     "name": "Oxygn Pte Ltd",
     "url": "https://github.com/oxygn-cloud-ai"
