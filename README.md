@@ -18,6 +18,18 @@ A Claude Code skill that subjects any assessment to structured adversarial revie
 
 > "Application of mental models and structured adversarial reviews produces better results than unstructured and top-of-mind analysis, regardless of who or what performs the analysis."
 
+<br>
+
+> ### 👉 Making a high-stakes *decision*? Use **[`/decide`](https://github.com/oxygn-cloud-ai/decide)** instead.
+>
+> This project's own evaluation (see [`eval/`](eval/)) found that, for a frontier model, DCIK's
+> 178-perspective analysis does **not** improve the model's *answer* over a strong single prompt — the
+> model already reasons this way. The demonstrable value is a *different* one: **cross-model dissent
+> aimed at a human's reasoning.** That is now its own focused, public tool —
+> **[oxygn-cloud-ai/decide](https://github.com/oxygn-cloud-ai/decide)** (Claude Desktop + Claude Code
+> CLI). DCIK remains here as a multi-perspective analysis/brainstorm aid and as the full research
+> record; `/decide` is the recommended tool for consequential decisions.
+
 ---
 
 ## Prerequisites
